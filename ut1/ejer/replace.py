@@ -7,4 +7,11 @@ They just fade out when you take a breath
 Just say the word and I will disappear
 Into the wilderness'''
 
-print(song.replace('voices', 'sounds'))
+start_index = song.find('voices')
+end_index = start_index + len('voices')
+
+first_part = song[:start_index]
+second_part = song[end_index:]
+modified_song = first_part + 'sounds' + second_part
+
+print(modified_song)
