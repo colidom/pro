@@ -4,7 +4,7 @@ flat_list = []
 
 for element in elements:
     if type(element) == list:
-        flat_list += element
+        flat_list.extend(element)
     else:
         flat_list.append(element)
 print(flat_list)
