@@ -1,10 +1,10 @@
 decimal = 11
-modules = []
+to_bin = []
 
 while decimal != 0:
     module = decimal % 2
     quotient = decimal // 2
-    modules.append(module)
+    to_bin.append(module)
     decimal = quotient
 
-print(modules[::-1])
+print(to_bin[::-1])
