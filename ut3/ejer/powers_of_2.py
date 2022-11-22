@@ -22,6 +22,6 @@ def powerof2(n):
 
 powerof2(n)
 
-# n = 10
-# exponent_number = [BASE**i for i in range(n + 1)]
-# print(exponent_number)
+n = 10
+exponent_number = [BASE**i for i in range(n + 1)]
+print(exponent_number)
