@@ -5,9 +5,7 @@ valores de la lista como si todos sus elementos fueran números.
 
 
 def run(items: list) -> int:
-    sum_items = []
+    sum_items = 0
     for item in items:
-        int_item = int(item)
-        sum_items.append(int_item)
-    sum_items = sum(sum_items)
+        sum_items += int(item)
     return sum_items
