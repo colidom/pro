@@ -5,7 +5,16 @@ Juego Tres en raya
      | |
 """
 import sys
-# Nombre de los jugadores
+'''
+Juego tic tac toe, recibe dos argumentos al iniciar el script
+Args
+--------
+    - Jugador(X)
+    - Jugador(O)
+Examples
+--------
+    > python tic_tac_toe.py name1 name2 
+'''
 playing = "s"
 while playing == "s":
     print("===============================================")
