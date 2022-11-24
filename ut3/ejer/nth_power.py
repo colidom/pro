@@ -12,6 +12,8 @@ Notas:
 
 
 def run(values: list, power: int) -> int:
-    for value in values:
-        print(value)
+    if power >= len(values):
+        result = -1
+    else:
+        result = values[power] ** power
     return result
