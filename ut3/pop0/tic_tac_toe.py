@@ -9,8 +9,8 @@ import sys
 Juego tic tac toe, recibe dos argumentos al iniciar el script
 Args
 --------
-    - Jugador(X)
-    - Jugador(O)
+    - Player_1(X)
+    - Player_2(O)
 Examples
 --------
     > python tic_tac_toe.py name1 name2 
