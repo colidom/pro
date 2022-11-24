@@ -25,18 +25,18 @@ while playing == "s":
     print("", a, "|", b, "|", c, end="       ")
     print(1, "|", 2, "|", 3)
     print("", "---------", end="       ")
-    print(f"---------       Player(X): {player_1[0]}   ")
+    print(f"---------       Jugador(X): {player_1[0]}   ")
     print("", d, "|", e, "|", f, end="       ")
     print(4, "|", 5, "|", 6)
     print("", "---------", end="       ")
-    print(f"---------       Player(O): {player_2[0]}   ")
+    print(f"---------       Jugador(O): {player_2[0]}   ")
     print("", g, "|", h, "|", i, end="       ")
     print(7, "|", 8, "|", 9)
 
     # Lógica del juego
     loop = 1
     while loop < 5:
-        user = input("\nIntroduzca un numero de 1-9: ")
+        user = input("\nIntroduzca un número de 1-9: ")
         #Comprobamos si el valor por consola es numérico
         if user.isdigit():
             # La lógica de nuestro juego
