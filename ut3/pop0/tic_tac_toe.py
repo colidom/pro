@@ -1,9 +1,3 @@
-""" 
-Juego Tres en raya 
-   __|_|__
-   __|_|__  O X
-     | |
-"""
 import sys
 '''
 Juego tic tac toe, recibe dos argumentos al iniciar el script
@@ -38,5 +32,5 @@ while playing == "s":
     print(f"---------       Player(O): {player_2[0]}   ")
     print("", g, "|", h, "|", i, end="       ")
     print(7, "|", 8, "|", 9)
-    
+
     playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
