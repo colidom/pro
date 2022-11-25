@@ -1,5 +1,6 @@
 import sys
-'''
+
+"""
 Juego tic tac toe, recibe dos argumentos al iniciar el script
 Args
 --------
@@ -8,7 +9,7 @@ Args
 Examples
 --------
     > python tic_tac_toe.py name1 name2 
-'''
+"""
 playing = "s"
 while playing == "s":
     print("===============================================")
@@ -37,10 +38,10 @@ while playing == "s":
     loop = 1
     while loop < 5:
         user = input("\nIntroduzca un número de 1-9: ")
-        #Comprobamos si el valor por consola es numérico
+        # Comprobamos si el valor por consola es numérico
         if user.isdigit():
             # La lógica de nuestro juego
-           pass
+            pass
         else:
             # Si no es numérico, error y continue al if
             print("\nError: Solo se admiten valores numéricos")
