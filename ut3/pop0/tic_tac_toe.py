@@ -41,7 +41,7 @@ while playing == "s":
     m = n = o = p = q = r = s = t = u = " "
     user1_turn = True
     user2_turn = False
-    loop = 1
+    loop = 0
     while loop < 9:
 
         if user1_turn:
