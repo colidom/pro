@@ -1,7 +1,8 @@
-lista = [1, 2, 3, 4, True, "Hola Mundo"]
+lista = [1, 2, 3, 4, True, "Hola Mundo", 3.14]
 l_int = []
 l_str = []
 b_type = []
+unknown_type = []
 
 for i in lista:
     if type(i) == int:
@@ -11,8 +12,9 @@ for i in lista:
     elif type(i) == bool:
         b_type.append(i)
     else:
-        b_type.append(i)
+        unknown_type.append(i)
 
-print(l_int)
-print(l_str)
-print(b_type)
+print(f"Entero: {l_int}")
+print(f"String: {l_str}")
+print(f"Booleano: {b_type}")
+print(f"Desconocido: {unknown_type}")
