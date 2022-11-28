@@ -1,5 +1,5 @@
 word = "Supercalifragilisticoespialidoso"
-vowels = ["a", "e", "i", "o", "u"]
+vowels = "aeiou"
 n_vowels = 0
 
 for letter in word:
