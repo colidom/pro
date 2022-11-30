@@ -1,5 +1,14 @@
-import math
+# *********************
+# VOLUMEN DE UNA ESFERA
+# *********************
 
-radio = 5
-volume = (4 / 3) * round(math.pi, 2) * (radio ** 3)
-print(volume)
+
+def run(radius: float) -> float:
+    PI = 3.14
+    volume = (4 / 3) * PI * (radius ** 3)
+
+    return volume
+
+
+if __name__ == '__main__':
+    run(5)
