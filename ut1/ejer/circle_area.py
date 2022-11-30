@@ -1,5 +1,14 @@
-import math
+# ******************
+# ÁREA DE UN CÍRCULO
+# ******************
 
-radio = 5
-area = math.pi * (radio ** 2)
-print(round(area, 1))
+
+def run(radius: float) -> float:
+    PI = 3.14
+    area = PI * (radius**2)
+
+    return area
+
+
+if __name__ == "__main__":
+    run(4)
