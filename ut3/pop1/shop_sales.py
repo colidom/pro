@@ -4,13 +4,11 @@
 
 
 def run(sales: list) -> tuple:
-    pcs_in_day = []
-    displays_in_day = []
+    pcs = 0
+    displays = 0
     for sale in sales:
-        pcs_in_day.append(sale[0])
-        displays_in_day.append(sale[1])
-    pcs = sum(pcs_in_day)
-    displays = sum(displays_in_day)
+        pcs += sale[0]
+        displays += sale[1]
     return pcs, displays
 
 
