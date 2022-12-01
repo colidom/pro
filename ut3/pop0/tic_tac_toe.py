@@ -45,7 +45,9 @@ while playing == "s":
     while loop < 9:
 
         if user1_turn:
-            user_1 = input("\nJugador 1(X) un número de 1-9: ")
+            user_1 = input(
+                f"\n {player_1[0]} indica un número del 1 al 9 para colocar la ficha (X): "
+            )
             # Comprobamos si el valor por consola es numérico
             if user_1.isdigit():
                 # La lógica de nuestro juego
@@ -96,7 +98,7 @@ while playing == "s":
                         u = 9
             else:
                 # Si no es numérico, error y continue al if
-                print("\nError: Solo se admiten valores numéricos")
+                print("\nError: Solo se admiten valores numéricos del 1 al 9")
                 continue
             # Pintamos el tablero tras
             print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
@@ -140,7 +142,9 @@ while playing == "s":
             user2_turn = True
             loop = loop + 1
         else:
-            user_2 = input("\nJugador 2(O) un número de 1-9: ")
+            user_2 = input(
+                f"\n {player_2[0]} indica un número del 1 al 9 para colocar la ficha (O): "
+            )
             if user_2.isdigit():
                 # Comprobamos el valor intrudición por el jugador 2
                 y = int(user_2)
@@ -189,7 +193,7 @@ while playing == "s":
                         u = 9
             else:
                 # Si no es numérico, error y continue al if
-                print("\nError: Solo se admiten valores numéricos")
+                print("\nError: Solo se admiten valores numéricos del 1 al 9")
                 continue
             # Pintamos el tablero tras
             print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
