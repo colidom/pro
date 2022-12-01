@@ -96,7 +96,7 @@ while playing == "s":
                         u = 9
             else:
                 # Si no es numérico, error y continue al if
-                print("\nError: Solo se admiten valores numéricos")
+                print("'\033[93m' \nError: Solo se admiten valores numéricos")
                 continue
             # Pintamos el tablero tras
             print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
@@ -121,8 +121,9 @@ while playing == "s":
                 or (g + h + i == "OOO")
                 or (a + e + i == "OOO")
                 or (g + e + c == "OOO")
-            ):
-                print(f"Jugador {player_2} ha ganado")
+            ):  
+                print('\n')
+                print(f"'\033[93m'Jugador {player_2} ha ganado")
                 break
             elif (
                 (a + d + g == "XXX")
@@ -133,16 +134,17 @@ while playing == "s":
                 or (g + h + i == "XXX")
                 or (a + e + i == "XXX")
                 or (g + e + c == "XXX")
-            ):
-                print(f"Jugador {player_1} ha ganado")
+            ):  
+                print('\n')
+                print(f"'\033[93m'Jugador {player_1} ha ganado")
                 break
             user1_turn = False
             user2_turn = True
-            loop = loop + 1
+            loop += 1
         else:
             user_2 = input("\nJugador 2(O) un número de 1-9: ")
             if user_2.isdigit():
-                # Comprobamos el valor intrudición por el jugador 2
+                # Comprobamos el valor introducido por el jugador 2
                 y = int(user_2)
                 # Comprobamos si la celda está disponible
                 if (
@@ -154,12 +156,13 @@ while playing == "s":
                     or y == r
                     or y == s
                     or y == t
+                    or y == u
                     or y > 9
                 ):
-                    print("\nYa hay una ficha en esta posición, por favor elija otra")
+                    print("'\033[93m'\nYa hay una ficha en esta posición, por favor elija otra")
                     continue
                 else:
-                    # ------These below statements are for User input------
+                    # ------Estas declaraciones a continuación son para la entrada del usuario------
                     if y == 1:
                         a = "O"
                         n = 1
@@ -189,7 +192,7 @@ while playing == "s":
                         u = 9
             else:
                 # Si no es numérico, error y continue al if
-                print("\nError: Solo se admiten valores numéricos")
+                print("'\033[93m'\nError: Solo se admiten valores numéricos")
                 continue
             # Pintamos el tablero tras
             print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
@@ -214,8 +217,9 @@ while playing == "s":
                 or (g + h + i == "OOO")
                 or (a + e + i == "OOO")
                 or (g + e + c == "OOO")
-            ):
-                print(f"Jugador {player_2} ha ganado")
+            ):  
+                print('\n')
+                print(f" '\033[93m' Jugador {player_2} ha ganado")
                 break
             elif (
                 (a + d + g == "XXX")
@@ -227,11 +231,14 @@ while playing == "s":
                 or (a + e + i == "XXX")
                 or (g + e + c == "XXX")
             ):
-                print(f"Jugador {player_1} ha ganado")
+                print('\n')
+                print('====================================')
+                print(f" '\033[93m' Jugador {player_1} ha ganado")
                 break
             user2_turn = False
             user1_turn = True
-            loop = loop + 1
+            loop  += 1
     else:
-        print("Empate")
-        playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
+        print('===================================')
+        print("\nEmpate")
+    playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
