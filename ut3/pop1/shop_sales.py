@@ -6,9 +6,9 @@
 def run(sales: list) -> tuple:
     pcs = 0
     displays = 0
-    for sale in sales:
-        pcs += sale[0]
-        displays += sale[1]
+    for daily_sales in sales:
+        pcs += daily_sales[0]
+        displays += daily_sales[1]
     return pcs, displays
 
 
