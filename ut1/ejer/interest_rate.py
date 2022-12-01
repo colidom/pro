@@ -1,6 +1,12 @@
-capital = 10000
-interest_rate = 3.5
-years = 7
+# *****************
+# INTERÉS COMPUESTO
+# *****************
 
-future_value = capital * ((1 + (0.01 * interest_rate)) ** years)
-print(future_value)
+
+def run(amount: float, rate: float, years: int) -> float:
+    future_amount = amount * ((1 + (0.01 * rate)) ** years)
+    return future_amount
+
+
+if __name__ == "__main__":
+    run(10000, 3.5, 7)

@@ -1,5 +1,12 @@
-base = 4
-height = 5
+# ********************
+# ÁREA DE UN TRIÁNGULO
+# ********************
 
-area = (base * height) / 2
-print(area)
+
+def run(base: float, height: float) -> float:
+    area = (base * height) / 2
+    return area
+
+
+if __name__ == "__main__":
+    run(3, 3)
