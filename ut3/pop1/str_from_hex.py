@@ -9,7 +9,7 @@ def run(hex_codes: list) -> str:
         decoded = int(hex_code, 16)
         chars = chr(decoded)
         result.append(chars)
-        text = "".join(result)
+    text = "".join(result)
     return text
 
 
