@@ -8,19 +8,16 @@ Args
     - Player_2(O)
 Examples
 --------
-    > python tic_tac_toe.py name1 name2 
+    > python tic_tac_toe.py player1 player2 
 """
 playing = "s"
 while playing == "s":
     print("===============================================")
-    print("  Bienvenido al juego Piedra - Papel - Tijera  ")
+    print("       Bienvenidos al juego Tres en raya       ")
     print("===============================================")
-    # player_1 = sys.argv[1:2]
-    # player_2 = sys.argv[2:]
-
-    player_1 = "Carlos"
-    player_2 = "Roberto"
-
+    # Guardamos los nombres introducidos por consola
+    player_1 = sys.argv[1:2]
+    player_2 = sys.argv[2:]
     # Inicializamos variables vacías para pintar tablero
     a = b = c = d = e = f = g = h = i = " "
 
@@ -46,11 +43,10 @@ while playing == "s":
 
         if user1_turn:
             user_1 = input(
-                f"\n {player_1[0]} indica un número del 1 al 9 para colocar la ficha (X): "
+                f"\n {player_1[0].upper()} indica un número del 1 al 9 para colocar la ficha (X): "
             )
             # Comprobamos si el valor por consola es numérico
             if user_1.isdigit():
-                # La lógica de nuestro juego
                 x = int(user_1)
                 # Comprobamos si la celda está disponible
                 if (
@@ -68,7 +64,7 @@ while playing == "s":
                     print("\nYa hay una ficha en esta posición, por favor elija otra")
                     continue
                 else:
-                    # Comprobamos el valor intrudición por el jugador 1
+                    # Comprobamos el valor introducido por el jugador 1
                     if x == 1:
                         a = "X"
                         n = 1
@@ -124,7 +120,7 @@ while playing == "s":
                 or (a + e + i == "OOO")
                 or (g + e + c == "OOO")
             ):
-                print(f"Jugador {player_2} ha ganado")
+                print(f"Jugador {player_2[0]} ha ganado")
                 break
             elif (
                 (a + d + g == "XXX")
@@ -136,17 +132,16 @@ while playing == "s":
                 or (a + e + i == "XXX")
                 or (g + e + c == "XXX")
             ):
-                print(f"Jugador {player_1} ha ganado")
+                print(f"Jugador {player_1[0]} ha ganado")
                 break
             user1_turn = False
             user2_turn = True
             loop = loop + 1
         else:
             user_2 = input(
-                f"\n {player_2[0]} indica un número del 1 al 9 para colocar la ficha (O): "
+                f"\n {player_2[0].upper()} indica un número del 1 al 9 para colocar la ficha (O): "
             )
             if user_2.isdigit():
-                # Comprobamos el valor intrudición por el jugador 2
                 y = int(user_2)
                 # Comprobamos si la celda está disponible
                 if (
@@ -158,12 +153,13 @@ while playing == "s":
                     or y == r
                     or y == s
                     or y == t
+                    or y == u
                     or y > 9
                 ):
                     print("\nYa hay una ficha en esta posición, por favor elija otra")
                     continue
                 else:
-                    # ------These below statements are for User input------
+                    # Comprobamos el valor introducido por el jugador 2
                     if y == 1:
                         a = "O"
                         n = 1
