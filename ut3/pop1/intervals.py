@@ -4,7 +4,6 @@
 
 
 def run(interval: str) -> list:
-    irange = []
     left_symbol = interval[0]
     right_symbol = interval[-1]
     nrange = interval[1:-1]
