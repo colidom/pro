@@ -1,17 +1,17 @@
 import sys
 
 """
-Juego tic tac toe, recibe dos argumentos al iniciar el script
+Juego Tres en Raya , recibe dos argumentos al iniciar el script
 Args
 --------
     - Player_1(X)
     - Player_2(O)
 Examples
 --------
-    > python tic_tac_toe.py player1 player2 
+    > python tres_en_raya.py player1 player2 
 """
 print("    ===============================================")
-print("           Bienvenidos al juego Tres en raya       ")
+print("           Bienvenidos al juego Tres en Raya       ")
 print("    ===============================================")
 # Guardamos los nombres introducidos por consola
 player_1 = sys.argv[1:2]
