@@ -240,7 +240,7 @@ while playing == "s":
     else:
         print("===========================")
         print("Empate")
-        playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
+    playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
     if playing == "n":
         print("===============================================")
         print("=                Hasta pronto                 =")
