@@ -20,23 +20,24 @@ player_2 = sys.argv[2:3]
 playing = "s"
 while playing == "s":
     # Inicializamos variables vacías para pintar tablero
-    a = b = c = d = e = f = g = h = i = " "
+    a = b = c = d = e = f = g = h = i = "  "
 
     # Pintamos el tablero
-    print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
-    print("", a, "|", b, "|", c, end="       ")
+    print("\n    --Tablero--   --Guía de juego--     --Jugadores--")
+    print("-------------------------------------------------------")
+    print("  ", a, "|", b, "|", c, end="       ")
     print(1, "|", 2, "|", 3)
-    print("", "---------", end="       ")
-    print(f"---------       Jugador(X): {player_1[0]}   ")
-    print("", d, "|", e, "|", f, end="       ")
+    print("  ", "------------", end="       ")
+    print(f"---------       Jugador(❌): {player_1[0]}   ")
+    print("  ", d, "|", e, "|", f, end="       ")
     print(4, "|", 5, "|", 6)
-    print("", "---------", end="       ")
-    print(f"---------       Jugador(O): {player_2[0]}   ")
-    print("", g, "|", h, "|", i, end="       ")
+    print("  ", "------------", end="       ")
+    print(f"---------       Jugador(🟢): {player_2[0]}   ")
+    print("  ", g, "|", h, "|", i, end="       ")
     print(7, "|", 8, "|", 9)
 
     # Lógica del juego
-    m = n = o = p = q = r = s = t = u = " "
+    m = n = o = p = q = r = s = t = u = "  "
     player1_turn = True
     player2_turn = False
     loop = 0
@@ -67,72 +68,60 @@ while playing == "s":
                 else:
                     # Comprobamos el valor introducido por el jugador 1 para pintarlo en el tablero
                     if x == 1:
-                        a = "X"
+                        a = "❌"
                         n = 1
                     if x == 2:
-                        b = "X"
+                        b = "❌"
                         o = 2
                     if x == 3:
-                        c = "X"
+                        c = "❌"
                         p = 3
                     if x == 4:
-                        d = "X"
+                        d = "❌"
                         q = 4
                     if x == 5:
-                        e = "X"
+                        e = "❌"
                         r = 5
                     if x == 6:
-                        f = "X"
+                        f = "❌"
                         s = 6
                     if x == 7:
-                        g = "X"
+                        g = "❌"
                         t = 7
                     if x == 8:
-                        h = "X"
+                        h = "❌"
                         u = 8
                     if x == 9:
-                        i = "X"
+                        i = "❌"
                         u = 9
             else:
                 # Si no es numérico, error y continue al if
                 print("\nError: Solo se admiten valores numéricos del 1 al 9")
                 continue
             # Pintamos el tablero tras Jugador 1 elegir posición
-            print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
-            print("", a, "|", b, "|", c, end="       ")
+            print("\n    --Tablero--   --Guía de juego--     --Jugadores--")
+            print("-------------------------------------------------------")
+            print("  ", a, "|", b, "|", c, end="       ")
             print(1, "|", 2, "|", 3)
-            print("", "---------", end="       ")
-            print(f"---------       Player(X): {player_1[0]}   ")
-            print("", d, "|", e, "|", f, end="       ")
+            print("  ", "------------", end="       ")
+            print(f"---------       Jugador(❌): {player_1[0]}   ")
+            print("  ", d, "|", e, "|", f, end="       ")
             print(4, "|", 5, "|", 6)
-            print("", "---------", end="       ")
-            print(f"---------       Player(O): {player_2[0]}   ")
-            print("", g, "|", h, "|", i, end="       ")
+            print("  ", "------------", end="       ")
+            print(f"---------       Jugador(🟢): {player_2[0]}   ")
+            print("  ", g, "|", h, "|", i, end="       ")
             print(7, "|", 8, "|", 9)
 
             # Comprobamos el resultado del juego
             if (
-                (a + d + g == "OOO")
-                or (b + e + h == "OOO")
-                or (c + f + i == "OOO")
-                or (a + b + c == "OOO")
-                or (d + e + f == "OOO")
-                or (g + h + i == "OOO")
-                or (a + e + i == "OOO")
-                or (g + e + c == "OOO")
-            ):
-                print("=============================")
-                print(f"Jugador {player_2[0]} ha ganado")
-                break
-            elif (
-                (a + d + g == "XXX")
-                or (b + e + h == "XXX")
-                or (c + f + i == "XXX")
-                or (a + b + c == "XXX")
-                or (d + e + f == "XXX")
-                or (g + h + i == "XXX")
-                or (a + e + i == "XXX")
-                or (g + e + c == "XXX")
+                (a + d + g == "❌❌❌")
+                or (b + e + h == "❌❌❌")
+                or (c + f + i == "❌❌❌")
+                or (a + b + c == "❌❌❌")
+                or (d + e + f == "❌❌❌")
+                or (g + h + i == "❌❌❌")
+                or (a + e + i == "❌❌❌")
+                or (g + e + c == "❌❌❌")
             ):
                 print("=============================")
                 print(f"Jugador {player_1[0]} ha ganado")
@@ -164,75 +153,63 @@ while playing == "s":
                 else:
                     # Comprobamos el valor introducido por el jugador 2
                     if y == 1:
-                        a = "O"
+                        a = "🟢"
                         n = 1
                     if y == 2:
-                        b = "O"
+                        b = "🟢"
                         o = 2
                     if y == 3:
-                        c = "O"
+                        c = "🟢"
                         p = 3
                     if y == 4:
-                        d = "O"
+                        d = "🟢"
                         q = 4
                     if y == 5:
-                        e = "O"
+                        e = "🟢"
                         r = 5
                     if y == 6:
-                        f = "O"
+                        f = "🟢"
                         s = 6
                     if y == 7:
-                        g = "O"
+                        g = "🟢"
                         t = 7
                     if y == 8:
-                        h = "O"
+                        h = "🟢"
                         u = 8
                     if y == 9:
-                        i = "O"
+                        i = "🟢"
                         u = 9
             else:
                 # Si no es numérico, error y continue al if
                 print("\nError: Solo se admiten valores numéricos del 1 al 9")
                 continue
             # Pintamos el tablero tras
-            print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
-            print("", a, "|", b, "|", c, end="       ")
+            print("\n    --Tablero--   --Guía de juego--     --Jugadores--")
+            print("-------------------------------------------------------")
+            print("  ", a, "|", b, "|", c, end="       ")
             print(1, "|", 2, "|", 3)
-            print("", "---------", end="       ")
-            print(f"---------       Player(X): {player_1[0]}   ")
-            print("", d, "|", e, "|", f, end="       ")
+            print("  ", "------------", end="       ")
+            print(f"---------       Jugador(❌): {player_1[0]}   ")
+            print("  ", d, "|", e, "|", f, end="       ")
             print(4, "|", 5, "|", 6)
-            print("", "---------", end="       ")
-            print(f"---------       Player(O): {player_2[0]}   ")
-            print("", g, "|", h, "|", i, end="       ")
+            print("  ", "------------", end="       ")
+            print(f"---------       Jugador(🟢): {player_2[0]}   ")
+            print("  ", g, "|", h, "|", i, end="       ")
             print(7, "|", 8, "|", 9)
 
             # Comprobamos el resultado del juego
             if (
-                (a + d + g == "OOO")
-                or (b + e + h == "OOO")
-                or (c + f + i == "OOO")
-                or (a + b + c == "OOO")
-                or (d + e + f == "OOO")
-                or (g + h + i == "OOO")
-                or (a + e + i == "OOO")
-                or (g + e + c == "OOO")
+                (a + d + g == "🟢🟢🟢")
+                or (b + e + h == "🟢🟢🟢")
+                or (c + f + i == "🟢🟢🟢")
+                or (a + b + c == "🟢🟢🟢")
+                or (d + e + f == "🟢🟢🟢")
+                or (g + h + i == "🟢🟢🟢")
+                or (a + e + i == "🟢🟢🟢")
+                or (g + e + c == "🟢🟢🟢")
             ):
                 print("=============================")
-                print(f"Jugador {player_2} ha ganado")
-                break
-            elif (
-                (a + d + g == "XXX")
-                or (b + e + h == "XXX")
-                or (c + f + i == "XXX")
-                or (a + b + c == "XXX")
-                or (d + e + f == "XXX")
-                or (g + h + i == "XXX")
-                or (a + e + i == "XXX")
-                or (g + e + c == "XXX")
-            ):
-                print("=============================")
-                print(f"Jugador {player_1} ha ganado")
+                print(f"Jugador {player_2[0]} ha ganado")
                 break
             player2_turn = False
             player1_turn = True
