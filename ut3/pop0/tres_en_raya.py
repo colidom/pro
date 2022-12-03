@@ -45,7 +45,7 @@ while playing == "s":
 
         if player1_turn:
             user_1 = input(
-                f"\n {player_1[0].upper()} indica un número del 1 al 9 para colocar la ficha (X): "
+                f"\n {player_1[0].upper()} indica un número del 1 al 9 para colocar la ficha (❌): "
             )
             # Comprobamos si el valor por consola es numérico
             if user_1.isdigit():
@@ -131,7 +131,7 @@ while playing == "s":
             loop = loop + 1
         else:
             user_2 = input(
-                f"\n {player_2[0].upper()} indica un número del 1 al 9 para colocar la ficha (O): "
+                f"\n {player_2[0].upper()} indica un número del 1 al 9 para colocar la ficha (🟢): "
             )
             if user_2.isdigit():
                 y = int(user_2)
