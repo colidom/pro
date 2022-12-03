@@ -10,9 +10,9 @@ Examples
 --------
     > python tic_tac_toe.py player1 player2 
 """
-print("===============================================")
-print("       Bienvenidos al juego Tres en raya       ")
-print("===============================================")
+print("    ===============================================")
+print("           Bienvenidos al juego Tres en raya       ")
+print("    ===============================================")
 # Guardamos los nombres introducidos por consola
 player_1 = sys.argv[1:2]
 player_2 = sys.argv[2:3]
