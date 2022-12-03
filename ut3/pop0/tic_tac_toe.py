@@ -37,12 +37,12 @@ while playing == "s":
 
     # Lógica del juego
     m = n = o = p = q = r = s = t = u = " "
-    user1_turn = True
-    user2_turn = False
+    player1_turn = True
+    player2_turn = False
     loop = 0
     while loop < 9:
 
-        if user1_turn:
+        if player1_turn:
             user_1 = input(
                 f"\n {player_1[0].upper()} indica un número del 1 al 9 para colocar la ficha (X): "
             )
@@ -137,8 +137,8 @@ while playing == "s":
                 print("=============================")
                 print(f"Jugador {player_1[0]} ha ganado")
                 break
-            user1_turn = False
-            user2_turn = True
+            player1_turn = False
+            player2_turn = True
             loop = loop + 1
         else:
             user_2 = input(
@@ -234,8 +234,8 @@ while playing == "s":
                 print("=============================")
                 print(f"Jugador {player_1} ha ganado")
                 break
-            user2_turn = False
-            user1_turn = True
+            player2_turn = False
+            player1_turn = True
             loop = loop + 1
     else:
         print("===========================")
