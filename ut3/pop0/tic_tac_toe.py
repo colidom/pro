@@ -123,7 +123,7 @@ while playing == "s":
                 or (a + e + i == "❌❌❌")
                 or (g + e + c == "❌❌❌")
             ):
-                print("=============================")
+                print("-------------------------------------------------------")
                 print(f"Jugador {player_1[0]} ha ganado")
                 break
             player1_turn = False
@@ -208,14 +208,14 @@ while playing == "s":
                 or (a + e + i == "🟢🟢🟢")
                 or (g + e + c == "🟢🟢🟢")
             ):
-                print("=============================")
+                print("-------------------------------------------------------")
                 print(f"Jugador {player_2[0]} ha ganado")
                 break
             player2_turn = False
             player1_turn = True
             loop = loop + 1
     else:
-        print("===========================")
+        print("-------------------------------------------------------")
         print("Empate")
     playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
     if playing == "n":
