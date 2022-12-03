@@ -10,14 +10,15 @@ Examples
 --------
     > python tic_tac_toe.py player1 player2 
 """
+print("===============================================")
+print("       Bienvenidos al juego Tres en raya       ")
+print("===============================================")
+# Guardamos los nombres introducidos por consola
+player_1 = sys.argv[1:2]
+player_2 = sys.argv[2:3]
+
 playing = "s"
 while playing == "s":
-    print("===============================================")
-    print("       Bienvenidos al juego Tres en raya       ")
-    print("===============================================")
-    # Guardamos los nombres introducidos por consola
-    player_1 = sys.argv[1:2]
-    player_2 = sys.argv[2:]
     # Inicializamos variables vacías para pintar tablero
     a = b = c = d = e = f = g = h = i = " "
 
@@ -64,7 +65,7 @@ while playing == "s":
                     print("\nYa hay una ficha en esta posición, por favor elija otra")
                     continue
                 else:
-                    # Comprobamos el valor introducido por el jugador 1
+                    # Comprobamos el valor introducido por el jugador 1 para pintarlo en el tablero
                     if x == 1:
                         a = "X"
                         n = 1
@@ -96,7 +97,7 @@ while playing == "s":
                 # Si no es numérico, error y continue al if
                 print("\nError: Solo se admiten valores numéricos del 1 al 9")
                 continue
-            # Pintamos el tablero tras
+            # Pintamos el tablero tras Jugador 1 elegir posición
             print("\n--Tablero--   --Guía de juego--   --Jugadores--\n")
             print("", a, "|", b, "|", c, end="       ")
             print(1, "|", 2, "|", 3)
@@ -120,6 +121,7 @@ while playing == "s":
                 or (a + e + i == "OOO")
                 or (g + e + c == "OOO")
             ):
+                print("=============================")
                 print(f"Jugador {player_2[0]} ha ganado")
                 break
             elif (
@@ -132,6 +134,7 @@ while playing == "s":
                 or (a + e + i == "XXX")
                 or (g + e + c == "XXX")
             ):
+                print("=============================")
                 print(f"Jugador {player_1[0]} ha ganado")
                 break
             user1_turn = False
@@ -215,6 +218,7 @@ while playing == "s":
                 or (a + e + i == "OOO")
                 or (g + e + c == "OOO")
             ):
+                print("=============================")
                 print(f"Jugador {player_2} ha ganado")
                 break
             elif (
@@ -227,11 +231,17 @@ while playing == "s":
                 or (a + e + i == "XXX")
                 or (g + e + c == "XXX")
             ):
+                print("=============================")
                 print(f"Jugador {player_1} ha ganado")
                 break
             user2_turn = False
             user1_turn = True
             loop = loop + 1
     else:
+        print("===========================")
         print("Empate")
         playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
+    if playing == "n":
+        print("===============================================")
+        print("=                Hasta pronto                 =")
+        print("===============================================")
