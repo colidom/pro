@@ -219,6 +219,6 @@ while playing == "s":
         print("Empate")
     playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
     if playing == "n":
-        print("===============================================")
-        print("=                Hasta pronto                 =")
-        print("===============================================")
+        print("==============================================")
+        print("                ¡Hasta pronto!                ")
+        print("==============================================")
