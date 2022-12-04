@@ -4,22 +4,17 @@
 
 
 def run(interval: str) -> list:
-    irange = []
-
-    corchetes_index_start = interval.find("[")
-    corchetes_index_end = interval.find("]")
-    parentesis_index_start = interval.find("(")
-    parentesis_index_end = interval.find(")")
-    extracted = interval[1:-1]
-    val1 = extracted.split(",")[0]
-    val2 = extracted.split(",")[1]
-    if corchetes_index_start != -1 or parentesis_index_end != -1:
-        for i in range(int(val1), int(val2) + 1):
-            irange.append(i)
-    else:
-        for i in range(int(val1), int(val2) + 1):
-            irange.append(i)
-
+    left_symbol = interval[0]
+    right_symbol = interval[-1]
+    nrange = interval[1:-1]
+    nrange_split = nrange.split(",")
+    first_value = int(nrange_split[0])
+    last_value = int(nrange_split[1])
+    if left_symbol == "(":
+        first_value += 1
+    if right_symbol == "]":
+        last_value += 1
+    irange = list(range(first_value, last_value))
     return irange
 
 
