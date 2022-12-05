@@ -45,15 +45,15 @@ while playing == "s":
 
         if player1_turn:
             player1_move = input(
-                f"\n {player_1[0].upper()} indica un número del 1 al 9 para colocar la ficha (❌): "
+                f"\n{player_1[0].upper()} indique un número del 1 al 9 para colocar la ficha ❌ en el tablero: "
             )
             # Comprobamos si el valor por consola es numérico
             if player1_move.isdigit():
                 x = int(player1_move)
                 # Comprobamos si la celda está disponible
-                if x == 0:
+                if x < 1 or x > 9:
                     print(
-                        "\n El 0 no es un número permitido, use la guía del juego para saber donde poner su ficha"
+                        "\nError: valores permitidos del 1 al 9, use la guía para saber donde colocar su ficha"
                     )
                     continue
                 elif (
@@ -101,7 +101,7 @@ while playing == "s":
                         check_board[8] = 9
             else:
                 # Si no es numérico, error y continue al if
-                print("\nError: Solo se admiten valores numéricos del 1 al 9")
+                print("\nError: Solo se admiten valores numéricos positivos del 1 al 9")
                 continue
             # Pintamos el tablero tras Jugador 1 elegir posición
             print("\n        Tablero          Guía de juego          Jugadores")
@@ -136,14 +136,14 @@ while playing == "s":
             loop = loop + 1
         else:
             player2_move = input(
-                f"\n {player_2[0].upper()} indica un número del 1 al 9 para colocar la ficha (🟢): "
+                f"\n{player_2[0].upper()} indique un número del 1 al 9 para colocar la ficha 🟢 en el tablero: "
             )
             if player2_move.isdigit():
                 y = int(player2_move)
                 # Comprobamos si la celda está disponible
-                if y == 0:
+                if y < 1 or y > 9:
                     print(
-                        "\n El 0 no es un número permitido, use la guía del juego para saber donde poner su ficha"
+                        "\nError: valores permitidos del 1 al 9, use la guía para saber donde colocar su ficha"
                     )
                     continue
                 elif (
@@ -191,7 +191,7 @@ while playing == "s":
                         check_board[8] = 9
             else:
                 # Si no es numérico, error y continue al if
-                print("\nError: Solo se admiten valores numéricos del 1 al 9")
+                print("\nError: Solo se admiten valores numéricos positivos del 1 al 9")
                 continue
             # Pintamos el tablero tras
             print("\n        Tablero          Guía de juego          Jugadores")
