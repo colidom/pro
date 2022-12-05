@@ -18,10 +18,8 @@ player_1 = sys.argv[1:2]
 player_2 = sys.argv[2:3]
 
 playing = "s"
-print(sys.argv)
 while playing == "s":
     # Inicializamos variables vacías para pintar tablero
-    # a = b = c = d = e = f = g = h = i = "  "
     board = ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "]
 
     # Pintamos el tablero
