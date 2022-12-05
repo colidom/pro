@@ -18,27 +18,28 @@ player_1 = sys.argv[1:2]
 player_2 = sys.argv[2:3]
 
 playing = "s"
+print(sys.argv)
 while playing == "s":
     # Inicializamos variables vacías para pintar tablero
     # a = b = c = d = e = f = g = h = i = "  "
     board = ["  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "]
 
     # Pintamos el tablero
-    print("\n    --Tablero--   --Guía de juego--     --Jugadores--")
-    print("--------------------------------------------------------------")
+    print("\n        Tablero          Guía de juego          Jugadores")
+    print("   -------------------------------------------------------------")
     print("    ", board[0], "|", board[1], "|", board[2], end="          ")
     print(1, "|", 2, "|", 3)
     print("  ", " ----+----+----", end="       ")
-    print(f" ---+---+---       Jugador(❌): {player_1[0]}   ")
+    print(f" ---+---+---     Jugador(❌): {player_1[0]}   ")
     print("    ", board[3], "|", board[4], "|", board[5], end="          ")
     print(4, "|", 5, "|", 6)
     print("  ", " ----+----+----", end="       ")
-    print(f" ---+---+---       Jugador(🟢): {player_2[0]}   ")
+    print(f" ---+---+---     Jugador(🟢): {player_2[0]}   ")
     print("    ", board[6], "|", board[7], "|", board[8], end="          ")
     print(7, "|", 8, "|", 9)
 
     # Lógica del juego
-    check_board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    check_board = [" ", " ", " ", " ", " ", " ", " ", "  ", " "]
     player1_turn = True
     player2_turn = False
     loop = 0
@@ -100,16 +101,16 @@ while playing == "s":
                 print("\nError: Solo se admiten valores numéricos del 1 al 9")
                 continue
             # Pintamos el tablero tras Jugador 1 elegir posición
-            print("\n    --Tablero--   --Guía de juego--     --Jugadores--")
-            print("--------------------------------------------------------------")
+            print("\n        Tablero          Guía de juego          Jugadores")
+            print("   -------------------------------------------------------------")
             print("    ", board[0], "|", board[1], "|", board[2], end="          ")
             print(1, "|", 2, "|", 3)
             print("  ", " ----+----+----", end="       ")
-            print(f" ---+---+---       Jugador(❌): {player_1[0]}   ")
+            print(f" ---+---+---     Jugador(❌): {player_1[0]}   ")
             print("    ", board[3], "|", board[4], "|", board[5], end="          ")
             print(4, "|", 5, "|", 6)
             print("  ", " ----+----+----", end="       ")
-            print(f" ---+---+---       Jugador(🟢): {player_2[0]}   ")
+            print(f" ---+---+---     Jugador(🟢): {player_2[0]}   ")
             print("    ", board[6], "|", board[7], "|", board[8], end="          ")
             print(7, "|", 8, "|", 9)
 
@@ -185,16 +186,16 @@ while playing == "s":
                 print("\nError: Solo se admiten valores numéricos del 1 al 9")
                 continue
             # Pintamos el tablero tras
-            print("\n    --Tablero--   --Guía de juego--     --Jugadores--")
-            print("--------------------------------------------------------------")
+            print("\n        Tablero          Guía de juego          Jugadores")
+            print("   -------------------------------------------------------------")
             print("    ", board[0], "|", board[1], "|", board[2], end="          ")
             print(1, "|", 2, "|", 3)
             print("  ", " ----+----+----", end="       ")
-            print(f" ---+---+---       Jugador(❌): {player_1[0]}   ")
+            print(f" ---+---+---     Jugador(❌): {player_1[0]}   ")
             print("    ", board[3], "|", board[4], "|", board[5], end="          ")
             print(4, "|", 5, "|", 6)
             print("  ", " ----+----+----", end="       ")
-            print(f" ---+---+---       Jugador(🟢): {player_2[0]}   ")
+            print(f" ---+---+---     Jugador(🟢): {player_2[0]}   ")
             print("    ", board[6], "|", board[7], "|", board[8], end="          ")
             print(7, "|", 8, "|", 9)
 
@@ -217,7 +218,7 @@ while playing == "s":
             loop = loop + 1
     else:
         print("--------------------------------------------------------------")
-        print("Empate")
+        print("Empate❌🟢")
     playing = input("\nJuego finalizado, ¿quiere seguir jugando? s/n: ").lower()
     if playing == "n":
         print("==============================================")
