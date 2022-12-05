@@ -44,14 +44,19 @@ while playing == "s":
     while loop < 9:
 
         if player1_turn:
-            user_1 = input(
+            player1_move = input(
                 f"\n {player_1[0].upper()} indica un número del 1 al 9 para colocar la ficha (❌): "
             )
             # Comprobamos si el valor por consola es numérico
-            if user_1.isdigit():
-                x = int(user_1)
+            if player1_move.isdigit():
+                x = int(player1_move)
                 # Comprobamos si la celda está disponible
-                if (
+                if x == 0:
+                    print(
+                        "\n El 0 no es un número permitido, use la guía del juego para saber donde poner su ficha"
+                    )
+                    continue
+                elif (
                     x == check_board[0]
                     or x == check_board[1]
                     or x == check_board[2]
@@ -130,13 +135,18 @@ while playing == "s":
             player2_turn = True
             loop = loop + 1
         else:
-            user_2 = input(
+            player2_move = input(
                 f"\n {player_2[0].upper()} indica un número del 1 al 9 para colocar la ficha (🟢): "
             )
-            if user_2.isdigit():
-                y = int(user_2)
+            if player2_move.isdigit():
+                y = int(player2_move)
                 # Comprobamos si la celda está disponible
-                if (
+                if y == 0:
+                    print(
+                        "\n El 0 no es un número permitido, use la guía del juego para saber donde poner su ficha"
+                    )
+                    continue
+                elif (
                     y == check_board[0]
                     or y == check_board[1]
                     or y == check_board[2]
