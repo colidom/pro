@@ -22,8 +22,6 @@ def run(points: str) -> tuple:
             points_player1 = 0
             points_player2 = 0
 
-    if games_player1 == 6 and games_player2 == 6:
-        print("Tie-Break")
     return games_player1, games_player2
 
 
