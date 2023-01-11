@@ -21,7 +21,9 @@ def run(points: str) -> tuple:
             games_player2 += 1
             points_player1 = 0
             points_player2 = 0
-
+        # Tie - Break
+        if games_player1 >= 7 or games_player2 >= 7:
+            break
     return games_player1, games_player2
 
 
