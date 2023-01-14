@@ -5,11 +5,9 @@
 
 def run(cinfo: str) -> dict:
     cities = {}
-    list_cities = cinfo.split(";")
-    for city_popul in list_cities:
-        cities_and_popul = city_popul.replace(":", ",")
-        cities = 
-
+    for item in cinfo.split(";"):
+        city, popul = item.split(":")
+        cities[city] = int(popul)
     return cities
 
 
