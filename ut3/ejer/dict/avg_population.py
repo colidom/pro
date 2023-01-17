@@ -4,9 +4,11 @@
 
 
 def run(pdata: dict) -> dict:
-
-    for item in pdata.items():
-
+    avg_data = {}
+    total_population = sum(pdata.values())
+    for city, population in pdata.items():
+        avg_pop = population / total_population * 100
+        avg_data[city] = round(avg_pop, 3)
     return avg_data
 
 
