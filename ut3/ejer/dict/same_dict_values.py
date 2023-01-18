@@ -5,12 +5,20 @@
 
 def run(items: dict) -> bool:
     all_same = True
-    index = []
-    for value in items.values():
-        index.append(value)
-        if value == index[0]:
-            all_same = True
-        else:
+
+    # Opción A
+    # index = []
+    # for value in items.values():
+    #     index.append(value)
+    #     if value == index[0]:
+    #         all_same = True
+    #     else:
+    #         all_same = False
+    #         break
+    # Opción B
+    values = list(items.values())
+    for value in values:
+        if value != values[0]:
             all_same = False
             break
     return all_same

@@ -4,7 +4,7 @@
 
 
 def run(items: dict) -> dict:
-    citems = {}
+    citems = {key: []}
     for key in items.keys():
         citems[key] = []
     return citems
