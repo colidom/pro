@@ -13,7 +13,7 @@ def run(words: list) -> dict:
         if word[0] not in word_start:
             word_start += word[0]
             repeated_letter.append(word)
-            group_words[word[0]]: repeated_letter
+            group_words[word[0]] = [repeated_letter]
         else:
             no_repeated_letter.append(word)
 
