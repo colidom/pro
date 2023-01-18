@@ -5,9 +5,10 @@
 
 def run(items: list) -> dict:
     unpack_items = {}
-
     for item in items:
-        unpack_items[item[0]] = item[1:]
+        movie_name = item[0]
+        movie_date = item[1:]
+        unpack_items[movie_name] = movie_date
     return unpack_items
 
 
