@@ -12,6 +12,7 @@ def run(items: dict) -> bool:
             all_same = True
         else:
             all_same = False
+            break
     return all_same
 
 
