@@ -4,9 +4,9 @@
 
 
 def run(stock: dict, merch: str, amount: int) -> bool:
-    for key, value in stock.items():
+    for article_name, article_stock in stock.items():
         available = True
-        if merch == key and value <= amount:
+        if merch == article_name and article_stock <= amount:
             available = False
             break
     return available
