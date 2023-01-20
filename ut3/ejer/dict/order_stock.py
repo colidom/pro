@@ -6,7 +6,7 @@
 def run(stock: dict, merch: str, amount: int) -> bool:
     for article_name, article_stock in stock.items():
         available = True
-        if merch == article_name and article_stock <= amount:
+        if merch == article_name and article_stock < amount:
             available = False
             break
     return available
