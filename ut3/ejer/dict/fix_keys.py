@@ -6,8 +6,8 @@
 def run(items: dict) -> dict:
     # TU CÓDIGO AQUÍ
     fitems = {}
-    for key, value in items.items():
-        fitems[key.replace(" ", "")] = value
+    for classroom, subject in items.items():
+        fitems[classroom.replace(" ", "")] = subject
     return fitems
 
 
