@@ -7,9 +7,10 @@ def run(input: tuple) -> set:
     output = ()
     first_set = []
     second_set = []
-    for item in input:
-        first_set.append(item[0])
-        second_set.append(item[1])
+    for internal_tuple in input:
+        first_set.append(internal_tuple[0])
+        second_set.append(internal_tuple[1])
+
     output = (set(first_set), set(second_set))
     return output
 
