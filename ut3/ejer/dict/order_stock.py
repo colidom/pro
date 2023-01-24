@@ -11,7 +11,7 @@ def run(stock: dict, merch: str, amount: int) -> bool:
     #         available = False
     #         break
     # Solución sin bucle
-    merch_stock = stock[merch]
+    merch_stock = stock.get(merch, 0)
     available = merch_stock >= amount
     return available
 
