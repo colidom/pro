@@ -4,7 +4,7 @@
 
 
 def run(d1: dict, d2: dict) -> dict:
-    # TU CÓDIGO AQUÍ
+    # EL ORDEN DE LOS DICCIONARIOS AFECTA A LA MEZCLA
     merged = d1
     for key, value in d2.items():
         merged[key] = value
