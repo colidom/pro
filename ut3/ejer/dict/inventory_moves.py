@@ -9,7 +9,10 @@ def run(imoves: str) -> dict:
     for imove in imoves_splitted:
         article_name = imove[0]
         inventory_mod = int(imove[1:])
-        inventory[article_name] = inventory_mod
+        if article_name in inventory:
+            inventory[article_name] += inventory_mod
+        else:
+            inventory[article_name] = inventory_mod
 
     return inventory
 
