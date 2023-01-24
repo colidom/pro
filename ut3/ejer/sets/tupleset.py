@@ -4,11 +4,15 @@
 
 
 def run(input: tuple) -> set:
-    # TU CÓDIGO AQUÍ
-    output = 'output'
+    output = ()
+    first_set = []
+    second_set = []
+    for item in input:
+        first_set.append(item[0])
+        second_set.append(item[1])
+    output = (set(first_set), set(second_set))
     return output
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run(((4, 3), (8, 2), (7, 5), (8, 2), (9, 1)))
-
