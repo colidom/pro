@@ -8,14 +8,14 @@ def run(imoves: str) -> dict:
     imoves_splitted = imoves.split(",")
     for imove in imoves_splitted:
         article_name = imove[0]
-        inventory_mod = int(imove[1:])
+        amount = int(imove[1:])
         # Opción más compacta
-        inventory[article_name] = inventory.get(article_name, 0) + inventory_mod
+        inventory[article_name] = inventory.get(article_name, 0) + amount
         # Opción con condicional
         # if article_name in inventory:
-        #     inventory[article_name] += inventory_mod
+        #     inventory[article_name] += amount
         # else:
-        #     inventory[article_name] = inventory_mod
+        #     inventory[article_name] = amount
 
     return inventory
 
