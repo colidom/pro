@@ -11,6 +11,7 @@ def run(input: tuple) -> set:
     # for internal_tuple in input:
     #     first_set.append(internal_tuple[0])
     #     second_set.append(internal_tuple[1])
+    # output = (set(first_set), set(second_set))
     # Solución 2
     first_set, second_set = set(), set()
     for first, second in input:
