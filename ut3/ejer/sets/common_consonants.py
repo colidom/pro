@@ -4,12 +4,14 @@
 
 
 def run(text1: str, text2: str) -> str:
-    # Solución 1
     VOWELS = "aeiou"
-    cconst = {sentence for sentence in text1}
-    print(cconst)
-    cconst = "output"
 
+    text1 = text1.replace(" ", "")
+    text2 = text2.replace(" ", "")
+    set1 = {char for char in text1 if char not in VOWELS}
+    set2 = {char for char in text2 if char not in VOWELS}
+    result_set = set1 & set2
+    cconst = "".join(sorted(result_set))
     return cconst
 
 
