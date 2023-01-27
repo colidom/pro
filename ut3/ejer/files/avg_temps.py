@@ -20,7 +20,7 @@ def run(input_path: Path) -> bool:
                 month_temps = []
 
     # Escritura al fichero data/avg_temps/.expected
-    with open(input_path, "w") as file_output:
+    with open(output_path, "w") as file_output:
         for avg_temp in avg_temps:
             file_output.write(f"{avg_temp:.2f}\n")
 
