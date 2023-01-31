@@ -9,11 +9,11 @@ def run(datafile: Path) -> list:
         pokemons = {}
         data = []
 
-        csv_header = file_input.readline().strip()
+        csv_header = file_input.readline().strip().split(",")
         print(csv_header)
 
         for line in file_input:
-            stripped_line = line.strip()
+            stripped_line = line.strip().split(",")
             pokemons = {}
             #
             print(stripped_line)
