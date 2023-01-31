@@ -10,13 +10,8 @@ def run(input_path: Path) -> tuple:
 
         for line in file_input:
             num_lines += 1
-            byte_encode = len(line.encode("utf8"))
-            num_bytes += byte_encode
-
-            lines = line.strip().split()
-            for line in lines:
-                num_words += 1
-
+            num_words += len(line.strip().split())
+            num_bytes += len(line.encode("utf8"))
     return num_lines, num_words, num_bytes
 
 
