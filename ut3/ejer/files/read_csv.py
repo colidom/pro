@@ -10,13 +10,14 @@ def run(datafile: Path) -> list:
         data = []
 
         csv_header = file_input.readline().strip().split(",")
-        print(csv_header)
 
-        for line in file_input:
-            stripped_line = line.strip().split(",")
-            pokemons = {}
-            #
-            print(stripped_line)
+        for header_item, body_item in zip(csv_header, file_input):
+            stripped_line = body_item.strip()
+            for line in stripped_line.split(","):
+                pokemons[header_item] = line
+
+        data.append(pokemons)
+        print(data)
 
     return data
 
