@@ -5,9 +5,9 @@ from pathlib import Path
 
 
 def run(input_path: Path) -> tuple:
-    with open(input_path, "r") as f:
+    with open(input_path, "r") as file_input:
         num_lines = 0
-        for _ in f:
+        for line in file_input:
             num_lines += 1
 
     # len(s.encode('utf8'))
