@@ -5,19 +5,22 @@ from pathlib import Path
 
 
 def run(datafile: Path) -> list:
+    pokemons = {}
+    data = []
     with open(datafile, "r") as file_input:
-        pokemons = {}
-        data = []
-
         csv_header = file_input.readline().strip().split(",")
-
-        for header_item, body_item in zip(csv_header, file_input):
-            stripped_line = body_item.strip()
-            for line in stripped_line.split(","):
-                pokemons[header_item] = line
-
-        data.append(pokemons)
-        print(data)
+        for line in file_input:
+            body_items = line.strip().split(",")
+            for header_item, body_item in zip(csv_header, body_items):
+                if body_item.isdigit():
+                    pokemons[header_item] = int(body_item)
+                elif body_item == "True":
+                    pokemons[header_item] = True
+                elif body_item == "False":
+                    pokemons[header_item] = False
+                else:
+                    pokemons[header_item] = body_item
+            data.append(pokemons)
 
     return data
 
