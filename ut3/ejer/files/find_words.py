@@ -5,9 +5,10 @@ from pathlib import Path
 
 
 def run(data_path: Path, target_word: str) -> list:
+    UNNEEDED_CHARS = ".:;()'¡!-"
     with open(data_path, "r") as file_input:
         for line in file_input:
-            stripped_line = line.strip().split(",")
+            stripped_line = line.strip(UNNEEDED_CHARS).split(",")
             print(stripped_line)
     matches = "output"
 
