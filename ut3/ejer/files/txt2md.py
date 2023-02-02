@@ -11,10 +11,10 @@ def run(text_path: Path) -> bool:
         with open(md_path, "w") as file_output:
             for line in file_input:
                 tabs_count = line.count("\t") + 1
-                hashtags = "#" * tabs_count
+                hashtag = "#" * tabs_count
                 lines = line.strip()
 
-                file_output.write((f"{hashtags} {lines}\n"))
+                file_output.write((f"{hashtag} {lines}\n"))
 
     return filecmp.cmp(md_path, "data/txt2md/.expected", shallow=False)
 
