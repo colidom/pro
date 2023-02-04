@@ -16,7 +16,7 @@ def run(matrix1_path: Path, matrix2_path: Path) -> bool:
     with open(result_path, "w") as file_output:
         for value1, value2 in zip(matrix1, matrix2):
             int_val1 = [int(str_val1) for str_val1 in value1.split(" ")]
-            int_val2 = [int(str_val2) for str_val2 in value1.split(" ")]
+            int_val2 = [int(str_val2) for str_val2 in value2.split(" ")]
             suma = sum(int_val1 + int_val2)
             file_output.write(f"{suma}\n")
 
