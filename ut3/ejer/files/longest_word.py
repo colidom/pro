@@ -11,8 +11,9 @@ def run(input_path: Path) -> str:
         for line in file_input:
             splitted_text = line.split()
             for word in splitted_text:
-                if len(word) >= len(longest_word):
-                    longest_word = word
+                stripped_word = word.strip(UNNEEDED_CHARS)
+                if len(stripped_word) >= len(longest_word):
+                    longest_word = stripped_word
 
     return longest_word
 
