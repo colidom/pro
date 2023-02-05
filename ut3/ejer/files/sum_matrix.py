@@ -13,13 +13,13 @@ def run(matrix1_path: Path, matrix2_path: Path) -> bool:
         for line in file_input1:
             for value in line.strip().split():
                 int_value = int(value)
-                int_matrix1.append(int(int_value))
+                int_matrix1.append(int_value)
 
     with open(matrix2_path, "r") as file_input2:
         for line in file_input2:
             for value in line.strip().split():
                 int_value = int(value)
-                int_matrix2.append(int(int_value))
+                int_matrix2.append(int_value)
 
     with open(result_path, "w") as file_output:
         for value1, value2 in zip(int_matrix1, int_matrix2):
