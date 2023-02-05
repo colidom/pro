@@ -30,4 +30,4 @@ def run(matrix1_path: Path, matrix2_path: Path) -> bool:
 
 
 if __name__ == "__main__":
-    run("./data/sum_matrix/matrix1.dat", "./data/sum_matrix/matrix2.dat")
+    run("data/sum_matrix/matrix1.dat", "data/sum_matrix/matrix2.dat")
