@@ -7,7 +7,6 @@ from pathlib import Path
 
 def run(matrix1_path: Path, matrix2_path: Path) -> bool:
     result_path = 'data/sum_matrix/result.dat'
-    # TU CÓDIGO AQUÍ
 
     return filecmp.cmp(result_path, 'data/sum_matrix/.expected', shallow=False)
 
