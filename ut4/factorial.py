@@ -4,12 +4,12 @@
 
 
 def factorial(n):
-    result = n
-    if n == 0:
+    val = n
+    if val == 0:
         return 1
-    elif n == -1:
+    elif val == -1:
         return None
 
-    for i in range(1, result):
-        result *= i
-    return result
+    for i in range(1, val):
+        val *= i
+    return val
