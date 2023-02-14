@@ -7,7 +7,7 @@ def factorial(n):
     val = n
     if val == 0:
         return 1
-    elif val == -1:
+    elif val < 0:
         return None
 
     for i in range(1, val):
