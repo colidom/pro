@@ -4,21 +4,21 @@
 
 
 def cfreq(items, as_string=False):
-    prev_item = 0
-    unique_items = []
-    repeated = 0
+    freqs = []
 
-    for item in items:
+    # Salida Lista de tuplas
+    if not as_string:
+        prev_item = items[0]
+        rep_item = 1
+        for item in items[1:]:
 
-        if not as_string:
-            # Salida Lista de tuplas
             if item != prev_item:
-                prev_item = item
-                unique_items.append(item)
-                repeated += 0
+                rep_item = item
+                freqs.append((prev_item, rep_item))
             else:
-                repeated += 1
+                rep_iterm += 1
+    print(freqs)
 
 
-items = [1, 2, 2, 4, 4, 5]
+items = [1, 2, 2, 4, 4, 5, 1]
 cfreq(items, as_string=False)
