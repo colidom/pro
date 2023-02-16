@@ -3,7 +3,7 @@
 # ************************************
 
 
-def cfreq(items, as_string=False):
+def cfreq(items, /, as_string=False):
     freqs = []
 
     # Salida Lista de tuplas
@@ -11,7 +11,6 @@ def cfreq(items, as_string=False):
         prev_item = items[0]
         rep_item = 1
         for item in items[1:]:
-
             if item != prev_item:
                 freqs.append((prev_item, rep_item))
                 rep_item = 1
