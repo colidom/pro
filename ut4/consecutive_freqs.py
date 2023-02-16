@@ -13,8 +13,9 @@ def cfreq(items, as_string=False):
         for item in items[1:]:
 
             if item != prev_item:
-                rep_item = item
                 freqs.append((prev_item, rep_item))
+                rep_item = 1
+                prev_item = item
             else:
                 rep_item += 1
     print(freqs)
