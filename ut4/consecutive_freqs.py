@@ -5,8 +5,7 @@
 
 def cfreq(items, /, as_string=False):
     freqs = []
-
-    # Salida Lista de tuplas
+    # Salida como Lista de tuplas
     if len(items) > 0:
         prev_item = items[0]
         rep_item = 1
@@ -18,6 +17,7 @@ def cfreq(items, /, as_string=False):
             else:
                 rep_item += 1
         freqs.append((prev_item, rep_item))
+    # Salida como String
     if as_string:
         freqs = ",".join([f"{i}:{f}" for i, f in freqs])
 
