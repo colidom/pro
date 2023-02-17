@@ -7,7 +7,7 @@ def cfreq(items, /, as_string=False):
     freqs = []
 
     # Salida Lista de tuplas
-    if not as_string:
+    if len(items) > 0:
         prev_item = items[0]
         rep_item = 1
         for item in items[1:]:
