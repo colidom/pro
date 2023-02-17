@@ -18,8 +18,11 @@ def cfreq(items, /, as_string=False):
             else:
                 rep_item += 1
         freqs.append((prev_item, rep_item))
-    print(freqs)
+    if as_string:
+        freqs = ":".join([f"{i}{f}" for i, f in freqs])
+
+    return freqs
 
 
 items = [1, 2, 2, 4, 4, 5, 1]
-cfreq(items, as_string=False)
+print(cfreq(items, as_string=True))
