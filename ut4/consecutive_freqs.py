@@ -19,7 +19,7 @@ def cfreq(items, /, as_string=False):
                 rep_item += 1
         freqs.append((prev_item, rep_item))
     if as_string:
-        freqs = ":".join([f"{i}{f}" for i, f in freqs])
+        freqs = ",".join([f"{i}:{f}" for i, f in freqs])
 
     return freqs
 
