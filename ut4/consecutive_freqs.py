@@ -10,12 +10,12 @@ def cfreq(items, /, as_string=False):
         prev_item = items[0]
         rep_item = 1
         for item in items[1:]:
-            if item != prev_item:
+            if item == prev_item:
+                rep_item += 1
+            else:
                 freqs.append((prev_item, rep_item))
                 rep_item = 1
                 prev_item = item
-            else:
-                rep_item += 1
         freqs.append((prev_item, rep_item))
     # Salida como String
     if as_string:
