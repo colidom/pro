@@ -10,10 +10,10 @@ def find_item(data: tuple, item: int) -> tuple:
     :return: number of ocurrences of item
     :rtype: tuple
     """
-    result = [val for val in data if val == item]
-    print(len(result))
+    result = len([val for val in data if val == item])
+    return result
 
 
 data = (1, 2, 3, 1, 2, 3, 4, 1, 2)
 
-find_item(data, 1)
+print(find_item(data, 1))
