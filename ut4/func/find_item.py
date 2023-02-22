@@ -1,4 +1,4 @@
-def find_item(data: tuple, item: int) -> tuple:
+def find_item(data: tuple, item: int) -> int:
 
     """Returns number of occurrences of item in he provided tuple.
 
@@ -8,7 +8,7 @@ def find_item(data: tuple, item: int) -> tuple:
     :type item: int
 
     :return: number of ocurrences of item
-    :rtype: tuple
+    :rtype: int
     """
     result = len([val for val in data if val == item])
     return result
