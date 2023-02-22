@@ -10,9 +10,9 @@ def bubble(items):
     for i in range(0, length_val - 1):
         for j in range(length_val - 1):
             if values[j] > values[j + 1]:
-                matraca = values[j]
+                temp = values[j]
                 values[j] = values[j + 1]
-                values[j + 1] = matraca
+                values[j + 1] = temp
     return values
 
 
