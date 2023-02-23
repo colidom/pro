@@ -4,11 +4,9 @@
 
 
 def run(unsorted_items: dict) -> list:
-    # TU CÓDIGO AQUÍ
-    sorted_items = 'output'
-
+    sorted_items = sorted(unsorted_items.items(), key lambda) 
     return sorted_items
 
 
-if __name__ == '__main__':
-    run({'a': 'two', 'b': 'one', 'c': 'three'})
+if __name__ == "__main__":
+    run({"a": "two", "b": "one", "c": "three"})
