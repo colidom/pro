@@ -2,12 +2,13 @@ def find_item(data: tuple, item: int) -> int:
 
     """Returns number of occurrences of item in he provided tuple.
 
-    :param data: tuple of numbers
+    :param data: numeric data to look for in
     :type data: tuple
-    :param item: number to find in the tuple
+
+    :param item: value to be counted
     :type item: int
 
-    :return: number of ocurrences of item
+    :return: number of ocurrences of item in data
     :rtype: int
     """
     result = len([val for val in data if val == item])
