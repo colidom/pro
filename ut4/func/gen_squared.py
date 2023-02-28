@@ -13,5 +13,4 @@ Escriba una función que reciba un parámetro n y que incluya una expresión gen
 
 def gen_sq(n: int) -> list:
     evens_gen = (i**2 for i in range(0, n))
-    result = [i for i in evens_gen]
-    return result
+    return list(evens_gen)
