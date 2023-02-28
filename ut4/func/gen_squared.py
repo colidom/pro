@@ -1,14 +1,6 @@
 # *******************
 # GENERANDO CUADRADOS
 # *******************
-""" 
-Escriba una función que reciba un parámetro n y que incluya una expresión generadora para calcular los n primeros números enteros elevados al cuadrado.                                          │
-│                                                                                                                                                                                                  │
-│ Notas:                                                                                                                                                                                           │
-│                                                                                                                                                                                                  │
-│  • La función debe devoler una lista de los valores al cuadrado.                                                                                                                                 │
-│  • n ∈ {0, ℤ+}  
- """
 
 
 def gen_sq(n: int) -> list:
