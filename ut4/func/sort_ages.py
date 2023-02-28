@@ -4,7 +4,7 @@
 
 
 def run(people: list) -> list:
-    speople = sorted(people, key=lambda t: t["age"])
+    speople = sorted(people, key=lambda p: p["age"])
 
     return speople
 
