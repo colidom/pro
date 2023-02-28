@@ -13,8 +13,8 @@ más grande y llegando hasta la más pequeña
 def run(to_give_back: float, available_currencies: list) -> dict:
 
     money_back = {}
-    for money in sorted(available_currencies):
-        pass
+    for money in sorted(available_currencies, reverse=True):
+        print(money)
     if to_give_back > 0:
         return None
     else:
