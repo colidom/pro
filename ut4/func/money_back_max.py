@@ -16,7 +16,9 @@ Notas:
 
 def run(to_give_back: float, available_currencies: dict) -> dict:
     money_back = {}
-
+    for key, value in available_currencies.items():
+        "Restar to_give_back"
+        print(f"{key}:{value}")
     if to_give_back > 0:
         return None
     else:
