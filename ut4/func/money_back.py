@@ -9,7 +9,7 @@ def run(to_give_back: float, available_currencies: list) -> dict:
     for money in sorted(available_currencies, reverse=True):
         if to_give_back >= money:
             money_quantity = to_give_back // money
-            to_give_back -= money_quantity * money
+            to_give_back = to_give_back % money
             money_back[money] = money_quantity
     if to_give_back > 0:
         return None
