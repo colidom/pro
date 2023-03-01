@@ -15,10 +15,12 @@ Notas:
 
 
 def run(to_give_back: float, available_currencies: dict) -> dict:
-    # TU CÓDIGO AQUÍ
-    money_back = "output"
+    money_back = {}
 
-    return money_back
+    if to_give_back > 0:
+        return None
+    else:
+        return money_back
 
 
 if __name__ == "__main__":
