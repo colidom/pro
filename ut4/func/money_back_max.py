@@ -16,13 +16,15 @@ Notas:
 
 def run(to_give_back: float, available_currencies: dict) -> dict:
     money_back = {}
-    for key, value in available_currencies.items():
-        "Restar to_give_back"
-        print(f"{key}:{value}")
-    if to_give_back > 0:
-        return None
-    else:
-        return money_back
+    for currency, max_currency_qty in sorted(available_currencies.items(), reverse=True):
+        currency_qty_free = to_give_back // currency
+        currency_qty = min(currency_qty_free, max_currency_qty)
+        if currency_qty > 0:
+            money_back[currency] = currency_qty
+        to_give_back -= currency * currency_qty
+        if to_give_back == 0:
+            return money_back
+    return None
 
 
 if __name__ == "__main__":
