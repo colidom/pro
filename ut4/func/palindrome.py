@@ -11,6 +11,3 @@ def is_palindrome(text: str) -> bool:
         return True
     else:
         return False
-
-
-is_palindrome("Yo dono rosas oro no doy")
