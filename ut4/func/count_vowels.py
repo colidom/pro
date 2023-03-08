@@ -11,4 +11,5 @@ def count_vowels(text: str) -> int:
         return 0
 
     if text[0] in VOWELS:
-        return count_vowels(text[1]) + 1
+        return count_vowels(text[1:]) + 1
+    return count_vowels(text[1:])
