@@ -4,10 +4,19 @@
 
 
 def is_perfect(n: int) -> bool:
+    div = own_divisors(n)
     operation = 0
-    for i in range(1, n):
-        if n % i == 0:
-            operation += i
-        if n == operation:
-            return True
-    return False
+    for i in div:
+        operation += i
+    if n == operation:
+        return True
+    else:
+        return False
+
+
+def own_divisors(num):
+    divisors = []
+    for i in range(1, num):
+        if num % i == 0:
+            divisors.append(i)
+    return divisors
