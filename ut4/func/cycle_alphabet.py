@@ -3,7 +3,7 @@
 # *****************
 
 
-def cycle_text(text: str, max_letters: int) -> int:
+def cycle_text(text: str, max_letters: int) -> str:
     for i in range(max_letters):
         current_pos = i % len(text)
         yield text[current_pos]
