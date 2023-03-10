@@ -3,6 +3,6 @@
 # **************************************************
 
 
-def consecutive_seq():
-    # TU CÓDIGO AQUÍ
+def consecutive_seq(items: list, target_count: list) -> int:
 
+    return consecutive_seq()
