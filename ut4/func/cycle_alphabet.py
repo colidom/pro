@@ -3,12 +3,16 @@
 # *****************
 
 
+def cycle_text(text: str, max_letters: int) -> str:
+    for i in range(max_letters):
+        current_pos = i % len(text)
+        yield text[current_pos]
+
+
 def run(max_letters: int) -> str:
-    # TU CÓDIGO AQUÍ
-    text = 'output'
-
-    return text
+    ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+    return "".join(cycle_text(ALPHABET, max_letters))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run(0)

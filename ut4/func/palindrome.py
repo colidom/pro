@@ -8,5 +8,4 @@ def is_palindrome(text: str) -> bool:
 
     if phrase == phrase[::-1]:
         return True
-    else:
-        return False
+    return False
