@@ -4,11 +4,10 @@
 
 
 def run(A: list, B: list, C: list) -> tuple:
-    # TU CÓDIGO AQUÍ
-    x0 = y0 = 'output'
+    x = (A[0] + B[0] + C[0]) / 3
+    y = (A[1] + B[1] + C[1]) / 3
+    return (round(x, 4), round(y, 4))
 
-    return x0, y0
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     run([4, 6], [12, 4], [10, 10])
