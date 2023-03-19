@@ -14,7 +14,7 @@ Notas:
 """
 
 
-def run(to_give_back: float, available_currencies: dict) -> dict:
+def run(to_give_back: float, available_currencies: dict) -> dict | None:
     money_back = {}
     for currency, max_currency_qty in sorted(available_currencies.items(), reverse=True):
         currency_qty_free = to_give_back // currency
