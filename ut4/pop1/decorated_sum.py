@@ -12,7 +12,7 @@ def result_as_status(func):
 
 
 @result_as_status
-def run(values: list) -> dict:
+def run(values: list) -> tuple:
     result = 0
     for value in values:
         if not isinstance(value, int):
