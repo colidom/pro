@@ -3,7 +3,7 @@
 # *********************************
 
 
-def split_case(words: list[str]) -> list[str]:
+def split_case(words: list[str]) -> tuple[list[str], list[str]]:
     words_lower = []
     words_upper = []
 
