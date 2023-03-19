@@ -3,8 +3,7 @@
 # *******************************
 
 
-def count_words(text: str) -> int:
-
+def count_words(text: list[str]) -> int:
     if len(text) == 0:
         return 0
 
