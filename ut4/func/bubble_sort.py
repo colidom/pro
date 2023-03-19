@@ -3,11 +3,11 @@
 # **********************
 
 
-def bubble(items):
+def bubble(items: list[int]) -> list[int]:
     values = items.copy()
     length_val = len(values)
 
-    for i in range(0, length_val - 1):
+    for _ in range(0, length_val - 1):
         for j in range(length_val - 1):
             if values[j] > values[j + 1]:
                 temp = values[j]
