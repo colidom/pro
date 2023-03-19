@@ -3,7 +3,5 @@
 # *****************
 
 
-def f(x, y):
-
-    result = x**2 + y**2
-    return result
+def f(x : int, n: int):
+   return x ** 2 + n** 2
