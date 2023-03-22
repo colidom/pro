@@ -20,15 +20,15 @@ class MobilePhone:
         self.apps.remove(app)
 
 
-iPhone = MobilePhone("iPhone", 5.8, 2)
-iPhone.power_on()
-iPhone.install_app(["Facebook", "Instagram"])
-iPhone.install_app(["Whatsapp"])
-print("Estado del teléfono: ", iPhone.status)
-print("Aplicaciones instaladas: ", iPhone.apps)
+iphone = MobilePhone("iphone", 5.8, 2)
+iphone.power_on()
+iphone.install_app(["Facebook", "Instagram"])
+iphone.install_app(["Whatsapp"])
+print("Estado del teléfono: ", iphone.status)
+print("Aplicaciones instaladas: ", iphone.apps)
 
-iPhone.uninstall_app("Facebook")
-print("Aplicaciones instaladas: ", iPhone.apps)
+iphone.uninstall_app("Facebook")
+print("Aplicaciones instaladas: ", iphone.apps)
 
-iPhone.power_off()
-print("Estado del teléfono: ", iPhone.status)
+iphone.power_off()
+print("Estado del teléfono: ", iphone.status)
