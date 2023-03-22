@@ -3,7 +3,7 @@ class MobilePhone:
         self.manufacturer = manufacturer
         self.screen_size = screen_size
         self.num_cores = num_cores
-        self.apps = []
+        self.apps = ["Candy Crash", "Messenger"]
         self.status = 0
 
     def power_on(self):
@@ -27,7 +27,7 @@ class MobilePhone:
 iphone = MobilePhone("iphone", 5.8, 2)
 iphone.power_on()
 iphone.install_app("Facebook", "Instagram")
-iphone.install_app("Whatsapp", "Instagram")
+iphone.install_app("Whatsapp", "Messenger")
 print("Estado del teléfono: ", iphone.status)
 print("Aplicaciones instaladas: ", iphone.apps)
 
