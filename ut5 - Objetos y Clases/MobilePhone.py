@@ -18,8 +18,8 @@ class MobilePhone:
         self.battery -= POWER_CONSUMPTION_ON
 
     def power_off(self):
-        self.status = 0
         self.battery -= POWER_CONSUMPTION_OFF
+        self.status = 0
 
     def install_app(self, *apps):
         if self.status == 1:
