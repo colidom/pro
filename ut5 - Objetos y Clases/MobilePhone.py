@@ -13,13 +13,15 @@ class MobilePhone:
         self.status = 0
 
     def install_app(self, *apps):
-        for app in apps:
-            if app not in self.apps:
-                self.apps.append(app)
+        if self.status == 1:
+            for app in apps:
+                if app not in self.apps:
+                    self.apps.append(app)
 
     def uninstall_app(self, app):
-        if app in self.apps:
-            self.apps.remove(app)
+        if self.status == 1:
+            if app in self.apps:
+                self.apps.remove(app)
 
 
 iphone = MobilePhone("iphone", 5.8, 2)
