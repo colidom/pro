@@ -12,7 +12,7 @@ class MobilePhone:
     def power_off(self):
         self.status = 0
 
-    def install_app(self, apps):
+    def install_app(self, *apps):
         for app in apps:
             self.apps.append(app)
 
@@ -22,8 +22,8 @@ class MobilePhone:
 
 iphone = MobilePhone("iphone", 5.8, 2)
 iphone.power_on()
-iphone.install_app(["Facebook", "Instagram"])
-iphone.install_app(["Whatsapp"])
+iphone.install_app("Facebook", "Instagram")
+iphone.install_app("Whatsapp")
 print("Estado del teléfono: ", iphone.status)
 print("Aplicaciones instaladas: ", iphone.apps)
 
