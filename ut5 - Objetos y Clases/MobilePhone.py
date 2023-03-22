@@ -22,7 +22,7 @@ class MobilePhone:
         self.status = 0
 
     def install_app(self, *apps):
-        if self.status == 1:
+        if self.status == 1 and self.battery:
             for app in apps:
                 if app not in self.apps:
                     self.apps.append(app)
