@@ -14,16 +14,18 @@ class MobilePhone:
 
     def install_app(self, *apps):
         for app in apps:
-            self.apps.append(app)
+            if app not in self.apps:
+                self.apps.append(app)
 
     def uninstall_app(self, app):
-        self.apps.remove(app)
+        if app in self.apps:
+            self.apps.remove(app)
 
 
 iphone = MobilePhone("iphone", 5.8, 2)
 iphone.power_on()
 iphone.install_app("Facebook", "Instagram")
-iphone.install_app("Whatsapp")
+iphone.install_app("Whatsapp", "Instagram")
 print("Estado del teléfono: ", iphone.status)
 print("Aplicaciones instaladas: ", iphone.apps)
 
