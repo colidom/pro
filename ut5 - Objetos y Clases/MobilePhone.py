@@ -10,7 +10,7 @@ class MobilePhone:
         self.screen_size = screen_size
         self.num_cores = num_cores
         self.apps = ["Candy Crash", "Messenger"]
-        self.status = 0
+        self.status = False
         self.battery = 50
 
     def power_on(self):
@@ -22,7 +22,7 @@ class MobilePhone:
         self.status = 0
 
     def install_app(self, *apps):
-        if self.status == 1 and self.battery:
+        if self.status == False and self.battery:
             for app in apps:
                 if app not in self.apps:
                     self.apps.append(app)
@@ -33,7 +33,7 @@ class MobilePhone:
             self.battery -= POWER_CONSUMPTION_INSTALL
 
     def uninstall_app(self, app):
-        if self.status == 1:
+        if self.status == False:
             if app in self.apps:
                 self.apps.remove(app)
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
