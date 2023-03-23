@@ -21,7 +21,7 @@ class MobilePhone:
         self.status = not self.status
 
     def install_app(self, *apps):
-        if self.status == False and self.battery:
+        if self.status == True and self.battery:
             for app in apps:
                 if app not in self.apps:
                     self.apps.append(app)
@@ -50,12 +50,12 @@ iphone.install_app("Whatsapp", "Messenger")
 print("Estado del teléfono: ", iphone.status)
 print("Aplicaciones instaladas: ", iphone.apps)
 
-iphone.uninstall_app("Facebook")
-print("Aplicaciones instaladas: ", iphone.apps)
+# iphone.uninstall_app("Facebook")
+# print("Aplicaciones instaladas: ", iphone.apps)
 
-iphone.switch()
-print("Estado del teléfono: ", iphone.status)
+# iphone.switch()
+# print("Estado del teléfono: ", iphone.status)
 
-print("Batería del teléfono: ", iphone.battery)
-iphone.recharge_battery(5)
-print("Batería del teléfono: ", iphone.battery)
+# print("Batería del teléfono: ", iphone.battery)
+# iphone.recharge_battery(5)
+# print("Batería del teléfono: ", iphone.battery)
