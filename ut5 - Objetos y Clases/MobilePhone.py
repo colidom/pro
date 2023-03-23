@@ -13,13 +13,12 @@ class MobilePhone:
         self.status = False
         self.battery = 50
 
-    def power_on(self):
-        self.status = 1
-        self.battery -= POWER_CONSUMPTION_ON
-
-    def power_off(self):
-        self.battery -= POWER_CONSUMPTION_OFF
-        self.status = 0
+    def switch(self):
+        if self.status:
+            self.battery -= POWER_CONSUMPTION_OFF
+        else:
+            self.battery -= POWER_CONSUMPTION_ON
+        self.status = not self.status
 
     def install_app(self, *apps):
         if self.status == False and self.battery:
@@ -45,7 +44,7 @@ class MobilePhone:
 
 
 iphone = MobilePhone("iphone", 5.8, 2)
-iphone.power_on()
+iphone.switch()
 iphone.install_app("Facebook", "Instagram")
 iphone.install_app("Whatsapp", "Messenger")
 print("Estado del teléfono: ", iphone.status)
@@ -54,7 +53,7 @@ print("Aplicaciones instaladas: ", iphone.apps)
 iphone.uninstall_app("Facebook")
 print("Aplicaciones instaladas: ", iphone.apps)
 
-iphone.power_off()
+iphone.switch()
 print("Estado del teléfono: ", iphone.status)
 
 print("Batería del teléfono: ", iphone.battery)
