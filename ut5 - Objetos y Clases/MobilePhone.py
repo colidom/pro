@@ -32,7 +32,7 @@ class MobilePhone:
             self.battery -= POWER_CONSUMPTION_INSTALL
 
     def uninstall_app(self, app):
-        if self.status == False:
+        if self.status == True:
             if app in self.apps:
                 self.apps.remove(app)
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
@@ -50,8 +50,8 @@ iphone.install_app("Whatsapp", "Messenger")
 print("Estado del teléfono: ", iphone.status)
 print("Aplicaciones instaladas: ", iphone.apps)
 
-# iphone.uninstall_app("Facebook")
-# print("Aplicaciones instaladas: ", iphone.apps)
+iphone.uninstall_app("Facebook")
+print("Aplicaciones instaladas: ", iphone.apps)
 
 # iphone.switch()
 # print("Estado del teléfono: ", iphone.status)
