@@ -46,9 +46,9 @@ class MobilePhone:
                     else:
                         self.battery -= POWER_CONSUMPTION_INSTALL
             else:
-                print("❌ Error: Not enough battery.")
+                print("❌ Install Error: Not enough battery.")
         else:
-            print("❌ Error: Please turn on the phone.")
+            print("❌ Install Error: Please turn on the phone.")
 
     def update_app(self, app):
         if self.status and self.battery:
@@ -69,7 +69,7 @@ class MobilePhone:
                 print(f"✅ Application {app.upper()} has been uninstalled successfully")
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
             else:
-                print(f"❌ {app.upper()} application is not installed in this phone")
+                print(f"❌ Uninstall Error: {app.upper()} application is not installed in this phone")
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
 
     def recharge_battery(self, power):
