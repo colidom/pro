@@ -10,18 +10,20 @@ class MobilePhone:
         self.manufacturer = manufacturer
         self.screen_size = screen_size
         self.num_cores = num_cores
-        self.apps = ["Candy Crash", "Messenger"]
+        self.apps = ["Candy Crash", "Music"]
         self.status = False
         self.battery = 20
+        self.current_song = None
 
     def show_info(self):
-        print("==============Default state=====================")
+        print("==============Phone State=====================")
         print("🏭", f"Brand: {self.manufacturer}")
         print("📱", f"Screen size: {self.screen_size}")
         print("❤️ ", f"Core numbers: {self.num_cores}")
         print("🧮", f"Installed apps: {self.apps}")
         print("🔋", f"Battery status: {self.battery}%")
         print("🔄", f"Power status: {self.status}")
+        print("⏯️ ", f"Music playing: {self.current_song}")
         print("================================================")
 
     def switch(self):
@@ -77,7 +79,7 @@ class MobilePhone:
     def play_music(self, song_name, duration):
         if self.status == True:
             if self.battery > 0:
-                print("⏯️ ", f"Playing song: {song_name} 🎵")
+                print("⏯️ ", f"You're playing: '{song_name}' song")
                 self.current_song = song_name
                 self.battery -= POWER_CONSUMPTION_MUSIC * duration
             else:
@@ -91,7 +93,7 @@ iphone.install_app("Facebook", "Instagram")
 iphone.install_app("Whatsapp", "Messenger")
 iphone.uninstall_app("Facebook")
 iphone.uninstall_app("Tinder")
-iphone.update_app("Whatsapp")
+iphone.update_app("Music")
 iphone.recharge_battery(10)
 iphone.play_music("Symphony of a devil", 6.22)
 iphone.show_info()
