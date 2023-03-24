@@ -39,6 +39,17 @@ class MobilePhone:
         else:
             self.battery -= POWER_CONSUMPTION_INSTALL
 
+    def update_app(self, app):
+        if self.status and self.battery > POWER_CONSUMPTION_INSTALL:
+            if app in self.apps:
+                self.apps.remove(app)
+                self.apps.append(app + " (actualizada)")
+                self.battery -= POWER_CONSUMPTION_INSTALL
+            else:
+                print("La aplicación no está instalada.")
+        else:
+            print("El teléfono no está encendido o no tiene suficiente batería.")
+
     def uninstall_app(self, app):
         if self.status == True:
             if app in self.apps:
@@ -59,5 +70,5 @@ iphone.uninstall_app("Facebook")
 
 # iphone.switch()
 # iphone.recharge_battery(5)
-
+iphone.update_app("Whatsapp")
 iphone.show_info()
