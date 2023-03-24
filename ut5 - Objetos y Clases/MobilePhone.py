@@ -41,10 +41,8 @@ class MobilePhone:
                 for app in apps:
                     if app not in self.apps:
                         self.apps.append(app)
-                        self.battery -= POWER_CONSUMPTION_INSTALL
-                        print(f"✅ Application {app.upper()} has been installed successfully")
-                    else:
-                        self.battery -= POWER_CONSUMPTION_INSTALL
+                    self.battery -= POWER_CONSUMPTION_INSTALL
+                    print(f"✅ Application {app.upper()} has been installed successfully")
             else:
                 print("❌ Error: Not enough battery.")
         else:
