@@ -13,7 +13,7 @@ class MobilePhone:
         self.apps = ["Candy Crash", "Music"]
         self.status = False
         self.battery = 20
-        self.current_song = None
+        self.song_playing = False
 
     def show_info(self):
         print("==============Phone State=====================")
@@ -21,9 +21,9 @@ class MobilePhone:
         print("📱", f"Screen size: {self.screen_size}")
         print("❤️ ", f"Core numbers: {self.num_cores}")
         print("🧮", f"Installed apps: {self.apps}")
-        print("🔋", f"Battery status: {self.battery}%")
+        print("🔋", f"Battery status: {round(self.battery)}%")
         print("🔄", f"Power status: {self.status}")
-        print("⏯️ ", f"Music playing: {self.current_song}")
+        print("⏯️ ", f"Music playing: {self.song_playing}")
         print("================================================")
 
     def switch(self):
@@ -44,9 +44,9 @@ class MobilePhone:
                     self.battery -= POWER_CONSUMPTION_INSTALL
                     print(f"✅ Application {app.upper()} has been installed successfully")
             else:
-                print("❌ Error: Not enough battery.")
+                print("❌ Install Error: Not enough battery.")
         else:
-            print("❌ Error: Please turn on the phone.")
+            print("❌ Install Error: Please turn on the phone.")
 
     def update_app(self, app):
         if self.status and self.battery:
@@ -61,27 +61,33 @@ class MobilePhone:
             print("❌ Update error: The phone is not switched ON or does not have enough battery.")
 
     def uninstall_app(self, app):
-        if self.status == True:
+        if self.status:
             if app in self.apps:
                 self.apps.remove(app)
                 print(f"✅ Application {app.upper()} has been uninstalled successfully")
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
             else:
-                print(f"❌ {app.upper()} application is not installed in this phone")
+                print(f"❌ Uninstall Error: {app.upper()} application is not installed in this phone")
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
 
     def recharge_battery(self, power):
         print("🔋", "Chagning battery")
         self.battery += power
 
-    def play_music(self, song_name, duration):
-        if self.status == True:
-            if self.battery > 0:
-                print("⏯️ ", f"You're playing: '{song_name}' song")
-                self.current_song = song_name
-                self.battery -= POWER_CONSUMPTION_MUSIC * duration
+    def play_music(self, song_name, /, *, duration):
+        if self.status:
+            if self.battery >= 1:
+                if duration <= self.battery/POWER_CONSUMPTION_MUSIC:
+                    print("⏯️ ", f"You're playing: '{song_name}' song")
+                    self.song_playing = song_name
+                    self.battery -= POWER_CONSUMPTION_MUSIC * duration
+                else:
+                    print("❌ Insufficient battery power to play the song for its full duration.")
+                    self.song_playing = False
             else:
                 print("❌ Insufficient battery power to play the song.")
+        else:
+            print("❌ Cannot play music while the phone is turned off.")
 
 
 iphone = MobilePhone("iPhone", 5.8, 2)
@@ -89,9 +95,14 @@ iphone.show_info()
 iphone.switch()
 iphone.install_app("Facebook", "Instagram")
 iphone.install_app("Whatsapp", "Messenger")
+print("📲",f"Current Apps: {iphone.apps}")
 iphone.uninstall_app("Facebook")
 iphone.uninstall_app("Tinder")
+print("📲",f"Current Apps: {iphone.apps}")
 iphone.update_app("Music")
-iphone.recharge_battery(10)
-iphone.play_music("Symphony of a devil", 6.22)
+iphone.recharge_battery(20)
+iphone.play_music("Symphony of a devil", duration=6.22)
+iphone.recharge_battery(5)
+iphone.play_music("La Macarena", duration=5.12)
+iphone.switch()
 iphone.show_info()
