@@ -31,7 +31,7 @@ class MobilePhone:
         self.status = not self.status
 
     def install_app(self, *apps):
-        if self.status == True and self.battery:
+        if self.status and self.battery:
             for app in apps:
                 if app not in self.apps:
                     self.apps.append(app)
@@ -87,7 +87,7 @@ iphone.uninstall_app("Facebook")
 # iphone.switch()
 iphone.update_app("Whatsapp")
 iphone.show_info()
-iphone.switch()
+
 iphone.recharge_battery(10)
 iphone.play_music("Symphony of a devil", 6.22)
 iphone.show_info()
