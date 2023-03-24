@@ -13,7 +13,7 @@ class MobilePhone:
         self.apps = ["Candy Crash", "Music"]
         self.status = False
         self.battery = 20
-        self.current_song = None
+        self.song_playing = None
 
     def show_info(self):
         print("==============Phone State=====================")
@@ -23,7 +23,7 @@ class MobilePhone:
         print("🧮", f"Installed apps: {self.apps}")
         print("🔋", f"Battery status: {self.battery}%")
         print("🔄", f"Power status: {self.status}")
-        print("⏯️ ", f"Music playing: {self.current_song}")
+        print("⏯️ ", f"Music playing: {self.song_playing}")
         print("================================================")
 
     def switch(self):
@@ -80,7 +80,7 @@ class MobilePhone:
         if self.status == True:
             if self.battery > 0:
                 print("⏯️ ", f"You're playing: '{song_name}' song")
-                self.current_song = song_name
+                self.song_playing = song_name
                 self.battery -= POWER_CONSUMPTION_MUSIC * duration
             else:
                 print("❌ Insufficient battery power to play the song.")
