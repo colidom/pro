@@ -76,7 +76,7 @@ class MobilePhone:
         print("🔋", "Chagning battery")
         self.battery += power
 
-    def play_music(self, song_name, duration):
+    def play_music(self, song_name, /, *,duration):
         if self.status == True:
             if self.battery > 0:
                 print("⏯️ ", f"You're playing: '{song_name}' song")
@@ -95,5 +95,5 @@ iphone.uninstall_app("Facebook")
 iphone.uninstall_app("Tinder")
 iphone.update_app("Music")
 iphone.recharge_battery(10)
-iphone.play_music("Symphony of a devil", 6.22)
+iphone.play_music("Symphony of a devil", duration=6.22)
 iphone.show_info()
