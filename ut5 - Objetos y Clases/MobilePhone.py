@@ -21,7 +21,7 @@ class MobilePhone:
         print("📱", f"Screen size: {self.screen_size}")
         print("❤️ ", f"Core numbers: {self.num_cores}")
         print("🧮", f"Installed apps: {self.apps}")
-        print("🔋", f"Battery status: {self.battery}%")
+        print("🔋", f"Battery status: {round(self.battery)}%")
         print("🔄", f"Power status: {self.status}")
         print("⏯️ ", f"Music playing: {self.song_playing}")
         print("================================================")
@@ -76,14 +76,19 @@ class MobilePhone:
         print("🔋", "Chagning battery")
         self.battery += power
 
-    def play_music(self, song_name, /, *,duration):
+    def play_music(self, song_name, /, *, duration):
         if self.status == True:
-            if self.battery > 0:
-                print("⏯️ ", f"You're playing: '{song_name}' song")
-                self.song_playing = song_name
-                self.battery -= POWER_CONSUMPTION_MUSIC * duration
+            if self.battery >= 1:
+                if duration <= self.battery/POWER_CONSUMPTION_MUSIC:
+                    print("⏯️ ", f"You're playing: '{song_name}' song")
+                    self.song_playing = song_name
+                    self.battery -= POWER_CONSUMPTION_MUSIC * duration
+                else:
+                    print("❌ Insufficient battery power to play the song for its full duration.")
             else:
                 print("❌ Insufficient battery power to play the song.")
+        else:
+            print("❌ Cannot play music while the phone is turned off.")
 
 
 iphone = MobilePhone("iPhone", 5.8, 2)
@@ -94,6 +99,8 @@ iphone.install_app("Whatsapp", "Messenger")
 iphone.uninstall_app("Facebook")
 iphone.uninstall_app("Tinder")
 iphone.update_app("Music")
-iphone.recharge_battery(10)
+iphone.recharge_battery(20)
 iphone.play_music("Symphony of a devil", duration=6.22)
+iphone.recharge_battery(5)
+iphone.play_music("La Macarena", duration=5.12)
 iphone.show_info()
