@@ -40,7 +40,7 @@ class MobilePhone:
             self.battery -= POWER_CONSUMPTION_INSTALL
 
     def update_app(self, app):
-        if self.status and self.battery > POWER_CONSUMPTION_INSTALL:
+        if self.status and self.battery:
             if app in self.apps:
                 self.apps.remove(app)
                 self.apps.append(app + " (actualizada)")
