@@ -63,7 +63,7 @@ class MobilePhone:
             print("❌ Update error: The phone is not switched ON or does not have enough battery.")
 
     def uninstall_app(self, app):
-        if self.status == True:
+        if self.status:
             if app in self.apps:
                 self.apps.remove(app)
                 print(f"✅ Application {app.upper()} has been uninstalled successfully")
@@ -77,7 +77,7 @@ class MobilePhone:
         self.battery += power
 
     def play_music(self, song_name, /, *, duration):
-        if self.status == True:
+        if self.status:
             if self.battery >= 1:
                 if duration <= self.battery/POWER_CONSUMPTION_MUSIC:
                     print("⏯️ ", f"You're playing: '{song_name}' song")
