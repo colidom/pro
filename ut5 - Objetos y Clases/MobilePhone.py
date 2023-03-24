@@ -13,7 +13,7 @@ class MobilePhone:
         self.apps = ["Candy Crash", "Music"]
         self.status = False
         self.battery = 20
-        self.song_playing = None
+        self.song_playing = False
 
     def show_info(self):
         print("==============Phone State=====================")
