@@ -85,6 +85,7 @@ class MobilePhone:
                     self.battery -= POWER_CONSUMPTION_MUSIC * duration
                 else:
                     print("❌ Insufficient battery power to play the song for its full duration.")
+                    self.song_playing = False
             else:
                 print("❌ Insufficient battery power to play the song.")
         else:
@@ -103,4 +104,5 @@ iphone.recharge_battery(20)
 iphone.play_music("Symphony of a devil", duration=6.22)
 iphone.recharge_battery(5)
 iphone.play_music("La Macarena", duration=5.12)
+iphone.switch()
 iphone.show_info()
