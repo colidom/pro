@@ -12,57 +12,62 @@ class MobilePhone:
         self.num_cores = num_cores
         self.apps = ["Candy Crash", "Messenger"]
         self.status = False
-        self.battery = 0
+        self.battery = 20
 
     def show_info(self):
+        print("==============Default state=====================")
         print("🏭", f"Brand: {self.manufacturer}")
         print("📱", f"Screen size: {self.screen_size}")
         print("❤️ ", f"Core numbers: {self.num_cores}")
         print("🧮", f"Installed apps: {self.apps}")
         print("🔋", f"Battery status: {self.battery}%")
         print("🔄", f"Power status: {self.status}")
-        print("=======================================")
+        print("================================================")
 
     def switch(self):
         if self.status:
             self.battery -= POWER_CONSUMPTION_OFF
+            print("🔴 Swiching OFF the phone.")
         else:
             self.battery -= POWER_CONSUMPTION_ON
+            print("🟢 Swiching ON the phone.")
         self.status = not self.status
 
     def install_app(self, *apps):
-        if self.status and self.battery:
-            for app in apps:
-                if app not in self.apps:
-                    self.apps.append(app)
-                    self.battery -= POWER_CONSUMPTION_INSTALL
-                    print(f"✅ Application {app} has been installed successfully")
-                else:
-                    self.battery -= POWER_CONSUMPTION_INSTALL
+        if self.status:
+            if self.battery:
+                for app in apps:
+                    if app not in self.apps:
+                        self.apps.append(app)
+                        self.battery -= POWER_CONSUMPTION_INSTALL
+                        print(f"✅ Application {app.upper()} has been installed successfully")
+                    else:
+                        self.battery -= POWER_CONSUMPTION_INSTALL
+            else:
+                print("❌ Error: Not enough battery.")
         else:
-            self.battery -= POWER_CONSUMPTION_INSTALL
+            print("❌ Error: Please turn on the phone.")
 
     def update_app(self, app):
         if self.status and self.battery:
             if app in self.apps:
                 self.apps.remove(app)
                 self.apps.append(app + " (updated)")
+                print(f"✅ Application {app.upper()} has been updated successfully")
                 self.battery -= POWER_CONSUMPTION_INSTALL
             else:
-                print(
-                    "❌ Update error: The application you are trying to update is not installed."
-                )
+                print("❌ Update error: The application you are trying to update is not installed.")
         else:
-            print(
-                "❌ Update error: The phone is not switched ON or does not have enough battery."
-            )
+            print("❌ Update error: The phone is not switched ON or does not have enough battery.")
 
     def uninstall_app(self, app):
         if self.status == True:
             if app in self.apps:
                 self.apps.remove(app)
+                print(f"✅ Application {app.upper()} has been uninstalled successfully")
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
             else:
+                print(f"❌ {app.upper()} application is not installed in this phone")
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
 
     def recharge_battery(self, power):
@@ -80,14 +85,13 @@ class MobilePhone:
 
 
 iphone = MobilePhone("iPhone", 5.8, 2)
+iphone.show_info()
+iphone.switch()
 iphone.install_app("Facebook", "Instagram")
 iphone.install_app("Whatsapp", "Messenger")
 iphone.uninstall_app("Facebook")
-
-# iphone.switch()
+iphone.uninstall_app("Tinder")
 iphone.update_app("Whatsapp")
-iphone.show_info()
-
 iphone.recharge_battery(10)
 iphone.play_music("Symphony of a devil", 6.22)
 iphone.show_info()
