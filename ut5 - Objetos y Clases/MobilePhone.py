@@ -13,6 +13,14 @@ class MobilePhone:
         self.status = False
         self.battery = 50
 
+    def show_info(self):
+        print(f"Fabricante: {self.manufacturer}")
+        print(f"Tamaño de pantalla: {self.screen_size}")
+        print(f"Número de núcleos: {self.num_cores}")
+        print(f"Aplicaciones instaladas: {self.apps}")
+        print(f"Estado de la batería: {self.battery}%")
+        print(f"Encendido: {self.status}")
+
     def switch(self):
         if self.status:
             self.battery -= POWER_CONSUMPTION_OFF
@@ -47,15 +55,9 @@ iphone = MobilePhone("iphone", 5.8, 2)
 iphone.switch()
 iphone.install_app("Facebook", "Instagram")
 iphone.install_app("Whatsapp", "Messenger")
-print("Estado del teléfono: ", iphone.status)
-print("Aplicaciones instaladas: ", iphone.apps)
-
 iphone.uninstall_app("Facebook")
-print("Aplicaciones instaladas: ", iphone.apps)
 
 # iphone.switch()
-# print("Estado del teléfono: ", iphone.status)
-
-# print("Batería del teléfono: ", iphone.battery)
 # iphone.recharge_battery(5)
-# print("Batería del teléfono: ", iphone.battery)
+
+iphone.show_info()
