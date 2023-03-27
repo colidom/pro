@@ -77,7 +77,7 @@ class MobilePhone:
     def play_music(self, song_name, /, *, duration):
         if self.status:
             if self.battery >= 1:
-                if duration <= self.battery/POWER_CONSUMPTION_MUSIC:
+                if duration <= self.battery / POWER_CONSUMPTION_MUSIC:
                     print("⏯️ ", f"You're playing: '{song_name}' song")
                     self.song_playing = song_name
                     self.battery -= POWER_CONSUMPTION_MUSIC * duration
