@@ -51,8 +51,8 @@ class MobilePhone:
     def update_app(self, app):
         if self.status and self.battery:
             if app in self.apps:
-                self.apps.remove(app)
-                self.apps.append(app + " (updated)")
+                current_app = self.apps.index(app)
+                self.apps[current_app] += " >>>>> (updated)"
                 print(f"✅ Application {app.upper()} has been updated successfully")
                 self.battery -= POWER_CONSUMPTION_INSTALL
             else:
@@ -99,7 +99,7 @@ print("📲",f"Current Apps: {iphone.apps}")
 iphone.uninstall_app("Facebook")
 iphone.uninstall_app("Tinder")
 print("📲",f"Current Apps: {iphone.apps}")
-iphone.update_app("Music")
+iphone.update_app("Whatsapp")
 iphone.recharge_battery(20)
 iphone.play_music("Symphony of a devil", duration=6.22)
 iphone.recharge_battery(5)
