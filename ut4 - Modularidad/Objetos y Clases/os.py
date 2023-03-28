@@ -8,7 +8,12 @@ class OS:
         self.version = version
         self.ram = ram
         self.kernel = kernel
-        self.filesystem = []
+        self.filesystem = {
+            "/": ["/pro"],
+            "/downloads": ["/python", "/php", "/java"],
+            "documents": ["exam", "exercises"],
+            "pictures": [],
+        }
         self.status = False
         self.booted = False
 
@@ -20,14 +25,8 @@ class OS:
     def total_installations(cls) -> None:
         OS.times_installed += 1
 
-    @staticmethod
-    def get_filesystem_tree() -> list[str]:
-        return [
-            "/",
-            "/downloads",
-            "/documents",
-            "/pictures",
-        ]
+    def get_filesystem_tree(self) -> dict[str, list | object]:
+        return self.filesystem
 
     def boot_system(self):
         self.booted = True
