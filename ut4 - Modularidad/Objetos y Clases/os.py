@@ -23,7 +23,7 @@ class OS:
     @staticmethod
     def get_filesystem_tree() -> list[str]:
         return [
-            "/home",
+            "/",
             "/downloads",
             "/documents",
             "/pictures",
