@@ -34,7 +34,7 @@ class OS:
     def get_filesystem_tree(self) -> dict[str, list | object]:
         return self.filesystem
 
-    def boot_system(self):
+    def boot_system(self) -> None:
         if self.status:
             self.booted = True
             self.status = self.STATUS["ON"]
@@ -46,7 +46,7 @@ class OS:
 
         self.status = not self.status
 
-    def system_status(self):
+    def system_status(self) -> bool:
         return self.status
 
     @staticmethod
@@ -59,7 +59,7 @@ class OS:
         return wrapper
 
     @audit
-    def run_processes(self, *processes):
+    def run_processes(self, *processes: list) -> None:
         for process in processes:
             self.processes.append(process)
 
