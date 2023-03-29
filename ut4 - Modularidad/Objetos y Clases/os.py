@@ -47,11 +47,8 @@ class OS:
         for process in processes:
             self.processes.append(process)
 
-    @audit
     def list_process(self):
-        for process in self.processes:
-            print(process)
-            pass
+        print(f"Processes running at this moment: {self.processes}")
 
 
 operating_system = OS("pythonOS", "1.0", "5.10.0-19-amd64", 16)
@@ -62,3 +59,4 @@ print(f"Filesystem structure: {operating_system.get_filesystem_tree()}")
 print(f"OS has been installed {operating_system.times_installed} times so far!")
 operating_system.boot_system()
 operating_system.run_processes("apache", "php")
+operating_system.list_process()
