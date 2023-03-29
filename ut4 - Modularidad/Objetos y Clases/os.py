@@ -1,5 +1,6 @@
 class OS:
     RAM_CONSUMPTION = 1
+    STATUS = {"ON": True, "OFF": False}
 
     times_installed = 0
 
@@ -35,7 +36,11 @@ class OS:
 
     def boot_system(self):
         self.booted = True
+        self.status = self.STATUS["ON"]
         print("Booting the system!")
+
+    def system_status(self):
+        return self.status
 
     @staticmethod
     def audit(method):
@@ -63,3 +68,4 @@ operating_system.run_processes("apache", "php")
 print(f"Ram consumption: {operating_system.ram_consumption}")
 operating_system.run_processes("apache", "php", "MySQL")
 print(f"Ram consumption: {operating_system.ram_consumption}")
+print(f"Booted System: {operating_system.system_status()}")
