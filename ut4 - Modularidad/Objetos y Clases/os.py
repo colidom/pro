@@ -35,9 +35,16 @@ class OS:
         return self.filesystem
 
     def boot_system(self):
-        self.booted = True
-        self.status = self.STATUS["ON"]
-        print("Booting the system!")
+        if self.status:
+            self.booted = True
+            self.status = self.STATUS["ON"]
+            print("Booting the system!")
+        else:
+            self.booted = True
+            self.status = self.STATUS["OFF"]
+            print("Turning OFF the system!")
+
+        self.status = not self.status
 
     def system_status(self):
         return self.status
@@ -64,8 +71,10 @@ operating_system.total_installations()
 print(f"Filesystem structure: {operating_system.get_filesystem_tree()}")
 print(f"OS has been installed {operating_system.times_installed} times so far!")
 operating_system.boot_system()
+print(f"Booted System: {operating_system.system_status()}")
 operating_system.run_processes("apache", "php")
 print(f"Ram consumption: {operating_system.ram_consumption}")
 operating_system.run_processes("apache", "php", "MySQL")
+operating_system.boot_system()
 print(f"Ram consumption: {operating_system.ram_consumption}")
 print(f"Booted System: {operating_system.system_status()}")
