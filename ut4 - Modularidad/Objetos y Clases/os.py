@@ -36,9 +36,9 @@ class OS:
     @staticmethod
     def audit(method):
         def wrapper(self, *args, **kwargs):
-            process_list = method(self, *args, **kwargs)
+            process_method = method(self, *args, **kwargs)
             print(f"Process {self.processes} running by method '{method.__name__}'")
-            return process_list
+            return process_method
 
         return wrapper
 
