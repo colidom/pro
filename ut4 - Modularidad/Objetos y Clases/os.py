@@ -1,4 +1,5 @@
 class OS:
+    RAM_CONSUMPTION = 1
 
     times_installed = 0
 
@@ -19,8 +20,11 @@ class OS:
         self.processes = []
 
     @property
-    def required_ram(self) -> float:
-        return 0.2 * self.ram
+    def ram_consumption(self) -> float:
+        consum = 0
+        for _ in enumerate(self.processes):
+            consum += self.RAM_CONSUMPTION * 0.5
+        return consum
 
     @classmethod
     def total_installations(cls) -> None:
@@ -56,3 +60,6 @@ print(f"Filesystem structure: {operating_system.get_filesystem_tree()}")
 print(f"OS has been installed {operating_system.times_installed} times so far!")
 operating_system.boot_system()
 operating_system.run_processes("apache", "php")
+print(f"Ram consumption: {operating_system.ram_consumption}")
+operating_system.run_processes("apache", "php", "MySQL")
+print(f"Ram consumption: {operating_system.ram_consumption}")
