@@ -2,14 +2,6 @@ class OS:
 
     times_installed = 0
 
-    @staticmethod
-    def audit(method):
-        def wrapper(self, *args, **kwargs):
-            print(f"Process {self.processes} running by method '{method.__name__}'")
-            return method(self, *args, **kwargs)
-
-        return wrapper
-
     def __init__(self, name, version, kernel, ram) -> None:
 
         self.name = name
@@ -40,6 +32,14 @@ class OS:
     def boot_system(self):
         self.booted = True
         print("Booting the system!")
+
+    @staticmethod
+    def audit(method):
+        def wrapper(self, *args, **kwargs):
+            print(f"Process {self.processes} running by method '{method.__name__}'")
+            return method(self, *args, **kwargs)
+
+        return wrapper
 
     @audit
     def run_processes(self, *processes):
