@@ -1,3 +1,6 @@
+import os
+
+
 class OS:
     RAM_CONSUMPTION = 1
     STATUS = {"ON": True, "OFF": False}
@@ -5,7 +8,6 @@ class OS:
     times_installed = 0
 
     def __init__(self, name, version, kernel, ram) -> None:
-
         self.name = name
         self.version = version
         self.ram = ram
@@ -29,7 +31,7 @@ class OS:
 
     @classmethod
     def total_installations(cls) -> None:
-        OS.times_installed += 1
+        cls.times_installed += 1
 
     def get_filesystem_tree(self) -> dict[str, list | object]:
         return self.filesystem
@@ -63,7 +65,23 @@ class OS:
         for process in processes:
             self.processes.append(process)
 
+    def create_file(self, path: str) -> None:
+        if os.path.exists(path):
+            print("File already exists!")
+        else:
+            with open(path, "w") as f:
+                f.write("Remember... Explicit is always better than implicit.")
+                print("File created successfully!")
 
+    def delete_file(self, path: str) -> None:
+        if os.path.exists(path):
+            os.remove(path)
+            print("File deleted successfully!")
+        else:
+            print("File does not exist!")
+
+
+# Ejemplo de uso
 operating_system = OS("pythonOS", "1.0", "5.10.0-19-amd64", 16)
 operating_system.total_installations()
 operating_system.total_installations()
@@ -78,3 +96,6 @@ operating_system.run_processes("MySQL")
 operating_system.boot_system()
 print(f"Ram consumption: {operating_system.ram_consumption}")
 print(f"Booted System: {operating_system.system_status()}")
+
+operating_system.create_file("test.txt")
+operating_system.delete_file("test.txt")
