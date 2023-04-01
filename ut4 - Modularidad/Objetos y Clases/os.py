@@ -20,11 +20,11 @@ class OS:
         }
         self.status = False
         self.booted = False
-        self.processes = []
+        self.processes: list = []
 
     @property
     def ram_consumption(self) -> float:
-        consum = 0
+        consum: float = 0
         for _ in enumerate(self.processes):
             consum += self.RAM_CONSUMPTION * 0.5
         return consum
