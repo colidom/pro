@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 
 class OS:
@@ -66,16 +66,17 @@ class OS:
             self.processes.append(process)
 
     def create_file(self, path: str) -> None:
-        if os.path.exists(path):
+        file_path = Path(path)
+        if file_path.exists():
             print("File already exists!")
         else:
-            with open(path, "w") as f:
-                f.write("Remember... Explicit is always better than implicit.")
-                print("File created successfully!")
+            file_path.write_text("Remember... Explicit is always better than implicit.")
+            print("File created successfully!")
 
     def delete_file(self, path: str) -> None:
-        if os.path.exists(path):
-            os.remove(path)
+        file_path = Path(path)
+        if file_path.exists():
+            file_path.unlink()
             print("File deleted successfully!")
         else:
             print("File does not exist!")
