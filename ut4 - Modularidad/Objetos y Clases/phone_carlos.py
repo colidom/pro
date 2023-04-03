@@ -15,7 +15,7 @@ class MobilePhone:
         self.battery = 20
         self.song_playing = False
 
-    def show_info(self):
+    def show_info(self) -> None:
         print("==============Phone State=====================")
         print("🏭", f"Brand: {self.manufacturer}")
         print("📱", f"Screen size: {self.screen_size}")
@@ -26,7 +26,7 @@ class MobilePhone:
         print("⏯️ ", f"Music playing: {self.song_playing}")
         print("================================================")
 
-    def switch(self):
+    def switch(self) -> None:
         if self.status:
             self.battery -= POWER_CONSUMPTION_OFF
             print("🔴 Swiching OFF the phone.")
@@ -35,7 +35,7 @@ class MobilePhone:
             print("🟢 Swiching ON the phone.")
         self.status = not self.status
 
-    def install_app(self, *apps):
+    def install_app(self, *apps: str) -> None:
         if self.status:
             if self.battery:
                 for app in apps:
@@ -48,7 +48,7 @@ class MobilePhone:
         else:
             print("❌ Install Error: Please turn on the phone.")
 
-    def update_app(self, app):
+    def update_app(self, app: str) -> None:
         if self.status and self.battery:
             if app in self.apps:
                 current_app = self.apps.index(app)
@@ -60,7 +60,7 @@ class MobilePhone:
         else:
             print("❌ Update error: The phone is not switched ON or does not have enough battery.")
 
-    def uninstall_app(self, app):
+    def uninstall_app(self, app:str) -> None:
         if self.status:
             if app in self.apps:
                 self.apps.remove(app)
@@ -70,11 +70,11 @@ class MobilePhone:
                 print(f"❌ Uninstall Error: {app.upper()} application is not installed in this phone")
                 self.battery -= POWER_CONSUMPTION_UNINSTALL
 
-    def recharge_battery(self, power):
+    def recharge_battery(self, power: int) -> None:
         print("🔋", "Chagning battery")
         self.battery += power
 
-    def play_music(self, song_name, /, *, duration):
+    def play_music(self, song_name: str, /, *, duration:float) -> None:
         if self.status:
             if self.battery:
                 if duration <= self.battery / POWER_CONSUMPTION_MUSIC:
