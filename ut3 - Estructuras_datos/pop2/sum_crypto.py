@@ -19,7 +19,7 @@ CRYPTO_HASH = {
 }
 
 
-def run(crypto_path: Path) -> float:
+def run(crypto_path: str) -> float:
     numbers = []
     with open(crypto_path, 'r') as f:
         for line in f:
