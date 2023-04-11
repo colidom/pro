@@ -5,7 +5,7 @@ import filecmp
 from pathlib import Path
 
 
-def run(input_path: Path) -> bool:
+def run(input_path: str) -> bool:
     n_common = []
     with open(input_path, 'r') as f:
         sentences = [line.lower().strip().split() for line in f]
