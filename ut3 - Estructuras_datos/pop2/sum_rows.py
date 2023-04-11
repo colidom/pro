@@ -4,7 +4,7 @@
 from pathlib import Path
 
 
-def run(data_path: Path) -> tuple:
+def run(data_path: str) -> tuple:
     rsum = []
     with open(data_path, 'r') as f:
         for row in f:
