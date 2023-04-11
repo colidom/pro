@@ -10,8 +10,7 @@ def run(data_path: str) -> tuple:
         for row in f:
             numbers = [int(n) for n in row.strip().split()]
             rsum.append(sum(numbers))
-    rsum = tuple(rsum)
-    return rsum
+    return tuple(rsum)
 
 
 if __name__ == '__main__':
