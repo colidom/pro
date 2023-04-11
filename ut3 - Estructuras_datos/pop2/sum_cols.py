@@ -19,8 +19,7 @@ def run(data_path: str) -> tuple:
             col.append(value)
         cols.append(col)
 
-    csum = [sum(col) for col in cols]
-    csum = tuple(csum)
+    csum = tuple([sum(col) for col in cols])
     return csum
 
 
