@@ -4,9 +4,9 @@
 from pathlib import Path
 
 
-def run(data_path: Path) -> tuple:
+def run(data_path: str) -> tuple:
     data = []
-    with open(data_path, 'r') as f:
+    with open(data_path, "r") as f:
         for row in f:
             fix_row = [int(v) for v in row.strip().split()]
             data.append(fix_row)
@@ -24,5 +24,5 @@ def run(data_path: Path) -> tuple:
     return csum
 
 
-if __name__ == '__main__':
-    run('data/sum_cols/data1.txt')
+if __name__ == "__main__":
+    run("data/sum_cols/data1.txt")
