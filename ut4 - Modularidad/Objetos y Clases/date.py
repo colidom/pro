@@ -11,7 +11,6 @@ class Date:
 
     def is_leap_year(self) -> bool:
         leap_year = self.year % 4 == 0
-
         return True if leap_year else False
 
     def days_in_month(self) -> int:
