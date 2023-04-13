@@ -1,3 +1,19 @@
+DAYS_IN_MONTH = {
+    1: 31,
+    2: 28,
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11: 30,
+    12: 31,
+}
+
+
 class Date:
     def __init__(self, day: int, month: int, year: int):
         """Validar día, mes y año. Se comprobará si la fecha es correcta
@@ -10,11 +26,14 @@ class Date:
         self.year = year
 
     def is_leap_year(self) -> bool:
-        leap_year = self.year % 4 == 0
-        return True if leap_year else False
+        division4 = (self.year % 4 == 0) or (self.year % 100 != 0)
+        division400 = self.year % 400 == 0
+        return True if division4 or division400 else False
 
     def days_in_month(self) -> int:
-        pass
+        if self.is_leap_year() or self.month == 2:
+            return DAYS_IN_MONTH[self.month]
+        return DAYS_IN_MONTH[self.month] + 1
 
     def delta_days(self) -> int:
         """Número de días transcurridos desde el 1-1-1900 hasta la fecha"""
@@ -44,4 +63,4 @@ class Date:
 
 
 date = Date(6, 10, 1990)
-print(date.is_leap_year())
+print(date.days_in_month())
