@@ -5,7 +5,9 @@ class Date:
         si el mes no es correcto, lo pondrá a 1; y si el año no es correcto, lo pondrá a 1900.
         Ojo con los años bisiestos.
         """
-        pass
+        self.day = day
+        self.month = month
+        self.year = year
 
     def is_leap_year(self) -> bool:
         pass
