@@ -10,7 +10,9 @@ class Date:
         self.year = year
 
     def is_leap_year(self) -> bool:
-        pass
+        leap_year = self.year % 4 == 0
+
+        return True if leap_year else False
 
     def days_in_month(self) -> int:
         pass
@@ -29,14 +31,18 @@ class Date:
 
     def short_date(self) -> str:
         """02/09/2003"""
-        pass
+        return f"{self.day}/{self.month}/{self.year}"
 
     def __str__(self):
         """martes 2 de septiembre de 2003"""
-        pass
+        return f"{self.weekday} {self.day} de {self.year}"
 
     # operador + suma días a la fecha
     # operador - resta días a la fecha o calcula la diferencia entre dos fechas
     # operador == dice si dos fechas son iguales
     # operador > dice si una fecha es mayor que otra
     # operador < dice si una fecha es menor que otra
+
+
+date = Date(6, 10, 1990)
+print(date.is_leap_year())
