@@ -21,23 +21,27 @@ class Date:
         si el mes no es correcto, lo pondrá a 1; y si el año no es correcto, lo pondrá a 1900.
         Ojo con los años bisiestos.
         """
-        self.day = day
-        self.month = month
-        self.year = year
+        self.year = year if 1900 <= 2050 else 1900
+        self.month = month if 0 < month <= 12 else 1
+        self.day = day if day <= Date.is_leap_year(year) or month == DAYS_IN_MONTH[month] else 1
+        self.leap_year = True if Date.is_leap_year(year) and self.month == 2 else False
 
-    def is_leap_year(self) -> bool:
-        division4 = (self.year % 4 == 0) or (self.year % 100 != 0)
-        division400 = self.year % 400 == 0
+    @staticmethod
+    def is_leap_year(year) -> bool:
+        division4 = (year % 4 == 0) or (year % 100 != 0)
+        division400 = year % 400 == 0
         return True if division4 or division400 else False
 
     def days_in_month(self) -> int:
-        if self.is_leap_year() or self.month == 2:
+        if Date.is_leap_year(self.year) or self.month == 2:
             return DAYS_IN_MONTH[self.month]
         return DAYS_IN_MONTH[self.month] + 1
 
     def delta_days(self) -> int:
         """Número de días transcurridos desde el 1-1-1900 hasta la fecha"""
-        pass
+        if Date.is_leap_year(self.year):
+            return 366
+        return 365
 
     def weekday(self) -> int:
         """día de la semana de la fecha (0 para domingo, ..., 6 para sábado).
@@ -62,5 +66,6 @@ class Date:
     # operador < dice si una fecha es menor que otra
 
 
-date = Date(6, 10, 1990)
-print(date.__str__())
+date = Date(6, 10, 2012)
+print(date.leap_year)
+print(date.delta_days())
