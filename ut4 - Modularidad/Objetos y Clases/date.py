@@ -53,7 +53,7 @@ class Date:
 
     def __str__(self):
         """martes 2 de septiembre de 2003"""
-        return f"{self.weekday} {self.day} de {self.year}"
+        return f"{self.weekday()} {self.day} de {self.year}"
 
     # operador + suma días a la fecha
     # operador - resta días a la fecha o calcula la diferencia entre dos fechas
@@ -63,4 +63,4 @@ class Date:
 
 
 date = Date(6, 10, 1990)
-print(date.days_in_month())
+print(date.__str__())
