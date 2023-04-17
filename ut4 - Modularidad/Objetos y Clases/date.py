@@ -23,7 +23,11 @@ class Date:
         """
         self.year = year if 1900 <= 2050 else 1900
         self.month = month if 0 < month <= 12 else 1
-        self.day = day if day <= Date.is_leap_year(year) or month == DAYS_IN_MONTH[month] else 1
+        self.day = (
+            day
+            if day <= Date.is_leap_year(year) or month == DAYS_IN_MONTH[month]
+            else 1
+        )
         self.leap_year = True if Date.is_leap_year(year) and self.month == 2 else False
 
     @staticmethod
@@ -46,7 +50,8 @@ class Date:
     def weekday(self) -> int:
         """día de la semana de la fecha (0 para domingo, ..., 6 para sábado).
         El 1-1-1900 fue domingo."""
-        pass
+        delta = self.delta_days()
+        return (delta + 1) % 7
 
     def is_weekend(self) -> bool:
         pass
