@@ -46,9 +46,9 @@ class Date:
     def days_in_month(self) -> int:
         """Día de la semana de la fecha (0 para domingo, ..., 6 para sábado).
         El 1-1-1900 fue domingo."""
-        if Date.is_leap_year(self) or self.month == 2:
-            return self.DAYS_IN_MONTH[self.month]
-        return self.DAYS_IN_MONTH[self.month] + 1
+        if Date.is_leap_year(self) and self.month == 2:
+            return self.DAYS_IN_MONTH[self.month] + 1
+        return self.DAYS_IN_MONTH[self.month]
 
     @property
     def weekday(self) -> int:
