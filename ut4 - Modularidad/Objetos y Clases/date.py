@@ -77,6 +77,7 @@ class Date:
         return f"{self.day}/{self.month}/{self.year}"
 
     def __str__(self):
+        """martes 2 de septiembre de 2003"""
         weekday = WEEK_DAYS[self.weekday()]
         month = MONTH_NAMES[self.month - 1]
         return f"{weekday} {self.day} de {month} de {self.year}"
