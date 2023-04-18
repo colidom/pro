@@ -4,11 +4,13 @@ from date import Date
 
 @pytest.fixture
 def date1():
+    # JUEVES
     return Date(day=1, month=3, year=1979)
 
 
 @pytest.fixture
 def date2():
+    # DOMINGO
     return Date(day=24, month=6, year=1984)
 
 
@@ -64,8 +66,8 @@ def test_get_delta_days(date1: Date):
 
 
 def test_weekday(date1: Date, date2: Date):
-    assert date1.weekday == 3
-    assert date2.weekday == 6
+    assert date1.weekday == 4  # jueves
+    assert date2.weekday == 0  # domingo
 
 
 def test_is_weekend(date1: Date, date2: Date):
