@@ -87,5 +87,6 @@ class Date:
     # operador < dice si una fecha es menor que otra
 
 
-date = Date(6, 10, 2012)
+date = Date(1, 1, 1900)
 print("Año biciesto: ", date.is_leap_year())
+print("Día de la semana: ", date.weekday())
