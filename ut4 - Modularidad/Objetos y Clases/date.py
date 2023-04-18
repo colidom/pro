@@ -13,7 +13,7 @@ class Date:
 
         self.DAYS_IN_MONTH = {
             1: 31,
-            2: self.month_in_leap_year,
+            2: 28,
             3: 31,
             4: 30,
             5: 31,
@@ -30,10 +30,6 @@ class Date:
         self.month = month if 0 < month <= 12 else 1
         self.day = day if day <= self.DAYS_IN_MONTH[self.month] else 1
         self.leap_year = Date.is_leap_year(self)
-
-    @property
-    def month_in_leap_year(self):
-        return 29 if self.is_leap_year else 28
 
     @staticmethod
     def is_leap_year(item: Date) -> bool:
