@@ -77,8 +77,9 @@ class Date:
         return f"{self.day}/{self.month}/{self.year}"
 
     def __str__(self):
-        """martes 2 de septiembre de 2003"""
-        return f"{self.weekday()} {self.day} de {self.year}"
+        weekday = WEEK_DAYS[self.weekday()]
+        month = MONTH_NAMES[self.month - 1]
+        return f"{weekday} {self.day} de {month} de {self.year}"
 
     # operador + suma días a la fecha
     # operador - resta días a la fecha o calcula la diferencia entre dos fechas
@@ -90,3 +91,4 @@ class Date:
 date = Date(1, 1, 1900)
 print("Año biciesto: ", date.is_leap_year())
 print("Día de la semana: ", date.weekday())
+print("Método str: ", date.__str__())
