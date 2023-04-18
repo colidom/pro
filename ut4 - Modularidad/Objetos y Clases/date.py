@@ -1,17 +1,5 @@
-DAYS_IN_MONTH = {
-    1: 31,
-    2: 28,
-    3: 31,
-    4: 30,
-    5: 31,
-    6: 30,
-    7: 31,
-    8: 31,
-    9: 30,
-    10: 31,
-    11: 30,
-    12: 31,
-}
+MIN_YEAR = 1900
+MAX_YEAR = 2050
 
 
 class Date:
@@ -21,31 +9,34 @@ class Date:
         si el mes no es correcto, lo pondrá a 1; y si el año no es correcto, lo pondrá a 1900.
         Ojo con los años bisiestos.
         """
-        self.year = year if 1900 <= 2050 else 1900
-        self.month = month if 0 < month <= 12 else 1
-        self.day = (
-            day
-            if day <= Date.is_leap_year(year) or month == DAYS_IN_MONTH[month]
-            else 1
-        )
-        self.leap_year = True if Date.is_leap_year(year) and self.month == 2 else False
+        if year < MIN_YEAR or year > MAX_YEAR:
+            year = MIN_YEAR
+        if month < 1 or month > 12:
+            month = 1
+        days_in_month = self.days_in_month(month, year)
+        if day < 1 or day > days_in_month:
+            day = 1
 
-    @staticmethod
-    def is_leap_year(year) -> bool:
-        division4 = (year % 4 == 0) or (year % 100 != 0)
-        division400 = year % 400 == 0
-        return True if division4 or division400 else False
+        self.day = day
+        self.month = month
+        self.year = year
 
-    def days_in_month(self) -> int:
-        if Date.is_leap_year(self.year) or self.month == 2:
-            return DAYS_IN_MONTH[self.month]
-        return DAYS_IN_MONTH[self.month] + 1
+    def is_leap_year(self):
+        return self.year % 4 == 0 and (self.year % 100 != 0 or self.year % 400 == 0)
+
+    def days_in_month(self, month, year) -> int:
+        if month == 2 and self.is_leap_year():
+            return 29
+        elif month == 2:
+            return 28
+        elif month in (4, 6, 9, 11):
+            return 30
+        else:
+            return 31
 
     def delta_days(self) -> int:
         """Número de días transcurridos desde el 1-1-1900 hasta la fecha"""
-        if Date.is_leap_year(self.year):
-            return 366
-        return 365
+        return True
 
     def weekday(self) -> int:
         """día de la semana de la fecha (0 para domingo, ..., 6 para sábado).
@@ -54,7 +45,7 @@ class Date:
         return (delta + 1) % 7
 
     def is_weekend(self) -> bool:
-        pass
+        return True
 
     def short_date(self) -> str:
         """02/09/2003"""
@@ -72,5 +63,4 @@ class Date:
 
 
 date = Date(6, 10, 2012)
-print(date.leap_year)
-print(date.delta_days())
+print("Año biciesto: ", date.is_leap_year())
