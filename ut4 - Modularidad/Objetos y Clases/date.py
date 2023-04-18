@@ -1,6 +1,31 @@
 MIN_YEAR = 1900
 MAX_YEAR = 2050
 
+WEEK_DAYS = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+]
+
+MONTH_NAMES = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
+
 
 class Date:
     def __init__(self, day: int, month: int, year: int):
