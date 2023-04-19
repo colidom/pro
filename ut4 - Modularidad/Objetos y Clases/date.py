@@ -127,7 +127,32 @@ class Date:
         """Dos opciones:
         1) Restar una fecha a otra fecha -> Número de días
         2) Restar un número de días la fecha -> Nueva fecha"""
-        ...
+        if isinstance(other, Date):
+            # Restar una fecha a otra fecha
+            days1 = self.get_delta_days()
+            days2 = other.get_delta_days()
+            return days1 - days2
+        elif isinstance(other, int):
+            year = self.year
+            month = self.month
+            day = self.day
+
+            # Calcular el nuevo día restando los días indicados
+            while other > 0:
+                if day > other:
+                    day -= other
+                    other = 0
+                else:
+                    other -= day
+                    day = DAYS_IN_MONTH[month]
+                    if Date.is_leap_year(year) and month == 3:
+                        day += 1
+                    month -= 1
+                    if month == 0:
+                        month = 12
+                        year -= 1
+
+            return Date(day, month, year)
 
     def __eq__(self, other: Date) -> bool:
         ...
