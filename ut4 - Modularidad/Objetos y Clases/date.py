@@ -63,6 +63,10 @@ class Date:
         return weekday
 
     @property
+    def is_weekend(self) -> bool:
+        return self.weekday == 0 or self.weekday == 6
+
+    @property
     def short_date(self) -> str:
         """02/09/2003"""
         return f"{self.day}/{self.month}/{self.year}"
