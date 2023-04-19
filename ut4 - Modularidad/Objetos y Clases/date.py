@@ -96,7 +96,7 @@ class Date:
     def __str__(self) -> str:
         return f"{WEEKDAYS[self.weekday]} {self.day} DE {MONTHS[self.month - 1]} DE {self.year}"
 
-    def __add__(self, days: int) -> "Date":
+    def __add__(self, days: int) -> Date:
         """Sumar un número de días a la fecha"""
 
         year = self.year
@@ -155,15 +155,30 @@ class Date:
             return Date(day, month, year)
 
     def __eq__(self, other: Date) -> bool:
-        ...
+        return (self.day == other.day and self.month == other.month and self.year == other.year)
 
     def __gt__(self, other: Date) -> bool:
-        ...
+        if self.year > other.year:
+            return True
+        return False
 
     def __lt__(self, other: Date) -> bool:
-        ...
+        if self.year < other.year:
+            return True
+        return False
 
 
-date = Date(6, 10, 2012)
-print(date.leap_year)
-print(date.get_delta_days())
+date = Date(6, 10, 1990)
+date2 = Date(3, 3, 1989)
+print("Leap year: ", date.leap_year)
+print("Delta days: ", date.get_delta_days())
+print("Days in month: ", date.days_in_month)
+print("Weekday:", date.weekday)
+print("Is weekday:", date.is_weekend)
+print("Short date:", date.short_date)
+print("__str__: ", date.__str__())
+print("__add__: ", date.__add__(5))
+print("__sub__: ", date.__sub__(2))
+print("__eq__: ", date.__eq__(date))
+print("__gt__: ", date.__gt__(date2))
+print("__lt__: ", date.__lt__(date2))
