@@ -3,6 +3,44 @@ from __future__ import annotations
 MIN_YEAR = 1900
 MAX_YEAR = 2050
 
+DAYS_IN_MONTH = {
+    1: 31,
+    2: 28,
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11: 30,
+    12: 31,
+}
+WEEKDAYS = [
+    "DOMINGO",
+    "LUNES",
+    "MARTES",
+    "MIÉRCOLES",
+    "JUEVES",
+    "VIERNES",
+    "SÁBADO",
+]
+MONTHS = [
+    "ENERO",
+    "FEBRERO",
+    "MARZO",
+    "ABRIL",
+    "MAYO",
+    "JUNIO",
+    "JULIO",
+    "AGOSTO",
+    "SEPTIEMBRE",
+    "OCTUBRE",
+    "NOVIEMBRE",
+    "DICIEMBRE",
+]
+
 
 class Date:
     def __init__(self, day: int, month: int, year: int):
@@ -11,24 +49,9 @@ class Date:
         si el mes no es correcto, lo pondrá a 1; y si el año no es correcto, lo pondrá a 1900.
         Ojo con los años bisiestos."""
 
-        self.DAYS_IN_MONTH = {
-            1: 31,
-            2: 28,
-            3: 31,
-            4: 30,
-            5: 31,
-            6: 30,
-            7: 31,
-            8: 31,
-            9: 30,
-            10: 31,
-            11: 30,
-            12: 31,
-        }
-
         self.year = year if MIN_YEAR <= year <= MAX_YEAR else MIN_YEAR
         self.month = month if 0 < month <= 12 else 1
-        self.day = day if day <= self.DAYS_IN_MONTH[self.month] else 1
+        self.day = day if day <= DAYS_IN_MONTH[self.month] else 1
         self.leap_year = Date.is_leap_year(self)
 
     @staticmethod
@@ -42,7 +65,7 @@ class Date:
         for year in range(MIN_YEAR, self.year):
             days_since_start += 366 if Date.is_leap_year(year) else 365
         for month in range(1, self.month):
-            days_since_start += self.DAYS_IN_MONTH[month]
+            days_since_start += DAYS_IN_MONTH[month]
         if self.month > 2 and Date.is_leap_year(self.year):
             days_since_start += 1
         days_since_start += self.day - 1
@@ -53,8 +76,8 @@ class Date:
         """Día de la semana de la fecha (0 para domingo, ..., 6 para sábado).
         El 1-1-1900 fue domingo."""
         if Date.is_leap_year(self) and self.month == 2:
-            return self.DAYS_IN_MONTH[self.month] + 1
-        return self.DAYS_IN_MONTH[self.month]
+            return DAYS_IN_MONTH[self.month] + 1
+        return DAYS_IN_MONTH[self.month]
 
     @property
     def weekday(self) -> int:
@@ -70,9 +93,8 @@ class Date:
     def short_date(self) -> str:
         return f"{self.day:02d}/{self.month:02d}/{self.year}"
 
-    def __str__(self):
-        """MARTES 2 DE SEPTIEMBRE DE 2003"""
-        return f"{self.weekday()} {self.day} de {self.year}"
+    def __str__(self) -> str:
+        return f"{WEEKDAYS[self.weekday]} {self.day} DE {MONTHS[self.month - 1]} DE {self.year}"
 
     def __add__(self, days: int) -> Date:
         """Sumar un número de días a la fecha"""
