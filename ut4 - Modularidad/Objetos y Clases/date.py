@@ -155,7 +155,7 @@ class Date:
             return Date(day, month, year)
 
     def __eq__(self, other: Date) -> bool:
-        return self.day == other.day
+        return (self.day == other.day and self.month == other.month and self.year == other.year)
 
     def __gt__(self, other: Date) -> bool:
         if self.year > other.year:
