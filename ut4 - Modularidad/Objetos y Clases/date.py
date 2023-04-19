@@ -68,8 +68,7 @@ class Date:
 
     @property
     def short_date(self) -> str:
-        """02/09/2003"""
-        return f"{self.day}/{self.month}/{self.year}"
+        return f"{self.day:02d}/{self.month:02d}/{self.year}"
 
     def __str__(self):
         """MARTES 2 DE SEPTIEMBRE DE 2003"""
