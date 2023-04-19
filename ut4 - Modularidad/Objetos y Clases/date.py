@@ -55,7 +55,7 @@ class Date:
         self.leap_year = Date.is_leap_year(self)
 
     @staticmethod
-    def is_leap_year(item: Date) -> bool:
+    def is_leap_year(item) -> bool:
         year = item if isinstance(item, int) else item.year
         return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
@@ -96,9 +96,32 @@ class Date:
     def __str__(self) -> str:
         return f"{WEEKDAYS[self.weekday]} {self.day} DE {MONTHS[self.month - 1]} DE {self.year}"
 
-    def __add__(self, days: int) -> Date:
+    def __add__(self, days: int) -> "Date":
         """Sumar un número de días a la fecha"""
-        ...
+
+        year = self.year
+        month = self.month
+        day = self.day
+
+        # Calcular el nuevo día sumando los días indicados
+        while days > 0:
+            days_in_month = DAYS_IN_MONTH[month]
+            if Date.is_leap_year(year) and month == 2:
+                days_in_month += 1
+
+            if day + days > days_in_month:
+                days_to_end_of_month = days_in_month - day + 1
+                days -= days_to_end_of_month
+                day = 1
+                month += 1
+                if month > 12:
+                    month = 1
+                    year += 1
+            else:
+                day += days
+                days = 0
+
+        return Date(day, month, year)
 
     def __sub__(self, other: Date | int) -> int | Date:
         """Dos opciones:
