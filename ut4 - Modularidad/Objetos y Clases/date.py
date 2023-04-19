@@ -38,9 +38,15 @@ class Date:
 
     def get_delta_days(self) -> int:
         """Número de días transcurridos desde el 1-1-1900 hasta la fecha"""
-        if Date.is_leap_year(self):
-            return 366
-        return 365
+        days_since_start = 0
+        for year in range(MIN_YEAR, self.year):
+            days_since_start += 366 if Date.is_leap_year(year) else 365
+        for month in range(1, self.month):
+            days_since_start += self.DAYS_IN_MONTH[month]
+        if self.month > 2 and Date.is_leap_year(self.year):
+            days_since_start += 1
+        days_since_start += self.day - 1
+        return days_since_start
 
     @property
     def days_in_month(self) -> int:
