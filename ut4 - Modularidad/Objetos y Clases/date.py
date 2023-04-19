@@ -104,7 +104,7 @@ class Date:
         # Calcular el nuevo día sumando los días indicados
         while days > 0:
             days_in_month = DAYS_IN_MONTH[month]
-            if Date.is_leap_year(year) and month == 2:
+            if Date.is_leap_year(year):
                 days_in_month += 1
 
             if day + days > days_in_month:
