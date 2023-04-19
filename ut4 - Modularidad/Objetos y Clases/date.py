@@ -145,7 +145,7 @@ class Date:
                 else:
                     other -= day
                     day = DAYS_IN_MONTH[month]
-                    if Date.is_leap_year(year) and month == 3:
+                    if Date.is_leap_year(year):
                         day += 1
                     month -= 1
                     if month == 0:
