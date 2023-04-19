@@ -58,11 +58,9 @@ class Date:
 
     @property
     def weekday(self) -> int:
-        ...
-
-    @property
-    def is_weekend(self) -> bool:
-        ...
+        delta_days = self.get_delta_days()
+        weekday = (delta_days + 1) % 7
+        return weekday
 
     @property
     def short_date(self) -> str:
