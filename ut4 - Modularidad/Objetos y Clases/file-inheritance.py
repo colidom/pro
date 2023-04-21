@@ -8,7 +8,7 @@ class File:
     def size(self):
         pass
 
-    def info(self):
+    def info(self) -> str:
         pass
 
 
@@ -16,7 +16,7 @@ class MediaFile(File):
     def __init__(self, path: str, codec: str, geoloc: tuple, duration: int) -> None:
         pass
 
-    def info(self):
+    def info(self) -> str:
         pass
 
 
@@ -26,7 +26,7 @@ class VideoFile(MediaFile):
     ) -> None:
         pass
 
-    def info(self):
+    def info(self) -> str:
         pass
 
 
