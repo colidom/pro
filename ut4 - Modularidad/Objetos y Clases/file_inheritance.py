@@ -26,7 +26,7 @@ class MediaFile(File):
         """Codec: h264                             # ┐
         Geolocalization: (23.5454, 31.4343)        # ├ self.info() de MediaFile
         Duration: 487s                             # ┘"""
-        return f"Codec: {super().info()}\nGeolocalization: {self.geoloc}\nDuration: {self.duration}\n"
+        return f"{super().info()} Codec: {self.codec}\nGeolocalization: {self.geoloc}\nDuration: {self.duration}"
 
 
 class VideoFile(MediaFile):
@@ -38,7 +38,7 @@ class VideoFile(MediaFile):
 
     def info(self) -> str:
         """Dimensions: (1920, 1080)  # self.info() de VideoFile"""
-        return f"Dimensions: {super().info()}"
+        return f"{super().info()} \nDimensions: {self.dimensions}"
 
 
 path = "/home/python/vanrossum.mp4"
