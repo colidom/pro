@@ -1,9 +1,10 @@
 class File:
     def __init__(self, path: str) -> None:
-        pass
+        self.path = path
+        self.contents = []
 
     def add_content(self, content: str):
-        pass
+        self.contents.append(content)
 
     def size(self):
         pass
