@@ -26,8 +26,7 @@ class MediaFile(File):
         """Codec: h264                             # ┐
         Geolocalization: (23.5454, 31.4343)        # ├ self.info() de MediaFile
         Duration: 487s                             # ┘"""
-
-        return ...
+        return f"Codec: {self.codec}\n Geolocalization: {self.geoloc}\n Duration: {self.duration}\n"
 
 
 class VideoFile(MediaFile):
