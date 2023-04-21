@@ -8,11 +8,11 @@ class File:
 
     @property
     def size(self):
-        return sum(len(content for content in self.contents))
+        return sum(len(content) for content in self.contents)
 
     def info(self) -> str:
         """/home/python/vanrossum.mp4 [size=19B]      # self.info() de File"""
-        return f"{self.path}[size={self.size}B]"
+        return f"{self.path} [size={self.size}B]"
 
 
 class MediaFile(File):
@@ -26,7 +26,7 @@ class MediaFile(File):
         """Codec: h264                             # ┐
         Geolocalization: (23.5454, 31.4343)        # ├ self.info() de MediaFile
         Duration: 487s                             # ┘"""
-        return f"Codec: {self.codec}\n Geolocalization: {self.geoloc}\n Duration: {self.duration}\n"
+        return f"Codec: {super().info()}\nGeolocalization: {self.geoloc}\nDuration: {self.duration}\n"
 
 
 class VideoFile(MediaFile):
@@ -38,7 +38,7 @@ class VideoFile(MediaFile):
 
     def info(self) -> str:
         """Dimensions: (1920, 1080)  # self.info() de VideoFile"""
-        return f"Dimensions: {self.dimensions}"
+        return f"Dimensions: {super().info()}"
 
 
 path = "/home/python/vanrossum.mp4"
