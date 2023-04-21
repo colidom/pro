@@ -22,7 +22,12 @@ class MediaFile(File):
         self.duration = duration
 
     def info(self) -> str:
-        return f"{super().info()}\nCodec: {self.codec}\nGeolocalization: {self.geoloc}\nDuration: {self.duration}s"
+        return (
+            f"{super().info()}\n"
+            f"Codec: {self.codec}\n"
+            f"Geolocalization: {self.geoloc}\n"
+            f"Duration: {self.duration}s"
+        )
 
 
 class VideoFile(MediaFile):
