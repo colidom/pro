@@ -38,7 +38,7 @@ class VideoFile(MediaFile):
 
     def info(self) -> str:
         """Dimensions: (1920, 1080)  # self.info() de VideoFile"""
-        return f"Dimensions: {self.dimensions}\n"
+        return f"Dimensions: {self.dimensions}"
 
 
 path = "/home/python/vanrossum.mp4"
