@@ -11,7 +11,6 @@ class File:
         return sum(len(content) for content in self.contents)
 
     def info(self) -> str:
-        """/home/python/vanrossum.mp4 [size=19B]      # self.info() de File"""
         return f"{self.path} [size={self.size}B]"
 
 
@@ -23,9 +22,6 @@ class MediaFile(File):
         self.duration = duration
 
     def info(self) -> str:
-        """Codec: h264                             # ┐
-        Geolocalization: (23.5454, 31.4343)        # ├ self.info() de MediaFile
-        Duration: 487s                             # ┘"""
         return f"{super().info()} Codec: {self.codec}\nGeolocalization: {self.geoloc}\nDuration: {self.duration}"
 
 
@@ -37,7 +33,6 @@ class VideoFile(MediaFile):
         self.dimensions = dimensions
 
     def info(self) -> str:
-        """Dimensions: (1920, 1080)  # self.info() de VideoFile"""
         return f"{super().info()} \nDimensions: {self.dimensions}"
 
 
