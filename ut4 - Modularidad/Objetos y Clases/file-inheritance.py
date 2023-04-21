@@ -9,7 +9,7 @@ class File:
         pass
 
     def info(self) -> str:
-        pass
+        return ...
 
 
 class MediaFile(File):
@@ -17,7 +17,7 @@ class MediaFile(File):
         pass
 
     def info(self) -> str:
-        pass
+        return ...
 
 
 class VideoFile(MediaFile):
@@ -27,7 +27,7 @@ class VideoFile(MediaFile):
         pass
 
     def info(self) -> str:
-        pass
+        return ...
 
 
 path = "/home/python/vanrossum.mp4"
