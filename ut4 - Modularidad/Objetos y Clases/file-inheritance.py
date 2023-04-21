@@ -18,6 +18,9 @@ class File:
 class MediaFile(File):
     def __init__(self, path: str, codec: str, geoloc: tuple, duration: int) -> None:
         super().__init__(path)
+        self.codec = codec
+        self.geoloc = geoloc
+        self.duration = duration
 
     def info(self) -> str:
         """Codec: h264                             # ┐
