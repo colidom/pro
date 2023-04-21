@@ -28,3 +28,13 @@ class VideoFile(MediaFile):
 
     def info(self):
         pass
+
+
+path = "/home/python/vanrossum.mp4"
+codec = "h264"
+geoloc = (23.5454, 31.4343)
+duration = 487
+dimensions = (1920, 1080)
+
+video_file = VideoFile(path, codec, geoloc, duration, dimensions)
+print(video_file)
