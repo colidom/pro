@@ -37,4 +37,6 @@ duration = 487
 dimensions = (1920, 1080)
 
 video_file = VideoFile(path, codec, geoloc, duration, dimensions)
-print(video_file)
+video_file.add_content("audio/ogg")
+video_file.add_content("video/webm")
+print(video_file.info())
