@@ -12,7 +12,7 @@ class File:
         pass
 
 
-class MediaFile:
+class MediaFile(File):
     def __init__(self, path: str, codec: str, geoloc: tuple, duration: int) -> None:
         pass
 
@@ -20,7 +20,7 @@ class MediaFile:
         pass
 
 
-class VideoFile:
+class VideoFile(MediaFile):
     def __init__(
         self, path: str, codec: str, geoloc: tuple, duration: int, dimensions: tuple
     ) -> None:
