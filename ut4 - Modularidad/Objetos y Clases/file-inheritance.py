@@ -6,15 +6,17 @@ class File:
     def add_content(self, content: str):
         self.contents.append(content)
 
+    @property
     def size(self):
-        pass
+        return sum(len(content for content in self.contents))
 
     def info(self) -> str:
-        return ...
+        return f"{self.path}[size={self.size}B]"
 
 
 class MediaFile(File):
     def __init__(self, path: str, codec: str, geoloc: tuple, duration: int) -> None:
+        super().__init__(path)
         pass
 
     def info(self) -> str:
@@ -25,6 +27,7 @@ class VideoFile(MediaFile):
     def __init__(
         self, path: str, codec: str, geoloc: tuple, duration: int, dimensions: tuple
     ) -> None:
+        super().__init__(path, codec, geoloc, duration)
         pass
 
     def info(self) -> str:
