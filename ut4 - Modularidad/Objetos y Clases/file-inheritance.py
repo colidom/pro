@@ -34,11 +34,11 @@ class VideoFile(MediaFile):
         self, path: str, codec: str, geoloc: tuple, duration: int, dimensions: tuple
     ) -> None:
         super().__init__(path, codec, geoloc, duration)
-        pass
+        self.dimensions = dimensions
 
     def info(self) -> str:
         """Dimensions: (1920, 1080)  # self.info() de VideoFile"""
-        return ...
+        return f"Dimensions: {self.dimensions}\n"
 
 
 path = "/home/python/vanrossum.mp4"
