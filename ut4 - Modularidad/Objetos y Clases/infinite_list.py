@@ -1,20 +1,20 @@
 class InfiniteList:
-    def __init__(self, fill_value=None):
+    def __init__(self, *items, fill_value=None):
+        self.items = list(items)
         self.fill_value = fill_value
-        self.infinite_list = []
 
     def __setitem__(self, index: int, item: int) -> None:
-        for _ in range(len(self.infinite_list), index):
-            self.infinite_list.append(self.fill_value)
-        self.infinite_list.append(item)
+        for _ in range(len(self.items), index + 1):
+            self.items.append(self.fill_value)
+        self.items.append(item)
 
     def __getitem__(self, index: int):
-        return self.infinite_list[index]
+        return self.items[index]
 
     def __str__(self):
-        return f"{self.infinite_list}"
+        return f"{self.items}"
 
 
-super_list = InfiniteList("The value🤓")
-super_list[20] = 20
+super_list = InfiniteList(1, 2, 3, fill_value="*")
+super_list[20] = "FIN🤓"
 print(super_list)
