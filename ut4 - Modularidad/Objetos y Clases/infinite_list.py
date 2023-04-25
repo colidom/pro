@@ -15,6 +15,6 @@ class InfiniteList:
         return f"{self.infinite_list}"
 
 
-super_list = InfiniteList()
+super_list = InfiniteList("The value🤓")
 super_list[20] = 20
 print(super_list)
