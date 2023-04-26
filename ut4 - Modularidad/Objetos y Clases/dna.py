@@ -29,7 +29,7 @@ class DNA:
     def __add__(self):
         pass
 
-    def percentage_occurrence_base(self):
+    def percentage_occurrence_of_each_base(self):
         pass
 
     def __mul__(self):
