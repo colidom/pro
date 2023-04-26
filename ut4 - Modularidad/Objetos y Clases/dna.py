@@ -7,9 +7,6 @@ class DNA:
     def __init__(self, dna_seq) -> None:
         self.dna_seq = dna_seq
 
-    def __str__(self) -> str:
-        return f"Objeto"
-
     @property
     def calc_adenine(self):
         pass
@@ -29,8 +26,11 @@ class DNA:
     def __add__(self):
         pass
 
+    def __mul__(self):
+        pass
+
     def get_occurrence_of_each_base(self):
         pass
 
-    def __mul__(self):
-        pass
+    def __str__(self) -> str:
+        return f"Objeto"
