@@ -13,7 +13,7 @@ class FibonacciIterable:
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def __next__(self) -> int:
         if self.pointer >= self.n_values_to_generate:
             raise StopIteration
         next_value = self.fst_num
