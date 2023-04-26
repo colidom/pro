@@ -7,8 +7,8 @@ class FibonacciIterable:
     def __init__(self, n_values_to_generate: int):
         self.n_values_to_generate = n_values_to_generate
         self.pointer = 0
-        self.num1 = 0
-        self.num2 = 1
+        self.fst_num = 0
+        self.snd_num = 1
 
     def __iter__(self):
         return self
@@ -16,8 +16,8 @@ class FibonacciIterable:
     def __next__(self):
         if self.pointer >= self.n_values_to_generate:
             raise StopIteration
-        next_value = self.num1
-        self.num1, self.num2 = self.num2, self.num1 + self.num2
+        next_value = self.fst_num
+        self.fst_num, self.snd_num = self.snd_num, self.fst_num + self.snd_num
         self.pointer += 1
         return next_value
 
