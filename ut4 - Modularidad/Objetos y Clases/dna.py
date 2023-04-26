@@ -5,7 +5,7 @@ class DNA:
     GUANINE = "G"
 
     def __init__(self, dna_seq) -> None:
-        pass
+        self.dna_seq = dna_seq
 
     def __str__(self) -> str:
         return f"Objeto"
