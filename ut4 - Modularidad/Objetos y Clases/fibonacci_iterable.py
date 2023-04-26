@@ -16,5 +16,5 @@ class FibonacciIterable:
             raise StopIteration
 
 
-def run(n):
-    fibo = FibonacciIterable(n)
+def run(n: int) -> list:
+    return list(FibonacciIterable(n))
