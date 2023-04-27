@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 from dna import DNA
 
@@ -124,3 +126,18 @@ def test_mul_dna_when_different_sizes(dna1: DNA, dna3: DNA):
     DNA1_MUL_DNA3 = "TCTCCCCGCGCACCAACACCGAACAGCGTAACCCC"
     result = dna1 * dna3
     assert result.sequence == DNA1_MUL_DNA3
+
+
+def test_dump_to_file(dna1: DNA):
+    test_file = Path("test1.dna")
+    dna1.dump_to_file(test_file)
+    assert test_file.read_text() == dna1.sequence
+    test_file.unlink(missing_ok=True)
+
+
+def test_build_from_file(dna1: DNA):
+    test_file = Path("test1.dna")
+    dna1.dump_to_file(test_file)
+    dna = DNA.build_from_file(test_file)
+    assert test_file.read_text() == dna.sequence
+    test_file.unlink(missing_ok=True)
