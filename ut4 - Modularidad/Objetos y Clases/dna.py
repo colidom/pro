@@ -3,7 +3,7 @@ from __future__ import annotations
 
 class DNA:
     ADENINE = "A"
-    THYNINE = "T"
+    THYMINE = "T"
     CYTOSINE = "C"
     GUANINE = "G"
 
@@ -15,8 +15,8 @@ class DNA:
         return self.sequence.count(DNA.ADENINE)
 
     @property
-    def calc_thynine(self):
-        pass
+    def calc_thymine(self):
+        return self.sequence.count(DNA.THYMINE)
 
     @property
     def calc_cytoshine(self):
