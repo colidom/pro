@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+
 class DNA:
     ADENINE = "A"
     THYNINE = "T"
@@ -24,10 +27,10 @@ class DNA:
     def calc_guanine(self):
         pass
 
-    def __add__(self, other):
+    def __add__(self, other: DNA):
         pass
 
-    def __mul__(self, other):
+    def __mul__(self, other: DNA):
         pass
 
     def get_occurrence_of_each_base(self):
