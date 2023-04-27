@@ -43,4 +43,4 @@ class DNA:
         pass
 
     def __str__(self) -> str:
-        return f"{self.dna_seq}"
+        return f"{self.sequence}"
