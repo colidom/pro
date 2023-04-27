@@ -9,7 +9,6 @@ class DNA:
 
     def __init__(self, dna_seq) -> None:
         self.dna_seq = dna_seq
-        self.sequence = 0
 
     @property
     def calc_adenine(self):
@@ -44,4 +43,4 @@ class DNA:
         pass
 
     def __str__(self) -> str:
-        return f"{self.sequence}"
+        return f"{self.dna_seq}"
