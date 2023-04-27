@@ -3,29 +3,29 @@ from pathlib import Path
 import pytest
 from dna import DNA
 
-DNA_SEQ1 = '''
+DNA_SEQ1 = """
 TTGATGCCTAGCTTATGTCATGCGCCGCCCGCACGACTCGATAGCAGCATCGCCCGTTGTATAATTAAAACCCAAGATAT
 AACGTACTCCCAAGGTCACGAAGAGAACCCCATGGGAGCGCATACGTGAAGTCTCACCCACAAAACGCCGGCTTCTAGCC
 AGCGAGTCCGTCCCTAGAGGCGAATTCGGAAATACTTGCGAGTGAAGAGCGACATTGTTCTTCAGGCCGAATGGCAATAT
 CAAAAGAGGTTCATGATCATTTATTTTGTACTACGTAGGTATGCGAACTGTTTAAGCTGCTACGATTTTCACGACTAGAG
-'''.replace(
-    '\n', ''
+""".replace(
+    "\n", ""
 )
 
-DNA_SEQ2 = '''
+DNA_SEQ2 = """
 CAACGTGCGTGGGCTCCTGGACTACAGGTCCGTGTGGTGTACAAGCAAGGATACTCCGCAGGTTGAAGGTCAGCCCGGTT
 ACGTCAGCCGGTCAACTATACGGTCTTACAGGCATATGATCTGTCCCGAAGTGGGATTACATGTCGCGAATGGGACATTA
 CCCTTGGCGTCGTACGCTGCGTTGTGCGAATAGTTCGTCCCTTTCTACGCCATTTTAAAGTCTCCTCGTGCGTAGTGCTT
 CGCTAGTCTCGTCGTCTAGACATGCCGAAGCAACCTCGCGATTGTCGCAATATCAGAACCCTTTGAAATTTGCGCAGCCA
-'''.replace(
-    '\n', ''
+""".replace(
+    "\n", ""
 )
 
-DNA_SEQ3 = '''
+DNA_SEQ3 = """
 AACGTACTCCCAAGGTCACGAAGAGAACCCCATGGGAGCGCATACGTGAAGTCTCACCCACAAAACGCCGGCTTCTAGCC
 CGCTAGTCTCGTCGTCTAGACATGCCGAAGCAACCTCGCGATTGTCGCAATATCAGAACCCTTTGAAATTTGCGCAGCCA
-'''.replace(
-    '\n', ''
+""".replace(
+    "\n", ""
 )
 
 
@@ -50,10 +50,10 @@ def test_build_sequence(dna1: DNA):
 
 
 def test_class_attributes():
-    assert DNA.ADENINE == 'A'
-    assert DNA.CYTOSINE == 'C'
-    assert DNA.GUANINE == 'G'
-    assert DNA.THYMINE == 'T'
+    assert DNA.ADENINE == "A"
+    assert DNA.CYTOSINE == "C"
+    assert DNA.GUANINE == "G"
+    assert DNA.THYMINE == "T"
 
 
 def test_length(dna1):
@@ -81,26 +81,26 @@ def test_num_thymines(dna1: DNA):
 
 
 def test_sum_dna(dna1: DNA, dna2: DNA):
-    DNA1_PLUS_DNA2 = '''TTGCTTGCTTGGTTTTGTGGTGTGCCGGTCGGTGTGGTGTATAGGCGCGTCTCCTGTTGTGTTTTTAGGTCCGCCGGTTT
+    DNA1_PLUS_DNA2 = """TTGCTTGCTTGGTTTTGTGGTGTGCCGGTCGGTGTGGTGTATAGGCGCGTCTCCTGTTGTGTTTTTAGGTCCGCCGGTTT
 ACGTTAGTCGGTCGGTTATGCGGTGTTCCCGGTGTGTGCTCTTTCGTGAAGTGTGATTCCCTGTCGGGCGTGTTCTATTC
 CGCTTGTCGTTGTCTGGTGGGTTGTTCGGATATTTTTTCGCTTTCTGCGCGATTTTGTTGTTTCGTCGTGCTTGGTGTTT
 CGCTAGTGTTTTCTTCTCGTTTTTTTTGTGCTACGTCGGTATTGTCGCTGTTTCAGCTGCTTTTGTTTTTTGGGCTGGCG
-'''.replace(
-        '\n', ''
+""".replace(
+        "\n", ""
     )
     result = dna1 + dna2
     assert result.sequence == DNA1_PLUS_DNA2
 
 
 def test_sum_dna_when_different_sizes(dna1: DNA, dna3: DNA):
-    DNA1_PLUS_DNA3 = '''TTGGTGCTTCGCTTGTGTCGTGGGGCGCCCGCTGGGCTCGCTTGCGTGAT
+    DNA1_PLUS_DNA3 = """TTGGTGCTTCGCTTGTGTCGTGGGGCGCCCGCTGGGCTCGCTTGCGTGAT
 GTCTCGTTGTCTAATTGCCGGCTTCTATCTCGCTTGTTTCGTCGTTTAGG
 CATGGCGCCGCATGGTCGCGCTTGTGTGAATTTTCGCCCCCTTTGCGCTT
 TGTTCTGGCCAGCGAGTCCGTCCCTAGAGGCGAATTCGGAAATACTTGCG
 AGTGAAGAGCGACATTGTTCTTCAGGCCGAATGGCAATATCAAAAGAGGT
 TCATGATCATTTATTTTGTACTACGTAGGTATGCGAACTGTTTAAGCTGC
-TACGATTTTCACGACTAGAG'''.replace(
-        '\n', ''
+TACGATTTTCACGACTAGAG""".replace(
+        "\n", ""
     )
     result = dna1 + dna3
     assert result.sequence == DNA1_PLUS_DNA3
@@ -110,26 +110,26 @@ TACGATTTTCACGACTAGAG'''.replace(
 
 
 def test_stats(dna1: DNA):
-    assert dna1.stats() == {'A': 28.125, 'C': 25.0, 'G': 23.125, 'T': 23.75}
+    assert dna1.stats() == {"A": 28.125, "C": 25.0, "G": 23.125, "T": 23.75}
 
 
 def test_mul_dna(dna1: DNA, dna2: DNA):
-    DNA1_MUL_DNA2 = '''CGTCGCTAACACTAACAGCGCCGAAGTAACGCGTCGAACTG
-CATTTCTCAGTCACTGATCTTAGCTC'''.replace(
-        '\n', ''
+    DNA1_MUL_DNA2 = """CGTCGCTAACACTAACAGCGCCGAAGTAACGCGTCGAACTG
+CATTTCTCAGTCACTGATCTTAGCTC""".replace(
+        "\n", ""
     )
     result = dna1 * dna2
     assert result.sequence == DNA1_MUL_DNA2
 
 
 def test_mul_dna_when_different_sizes(dna1: DNA, dna3: DNA):
-    DNA1_MUL_DNA3 = 'TCTCCCCGCGCACCAACACCGAACAGCGTAACCCC'
+    DNA1_MUL_DNA3 = "TCTCCCCGCGCACCAACACCGAACAGCGTAACCCC"
     result = dna1 * dna3
     assert result.sequence == DNA1_MUL_DNA3
 
 
 def test_dump_to_file(dna1: DNA):
-    test_file = Path('test1.dna')
+    test_file = Path("test1.dna")
     test_file.unlink(missing_ok=True)
     dna1.dump_to_file(test_file)
     assert test_file.read_text() == dna1.sequence
@@ -137,9 +137,28 @@ def test_dump_to_file(dna1: DNA):
 
 
 def test_build_from_file(dna1: DNA):
-    test_file = Path('test1.dna')
+    test_file = Path("test1.dna")
     test_file.unlink(missing_ok=True)
     dna1.dump_to_file(test_file)
     dna = DNA.build_from_file(test_file)
     assert test_file.read_text() == dna.sequence
     test_file.unlink(missing_ok=True)
+
+
+def test_getbase(dna1: DNA):
+    assert dna1[0] == "T"
+    assert dna1[9] == "A"
+
+
+def test_setbase(dna1: DNA):
+    dna1[0] = "G"
+    assert dna1.sequence[0] == "G"
+    dna1[9] = "C"
+    assert dna1.sequence[9] == "C"
+
+
+def test_setbase_when_unknown_base(dna1: DNA):
+    dna1[0] = "X"
+    assert dna1.sequence[0] == "A"
+    dna1[9] = "X"
+    assert dna1.sequence[9] == "A"
