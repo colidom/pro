@@ -24,7 +24,7 @@ class DNA:
 
     @property
     def calc_guanine(self):
-        pass
+        return self.sequence.count(DNA.GUANINE)
 
     def __add__(self, other: DNA):
         pass
