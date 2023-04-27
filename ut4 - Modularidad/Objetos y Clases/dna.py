@@ -7,12 +7,12 @@ class DNA:
     CYTOSINE = "C"
     GUANINE = "G"
 
-    def __init__(self, dna_seq) -> None:
-        self.dna_seq = dna_seq
+    def __init__(self, sequence) -> None:
+        self.sequence = sequence
 
     @property
     def calc_adenine(self):
-        pass
+        return self.sequence.count(DNA.ADENINE)
 
     @property
     def calc_thynine(self):
