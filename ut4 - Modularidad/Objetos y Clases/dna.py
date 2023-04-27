@@ -24,10 +24,10 @@ class DNA:
     def calc_guanine(self):
         pass
 
-    def __add__(self):
+    def __add__(self, other):
         pass
 
-    def __mul__(self):
+    def __mul__(self, other):
         pass
 
     def get_occurrence_of_each_base(self):
