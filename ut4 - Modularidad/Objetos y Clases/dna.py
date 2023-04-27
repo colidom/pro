@@ -19,8 +19,8 @@ class DNA:
         return self.sequence.count(DNA.THYMINE)
 
     @property
-    def calc_cytoshine(self):
-        pass
+    def calc_cytosine(self):
+        return self.sequence.count(DNA.CYTOSINE)
 
     @property
     def calc_guanine(self):
