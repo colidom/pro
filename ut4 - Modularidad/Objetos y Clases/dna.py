@@ -17,19 +17,19 @@ class DNA:
         return len(self.sequence)
 
     @property
-    def calc_adenine(self) -> str:
+    def adenines(self) -> str:
         return self.sequence.count(DNA.ADENINE)
 
     @property
-    def calc_thymine(self) -> str:
+    def thymines(self) -> str:
         return self.sequence.count(DNA.THYMINE)
 
     @property
-    def calc_cytosine(self) -> str:
+    def cytosines(self) -> str:
         return self.sequence.count(DNA.CYTOSINE)
 
     @property
-    def calc_guanine(self) -> str:
+    def guanines(self) -> str:
         return self.sequence.count(DNA.GUANINE)
 
     def __add__(self, other: DNA) -> DNA:
