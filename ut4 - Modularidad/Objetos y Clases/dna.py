@@ -31,7 +31,8 @@ class DNA:
         return DNA(new_seq)
 
     def __mul__(self, other: DNA):
-        pass
+        new_seq = ''.join(val_seq_1 for val_seq_1, val_seq_2 in zip(self.sequence, other.sequence) if val_seq_1 == val_seq_2)
+        return DNA(new_seq)
 
     def get_occurrence_of_each_base(self):
         pass
