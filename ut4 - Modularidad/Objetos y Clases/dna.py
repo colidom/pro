@@ -51,6 +51,6 @@ class DNA:
                 buffer.append(bases.strip())
         return DNA("".join(buffer))
 
-    def dump_to_file(self, path):
-        with open(path) as f:
-            pass
+    def dump_to_file(self, path) -> None:
+        with open(path, 'w') as f:
+            f.write(self.sequence)
