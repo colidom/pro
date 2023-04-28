@@ -17,26 +17,26 @@ class DNA:
         return len(self.sequence)
 
     @property
-    def calc_adenine(self):
+    def calc_adenine(self) -> str:
         return self.sequence.count(DNA.ADENINE)
 
     @property
-    def calc_thymine(self):
+    def calc_thymine(self) -> str:
         return self.sequence.count(DNA.THYMINE)
 
     @property
-    def calc_cytosine(self):
+    def calc_cytosine(self) -> str:
         return self.sequence.count(DNA.CYTOSINE)
 
     @property
-    def calc_guanine(self):
+    def calc_guanine(self) -> str:
         return self.sequence.count(DNA.GUANINE)
 
-    def __add__(self, other: DNA):
+    def __add__(self, other: DNA) -> DNA:
         new_seq = ''.join([max(val_seq_1, val_seq_2) for val_seq_1, val_seq_2 in zip(self.sequence, other.sequence)])
         return DNA(new_seq)
 
-    def __mul__(self, other: DNA):
+    def __mul__(self, other: DNA) -> DNA:
         new_seq = ''.join(val_seq_1 for val_seq_1, val_seq_2 in zip(self.sequence, other.sequence) if val_seq_1 == val_seq_2)
         return DNA(new_seq)
 
