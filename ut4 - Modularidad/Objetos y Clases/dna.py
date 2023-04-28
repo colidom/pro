@@ -44,8 +44,12 @@ class DNA:
         pass
 
     @classmethod
-    def build_from_file(self, path):
-        pass
+    def build_from_file(cls, path):
+        buffer = []
+        with open(path) as f:
+            for bases in f:
+                buffer.append(bases.strip())
+        return DNA("".join(buffer))
 
     def dump_to_file(self, path):
         pass
