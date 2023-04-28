@@ -52,4 +52,5 @@ class DNA:
         return DNA("".join(buffer))
 
     def dump_to_file(self, path):
-        pass
+        with open(path) as f:
+            pass
