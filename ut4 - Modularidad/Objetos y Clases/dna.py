@@ -10,6 +10,12 @@ class DNA:
     def __init__(self, sequence) -> None:
         self.sequence = sequence
 
+    def __str__(self) -> str:
+        return f"{self.sequence}"
+    
+    def __len__(self) -> int:
+        return len(self.sequence)
+
     @property
     def calc_adenine(self):
         return self.sequence.count(DNA.ADENINE)
@@ -43,9 +49,3 @@ class DNA:
 
     def dump_to_file(self, path):
         pass
-
-    def __str__(self) -> str:
-        return f"{self.sequence}"
-    
-    def __len__(self) -> int:
-        return len(self.sequence)
