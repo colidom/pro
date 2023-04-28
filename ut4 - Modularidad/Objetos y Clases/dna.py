@@ -45,3 +45,6 @@ class DNA:
 
     def __str__(self) -> str:
         return f"{self.sequence}"
+    
+    def __len__(self) -> int:
+        return len(self.sequence)
