@@ -27,7 +27,8 @@ class DNA:
         return self.sequence.count(DNA.GUANINE)
 
     def __add__(self, other: DNA):
-        new_seq = [for a, b in zip(self.sequence, other.sequence)]
+         new_seq = ''.join([max(val_seq_1, val_seq_2) for val_seq_1, val_seq_2 in zip(self.sequence, other.sequence)])
+         return new_seq
 
     def __mul__(self, other: DNA):
         pass
