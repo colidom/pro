@@ -16,6 +16,9 @@ class DNA:
     def __len__(self) -> int:
         return len(self.sequence)
 
+    def __getitem__(self, index: int):
+        return self.sequence[index]
+
     @property
     def adenines(self) -> str:
         return self.sequence.count(DNA.ADENINE)
