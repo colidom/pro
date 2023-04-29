@@ -63,3 +63,13 @@ class DNA:
     def dump_to_file(self, path) -> None:
         with open(path, 'w') as f:
             f.write(self.sequence)
+
+
+dna_1 = DNA("ACTGAAA")
+dna_2 = DNA("ATGCA")
+print(dna_1)
+print(dna_1.adenines)
+dna_3 = dna_1 + dna_2
+print(dna_3)
+
+print(len(dna_1))
