@@ -6,6 +6,7 @@ class DNA:
     THYMINE = "T"
     CYTOSINE = "C"
     GUANINE = "G"
+    BASES = ADENINE + THYMINE + CYTOSINE + GUANINE
 
     def __init__(self, sequence) -> None:
         self.sequence = sequence
@@ -18,6 +19,11 @@ class DNA:
 
     def __getitem__(self, index: int):
         return self.sequence[index]
+    
+    def __setitem__(self, index: int, new_base: str):
+        bases = list(self.sequence)
+        bases[index] = new_base if new_base in DNA.BASES else DNA.ADENINE
+        self.sequence = "".join(bases)
 
     @property
     def adenines(self) -> str:
