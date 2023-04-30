@@ -26,19 +26,19 @@ class DNA:
         self.sequence = "".join(bases)
 
     @property
-    def adenines(self) -> str:
+    def adenines(self) -> int:
         return self.sequence.count(DNA.ADENINE)
 
     @property
-    def thymines(self) -> str:
+    def thymines(self) -> int:
         return self.sequence.count(DNA.THYMINE)
 
     @property
-    def cytosines(self) -> str:
+    def cytosines(self) -> int:
         return self.sequence.count(DNA.CYTOSINE)
 
     @property
-    def guanines(self) -> str:
+    def guanines(self) -> int:
         return self.sequence.count(DNA.GUANINE)
 
     def __add__(self, other: DNA) -> DNA:
