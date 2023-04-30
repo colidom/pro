@@ -49,8 +49,18 @@ class DNA:
         new_seq = ''.join(val_seq_1 for val_seq_1, val_seq_2 in zip(self.sequence, other.sequence) if val_seq_1 == val_seq_2)
         return DNA(new_seq)
 
-    def get_occurrence_of_each_base(self):
-        pass
+    def stats(self) -> dict[str, float]:
+        total_bases = len(self.sequence)
+        adenines_rate = (self.adenines / total_bases) * 100
+        thymines_rate = (self.thymines / total_bases) * 100
+        cytosines_rate = (self.cytosines / total_bases) * 100
+        guanines_rate = (self.guanines / total_bases) * 100
+        return {
+            "A": adenines_rate,
+            "G": guanines_rate,
+            "C": cytosines_rate,
+            "T": thymines_rate,
+        }
 
     @classmethod
     def build_from_file(cls, path):
