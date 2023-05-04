@@ -72,3 +72,7 @@ class IntegerStackIterator:
 
     def __next__(self) -> int:
         ...
+
+
+pila = IntegerStack()
+print(len(pila))
