@@ -4,7 +4,7 @@ from __future__ import annotations
 class IntegerStack:
     def __init__(self, *, max_size: int = 10):
         self.max_size = max_size
-        self.stack = []
+        self.items = []
 
     def push(self, item: int) -> bool:
         """Si la pila está llena retornar False, en otro caso retornar True"""
@@ -12,7 +12,7 @@ class IntegerStack:
 
     def pop(self) -> int:
         """Extraer el elemento que está en el TOP de la pila"""
-        return self.stack.pop()
+        return self.items.pop()
 
     def top(self) -> int:
         """Devolver el elemento que está en el TOP de la pila (sin extracción)"""
@@ -33,8 +33,8 @@ class IntegerStack:
     def dump_to_file(self, path: str) -> None:
         """Vuelca la pila a un fichero. Cada item en una línea"""
         with open(path, "w") as f:
-            for value in self.stack:
-                f.write(f"{value}")
+            for item in self.items:
+                f.write(f"{item}")
 
     @classmethod
     def load_from_file(cls, path: str) -> IntegerStack:
