@@ -48,7 +48,7 @@ class IntegerStack:
 
     def __setitem__(self, index: int, item: int) -> None:
         """Establece el valor de un elemento de la pila mediante el índice indicado"""
-        ...
+        self.items[index] = item
 
     def __len__(self):
         """Número de elementos que contiene la pila"""
