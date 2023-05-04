@@ -20,7 +20,7 @@ class IntegerStack:
 
     def is_empty(self) -> bool:
         """Indica si la pila está vacía"""
-        ...
+        return True if not len(self.items) else False
 
     def is_full(self) -> bool:
         """Indica si la pila está llena -> max_size"""
