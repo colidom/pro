@@ -44,7 +44,7 @@ class IntegerStack:
 
     def __getitem__(self, index: int) -> int:
         """Devuelve el elemento de la pila en el índice indicado"""
-        ...
+        return self.items[index]
 
     def __setitem__(self, index: int, item: int) -> None:
         """Establece el valor de un elemento de la pila mediante el índice indicado"""
