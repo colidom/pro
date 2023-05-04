@@ -16,7 +16,7 @@ class IntegerStack:
 
     def top(self) -> int:
         """Devolver el elemento que está en el TOP de la pila (sin extracción)"""
-        ...
+        return self.items.pop(0)
 
     def is_empty(self) -> bool:
         """Indica si la pila está vacía"""
