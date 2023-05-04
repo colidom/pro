@@ -24,7 +24,7 @@ class IntegerStack:
 
     def is_full(self) -> bool:
         """Indica si la pila está llena -> max_size"""
-        ...
+        return True if len(self.items) >= self.max_size else False
 
     def expand(self, factor: int = 2) -> None:
         """Expande el tamaño máximo de la pila en el factor indicado"""
