@@ -68,7 +68,7 @@ class IntegerStack:
 
 class IntegerStackIterator:
     def __init__(self, stack: IntegerStack):
-        ...
+        self.stack = stack
 
     def __next__(self) -> int:
         ...
