@@ -27,7 +27,7 @@ class IntegerQueue:
 
     def head(self) -> int:
         '''Devolver el elemento que está en el HEAD de la cola (sin extracción)'''
-        ...
+        return self.items[0]
 
     def is_empty(self) -> bool:
         '''Indica si la cola está vacía'''
