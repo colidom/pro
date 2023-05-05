@@ -23,7 +23,7 @@ class IntegerQueue:
 
     def dequeue(self) -> int:
         '''Extraer el elemento que está en el HEAD de la cola'''
-        ...
+        return self.items.pop(0)
 
     def head(self) -> int:
         '''Devolver el elemento que está en el HEAD de la cola (sin extracción)'''
