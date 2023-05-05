@@ -8,7 +8,10 @@ class IntegerStack:
 
     def push(self, item: int) -> bool:
         """Si la pila está llena retornar False, en otro caso retornar True"""
-        ...
+        if len(self.items) < self.max_size:
+            self.items.insert(0, item)
+            return True
+        return False
 
     def pop(self) -> int:
         """Extraer el elemento que está en el TOP de la pila"""
