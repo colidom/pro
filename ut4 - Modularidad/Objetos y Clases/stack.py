@@ -15,7 +15,7 @@ class IntegerStack:
 
     def pop(self) -> int:
         """Extraer el elemento que está en el TOP de la pila"""
-        return self.items.pop()
+        return self.items.pop(0)
 
     def top(self) -> int:
         """Devolver el elemento que está en el TOP de la pila (sin extracción)"""
