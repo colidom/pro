@@ -35,7 +35,7 @@ class IntegerQueue:
 
     def is_full(self) -> bool:
         '''Indica si la cola está llena -> max_size'''
-        ...
+        return True if len(self.items) >= self.max_size else False
 
     def expand(self, factor: int = 2) -> None:
         '''Expande el tamaño máximo de la cola en el factor indicado'''
