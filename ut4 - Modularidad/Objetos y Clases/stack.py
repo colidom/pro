@@ -36,8 +36,7 @@ class IntegerStack:
     def dump_to_file(self, path: str) -> None:
         """Vuelca la pila a un fichero. Cada item en una línea"""
         with open(path, "w") as f:
-            for item in self.items:
-                f.write(f"{item}")
+            f.write("\n".join([str(item) for item in self.items]))
 
     @classmethod
     def load_from_file(cls, path: str) -> IntegerStack:
