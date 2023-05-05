@@ -31,7 +31,7 @@ class IntegerStack:
 
     def expand(self, factor: int = 2) -> None:
         """Expande el tamaño máximo de la pila en el factor indicado"""
-        ...
+        self.max_size *= factor
 
     def dump_to_file(self, path: str) -> None:
         """Vuelca la pila a un fichero. Cada item en una línea"""
