@@ -39,7 +39,7 @@ class IntegerQueue:
 
     def expand(self, factor: int = 2) -> None:
         '''Expande el tamaño máximo de la cola en el factor indicado'''
-        ...
+        self.max_size *= factor
 
     def dump_to_file(self, path: str) -> None:
         '''Vuelca la cola a un fichero.
