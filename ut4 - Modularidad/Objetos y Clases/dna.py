@@ -41,9 +41,13 @@ class DNA:
     def guanines(self) -> int:
         return self.sequence.count(DNA.GUANINE)
 
-    def __add__(self, other: DNA) -> DNA:
-        new_seq = ''.join(max(val_seq_1, val_seq_2) for val_seq_1, val_seq_2 in zip(self.sequence, other.sequence))
-        return DNA(new_seq)
+    def __add__(self, other):
+        new_sequence = ""
+        for base1, base2 in zip(self.sequence, other.sequence):
+            new_sequence += max(base1, base2)
+        if len(new_sequence) != max(len(self), len(other)):
+            new_sequence += max(self.sequence, other.sequence)[len(new_sequence) :]
+        return DNA(new_sequence)
 
     def __mul__(self, other: DNA) -> DNA:
         new_seq = ''.join(val_seq_1 for val_seq_1, val_seq_2 in zip(self.sequence, other.sequence) if val_seq_1 == val_seq_2)
