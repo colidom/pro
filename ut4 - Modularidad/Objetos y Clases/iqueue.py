@@ -11,7 +11,8 @@ class IntegerQueue:
 
     def __init__(self, *, max_size: int = 10):
         '''Utilizar atributo items para guardar los elementos'''
-        ...
+        self.items = []
+        self.max_size = max_size
 
     def enqueue(self, item: int) -> bool:
         '''Si la cola está llena retornar False, en otro caso retornar True'''
