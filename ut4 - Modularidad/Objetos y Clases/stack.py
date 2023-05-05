@@ -59,7 +59,7 @@ class IntegerStack:
 
     def __str__(self):
         """Cada elemento en una línea distinta empezando por el TOP de la pila"""
-        ...
+        return "\n".join([str(item) for item in self.items])
 
     def __add__(self, other: IntegerStack) -> IntegerStack:
         """La segunda pila va "encima" de la primera"""
@@ -79,3 +79,4 @@ class IntegerStackIterator:
 
 pila = IntegerStack()
 print(len(pila))
+print(pila)
