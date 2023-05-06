@@ -62,7 +62,7 @@ class IntegerQueue:
 
     def __setitem__(self, index: int, item: int) -> None:
         '''Establece el valor de un elemento de la cola mediante el índice indicado'''
-        ...
+        self.items[index] = item
 
     def __len__(self):
         '''Número de elementos que contiene la cola'''
