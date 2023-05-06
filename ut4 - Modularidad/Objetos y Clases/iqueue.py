@@ -84,7 +84,10 @@ class IntegerQueue:
         - La segunda cola va "detrás" de la primera
         - El tamaño máximo de la cola resultante es la suma de los tamaños
         máximos de cada cola.'''
-        ...
+        iqueue_obj = IntegerQueue()
+        iqueue_obj.items = self.items + other.items 
+        iqueue_obj.max_size = self.max_size + other.max_size
+        return iqueue_obj
 
     def __iter__(self) -> IntegerQueueIterator:
         return IntegerQueueIterator(self)
