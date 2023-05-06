@@ -66,7 +66,7 @@ class IntegerQueue:
 
     def __len__(self):
         '''Número de elementos que contiene la cola'''
-        ...
+        return len(self.items)
 
     def __str__(self):
         '''Todos los elementos de la cola separados por coma empezando por el HEAD'''
