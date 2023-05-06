@@ -58,7 +58,7 @@ class IntegerQueue:
 
     def __getitem__(self, index: int) -> int:
         '''Devuelve el elemento de la cola en el índice indicado'''
-        ...
+        return self.items[index]
 
     def __setitem__(self, index: int, item: int) -> None:
         '''Establece el valor de un elemento de la cola mediante el índice indicado'''
