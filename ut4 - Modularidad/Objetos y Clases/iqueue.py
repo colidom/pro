@@ -45,7 +45,8 @@ class IntegerQueue:
         '''Vuelca la cola a un fichero.
         - Todos los elementos en una misma línea separados por comas.
         - El primer elemento del fichero corresponde con el HEAD de la cola.'''
-        ...
+        with open(path, 'w') as f:
+            f.write(','.join([str(item) for item in self.items]))
 
     @classmethod
     def load_from_file(cls, path: str) -> IntegerQueue:
