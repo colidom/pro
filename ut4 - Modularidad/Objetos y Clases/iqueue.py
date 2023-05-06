@@ -92,7 +92,12 @@ class IntegerQueue:
 
 class IntegerQueueIterator:
     def __init__(self, queue: IntegerQueue):
-        ...
+        self.queue = queue
+        self.count = 0
 
     def __next__(self) -> int:
-        ...
+        if self.count >= len(self.queue):
+            raise StopIteration
+        item = self.queue.items[self.count]
+        self.count += 1
+        return item
