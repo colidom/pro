@@ -87,7 +87,7 @@ class IntegerQueue:
         ...
 
     def __iter__(self) -> IntegerQueueIterator:
-        ...
+        return IntegerQueueIterator(self)
 
 
 class IntegerQueueIterator:
