@@ -70,7 +70,7 @@ class IntegerQueue:
 
     def __str__(self):
         '''Todos los elementos de la cola separados por coma empezando por el HEAD'''
-        ...
+        return ','.join([str(item) for item in self.items])
 
     def __add__(self, other: IntegerQueue) -> IntegerQueue:
         '''Sumar dos colas.
