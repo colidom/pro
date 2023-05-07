@@ -76,9 +76,9 @@ class IntegerStackIterator:
         self.stack = stack
 
     def __next__(self) -> int:
-        if self.count >= len(self.queue):
+        if self.count >= len(self.stack):
             raise StopIteration
-        item = self.queue.items[self.count]
+        item = self.stack.items[self.count]
         self.count += 1
         return item
 
