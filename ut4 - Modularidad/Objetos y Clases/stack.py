@@ -68,7 +68,7 @@ class IntegerStack:
         return stack_obj
 
     def __iter__(self) -> IntegerStackIterator:
-        ...
+        return IntegerStackIterator(self)
 
 
 class IntegerStackIterator:
