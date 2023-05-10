@@ -80,6 +80,7 @@ class IntegerStack:
 class IntegerStackIterator:
     def __init__(self, stack: IntegerStack):
         self.stack = stack
+        self.count = 0
 
     def __next__(self) -> int:
         if self.count >= len(self.stack):
