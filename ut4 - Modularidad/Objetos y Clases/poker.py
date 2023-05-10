@@ -31,7 +31,8 @@ class Card:
 
         - self.suit deberá almacenar el palo de la carta '♣◆❤♠'.
         - self.value deberá almacenar el valor de la carta (1-13)'''
-        ...
+        self.value = value
+        self.suit = suit
 
     @property
     def cmp_value(self) -> int:
