@@ -4,7 +4,6 @@ def getint_recursive():
     except ValueError:
         print("Not a valid integer. Try it again!")
         getint_recursive()
-
     else:
         print(f"{value}")
 
