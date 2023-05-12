@@ -6,11 +6,12 @@ def load_card_glyphs(path: str = 'cards.dat') -> dict[str, str]:
     y los valores serán cadenas de texto con los glifos de las
     cartas sin ningún separador'''
     new_neck = {}
-    with open(path, "r") as f:
+    with open(path) as f:
         for line in f:
             suit, cards = line.strip().split(":")
             new_neck[suit] = cards.replace(",", "")
-        return new_neck
+    return new_neck
+
 class Card:
     CLUBS = '♣'
     DIAMONDS = '◆'
@@ -34,11 +35,12 @@ class Card:
 
         - self.suit deberá almacenar el palo de la carta '♣◆❤♠'.
         - self.value deberá almacenar el valor de la carta (1-13)'''
-        if isinstance(value, str) and value not in Card.SYMBOLS:
-            raise InvalidCardError(f"{repr(value)} is not a supported symbol")
-        
         if suit not in Card.get_available_suits():
-            raise InvalidCardError(f"{repr(value)} is not a supported suit")
+            raise InvalidCardError(f"{repr(suit)} is not a supported suit")
+        if isinstance(value, int) and (value < Card.A_VALUE or value > Card.K_VALUE):
+            raise InvalidCardError(f"{repr(value)} is not a supported value")
+        if isinstance(value, str) and (value not in Card.SYMBOLS):
+            raise InvalidCardError(f"{repr(value)} is not a supported symbol")
 
         self.value = value
         self.suit = suit
@@ -47,17 +49,17 @@ class Card:
     def cmp_value(self) -> int:
         '''Devuelve el valor (numérico) de la carta para comparar con otras.
         Tener en cuenta el AS.'''
-        return self.value if not self.is_ace() else Card.A_VALUE + Card.K_VALUE
+        if isinstance(self.value, str):
+            return Card.SYMBOLS.index(self.value) + 1
+        return self.value
 
     def __repr__(self):
         '''Devuelve el glifo de la carta'''
-        return Card.GLYPHS[self.suit][self.value -1]
+        ...
 
     def __eq__(self, other: Card | object):
         '''Indica si dos cartas son iguales'''
-        if (isinstance(other, Card)):
-            return True if self.value == other.value else False
-        return False
+        ...
 
     def __lt__(self, other: Card):
         '''Indica si una carta vale menos que otra'''
