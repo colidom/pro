@@ -34,6 +34,13 @@ class Card:
 
         - self.suit deberá almacenar el palo de la carta '♣◆❤♠'.
         - self.value deberá almacenar el valor de la carta (1-13)'''
+        if isinstance(value, str) and value not in Card.SYMBOLS:
+            raise InvalidCardError(f"{repr(value)} is not a supported symbol")
+        if value > Card.K_VALUE or value < Card.A_VALUE:
+            raise InvalidCardError(f"{repr(value)} is not a supported value")
+        if suit not in Card.get_available_suits():
+            raise InvalidCardError(f"{repr(value)} is not a supported suit")
+
         self.value = value
         self.suit = suit
 
