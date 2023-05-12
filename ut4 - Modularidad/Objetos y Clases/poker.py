@@ -86,12 +86,12 @@ class Card:
         2. El nuevo valor será la suma de los valores de las cartas. Si valor pasa
         de 13 se convertirá en un AS."""
         suit = self.suit if self > other else other.suit
-        one_is_an_ace = (
+        is_ace = (
             True
             if self.cmp_value == Card.A_VALUE or other.cmp_value == Card.A_VALUE
             else False
         )
-        if (result := self.cmp_value + other.cmp_value) > Card.K_VALUE or one_is_an_ace:
+        if (result := self.cmp_value + other.cmp_value) > Card.K_VALUE or is_ace:
             value = Card.A_VALUE
         else:
             value = result
