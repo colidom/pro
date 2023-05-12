@@ -7,11 +7,10 @@ def load_card_glyphs(path: str = 'cards.dat') -> dict[str, str]:
     cartas sin ningún separador'''
     new_neck = {}
     with open(path, "r") as f:
-        suits = [line.strip("\n").split(":") for line in f]
-    
-        
-
-
+        for line in f:
+            suit, cards = line.strip().split(":")
+            new_neck[suit] = cards.replace(",", "")
+        return new_neck
 class Card:
     CLUBS = '♣'
     DIAMONDS = '◆'
