@@ -33,37 +33,39 @@ def test_build_card(card1: Card):
     assert card1.suit == Card.HEARTS
 
 
-@pytest.mark.parametrize('value', (0, 15))
+@pytest.mark.parametrize("value", (0, 15))
 def test_build_card_fails_when_not_supported_value_is_given(value: int):
     with pytest.raises(InvalidCardError) as err:
         Card(value, Card.SPADES)
-    assert str(err.value) == f'🃏 Invalid card: {repr(value)} is not a supported value'
+    assert str(err.value) == f"🃏 Invalid card: {repr(value)} is not a supported value"
 
 
-@pytest.mark.parametrize('value', ('Z', 'F'))
+@pytest.mark.parametrize("value", ("Z", "F"))
 def test_build_card_fails_when_not_supported_symbol_is_given(value: str):
     with pytest.raises(InvalidCardError) as err:
         Card(value, Card.SPADES)
-    assert str(err.value) == f'🃏 Invalid card: {repr(value)} is not a supported symbol'
+    assert str(err.value) == f"🃏 Invalid card: {repr(value)} is not a supported symbol"
 
 
-@pytest.mark.parametrize('suit', ('✨', 'Z'))
+@pytest.mark.parametrize("suit", ("✨", "Z"))
 def test_build_card_fails_when_not_supported_suit_is_given(suit: str):
     with pytest.raises(InvalidCardError) as err:
         Card(1, suit)
-    assert str(err.value) == f'🃏 Invalid card: {repr(suit)} is not a supported suit'
+    assert str(err.value) == f"🃏 Invalid card: {repr(suit)} is not a supported suit"
 
 
 def test_available_suits():
-    assert Card.get_available_suits() == '♣◆❤♠'
+    assert Card.get_available_suits() == "♣◆❤♠"
 
 
 # https://engineeringfordatascience.com/posts/pytest_fixtures_with_parameterize/
 @pytest.mark.parametrize(
-    'card_fixture,expected_repr',
-    (('card1', '🂱'), ('card2', '🂧'), ('card3', '🃋'), ('card4', '🃞')),
+    "card_fixture,expected_repr",
+    (("card1", "🂱"), ("card2", "🂧"), ("card3", "🃋"), ("card4", "🃞")),
 )
-def test_card_representation(card_fixture: str, expected_repr: str, request: pytest.FixtureRequest):
+def test_card_representation(
+    card_fixture: str, expected_repr: str, request: pytest.FixtureRequest
+):
     card = request.getfixturevalue(card_fixture)
     assert repr(card) == expected_repr
 
@@ -101,11 +103,11 @@ def test_add_cards(card1: Card, card2: Card, card3: Card, card5: Card):
 
 def test_default_message_for_invalid_card_error():
     err = InvalidCardError()
-    assert str(err) == '🃏 Invalid card'
+    assert str(err) == "🃏 Invalid card"
 
 
 def test_cards_by_suit():
-    assert ''.join(Card.get_cards_by_suit(Card.CLUBS)) == '🃑🃒🃓🃔🃕🃖🃗🃘🃙🃚🃛🃝🃞'
-    assert ''.join(Card.get_cards_by_suit(Card.DIAMONDS)) == '🃁🃂🃃🃄🃅🃆🃇🃈🃉🃊🃋🃍🃎'
-    assert ''.join(Card.get_cards_by_suit(Card.HEARTS)) == '🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂽🂾'
-    assert ''.join(Card.get_cards_by_suit(Card.SPADES)) == '🂡🂢🂣🂤🂥🂦🂧🂨🂩🂪🂫🂭🂮'
+    assert "".join(Card.get_cards_by_suit(Card.CLUBS)) == "🃑🃒🃓🃔🃕🃖🃗🃘🃙🃚🃛🃝🃞"
+    assert "".join(Card.get_cards_by_suit(Card.DIAMONDS)) == "🃁🃂🃃🃄🃅🃆🃇🃈🃉🃊🃋🃍🃎"
+    assert "".join(Card.get_cards_by_suit(Card.HEARTS)) == "🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂽🂾"
+    assert "".join(Card.get_cards_by_suit(Card.SPADES)) == "🂡🂢🂣🂤🂥🂦🂧🂨🂩🂪🂫🂭🂮"
