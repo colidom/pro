@@ -36,12 +36,12 @@ class Card:
 
         - self.suit deberá almacenar el palo de la carta '♣◆❤♠'.
         - self.value deberá almacenar el valor de la carta (1-13)"""
-        if suit not in Card.get_available_suits():
-            raise InvalidCardError(f"{repr(suit)} is not a supported suit")
+        if suit not in Card.GLYPHS:
+            raise InvalidCardError(err_msg=f"{repr(suit)} is not a supported suit")
         if isinstance(value, int) and (value < Card.A_VALUE or value > Card.K_VALUE):
-            raise InvalidCardError(f"{repr(value)} is not a supported value")
+            raise InvalidCardError(err_msg=f"{repr(value)} is not a supported value")
         if isinstance(value, str) and (value not in Card.SYMBOLS):
-            raise InvalidCardError(f"{repr(value)} is not a supported symbol")
+            raise InvalidCardError(err_msg=f"{repr(value)} is not a supported symbol")
 
         self.value = value
         self.suit = suit
@@ -118,4 +118,10 @@ class InvalidCardError(Exception):
     - El mensaje por defecto de esta excepción debe ser: 🃏 Invalid card
     - Si se añaden otros mensajes aparecerán como: 🃏 Invalid card: El mensaje que sea"""
 
-    ...
+    def __init__(self, *, err_msg: str = ""):
+        default_err_msg = "🃏 Invalid card"
+        if not err_msg:
+            self.err_msg = default_err_msg
+        else:
+            self.err_msg = f"{default_err_msg}: {err_msg}"
+        super().__init__(self.err_msg)
