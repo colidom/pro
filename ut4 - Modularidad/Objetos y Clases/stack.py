@@ -42,7 +42,13 @@ class IntegerStack:
     def load_from_file(cls, path: str) -> IntegerStack:
         """Crea una pila desde un fichero. Si la pila se llena al ir añadiendo elementos
         habrá que expandir con los valores por defecto"""
-        ...
+        items = open(path).read().split()
+        stack_obj = IntegerStack()
+        for item in items:
+            if stack_obj.is_full():
+                stack_obj.expand()
+            stack_obj.items.append(int(item))
+        return stack_obj
 
     def __getitem__(self, index: int) -> int:
         """Devuelve el elemento de la pila en el índice indicado"""
@@ -74,6 +80,7 @@ class IntegerStack:
 class IntegerStackIterator:
     def __init__(self, stack: IntegerStack):
         self.stack = stack
+        self.count = 0
 
     def __next__(self) -> int:
         if self.count >= len(self.stack):
