@@ -133,9 +133,11 @@ class IPAddressError(Exception):
     - Mensaje por defecto: IP address is invalid
     - Si pasamos un mensaje: IP address is invalid: <message>"""
 
-    def __init__(self, *, err_msg: str = ""):
-        self.err_msg = f"{err_msg}"
-        super().__init__(self.err_msg)
+    def __init__(self, err_msg: str = ""):
+        default_err_msg = "IP address is invalid:"
+        if err_msg:
+            self.err_msg = f"{default_err_msg}{err_msg}"
+        super().__init__(err_msg)
 
 
 class NetworkIter:
