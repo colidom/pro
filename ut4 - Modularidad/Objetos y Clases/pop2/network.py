@@ -51,7 +51,7 @@ class Host:
     def bip(self) -> str:
         '''Devuelve la IP en formato binario. Ojo que cada octeto debe tener 8 bits.
         Ejemplo: "11000000101010000000000100000101"'''
-        return f"{self.ip_octets:08b}"
+        return "".join(f"{int(octet):08b}" for octet in self.ip_octets)
 
     @property
     def addr_bmask(self) -> str:
