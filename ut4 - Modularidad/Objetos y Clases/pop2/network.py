@@ -63,7 +63,7 @@ class Host:
     def addr_bhost(self) -> str:
         '''Devuelve la parte de la dirección que representa el host (en binario).
         Ejemplo: "00000101"'''
-        pass
+        return self.bip[self.mask :]
 
     @property
     def has_network_addr(self) -> bool:
