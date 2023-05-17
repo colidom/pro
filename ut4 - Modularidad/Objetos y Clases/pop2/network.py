@@ -97,7 +97,7 @@ class Host:
         """Devuelve el número de hosts que pueden haber en la red.
         Para calcular la cantidad de hosts por red, se usa la fórmula 2^n - 2
         donde n corresponde a la cantidad de bits para hosts."""
-        pass
+        return 2 ** (Host.IPV4_BITS - self.mask) - 2
 
     def ping(self, host: Host) -> bool:
         """Indica si un host puede hacer ping a otro host.
