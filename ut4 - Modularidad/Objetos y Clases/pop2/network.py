@@ -26,22 +26,22 @@ class Host:
             - ip_octets = (192, 168, 1, 5)
             - mask = 24
         """
-        items = list(args)
-        if isinstance(items[0], str):
-            ip_address = items[0].split(".")
+        if mask < 0 or mask > Host.IPV4_BITS:
+            raise IPAddressError(err_msg="Mask is out of range")
+
+        self.mask = mask
+        if isinstance(args[0], str):
+            ip_address = args[0].split(".")
             if len(ip_address) != Host.OCTETS:
                 raise IPAddressError(err_msg="Only 4 octets are allowed")
             self.ip_octets = tuple([int(i) for i in ip_address])
         else:
-            if len(items) > Host.OCTETS:
+            ip_octets = args
+            ip_octets += (0,) * (4 - len(ip_octets))
+            if len(ip_octets) != 4:
                 raise IPAddressError(err_msg="Only 4 octets are allowed")
-            zeros = ["0"] * (4 - len(items))
-            zeros_int = [int(i) for i in zeros]
-            self.ip_octets = tuple(items + zeros_int)
-
-        if mask < 0 or mask > Host.IPV4_BITS:
-            raise IPAddressError(err_msg="Mask is out of range")
-        self.mask = mask
+            self.ip_octets = ip_octets
+            self.mask = mask
 
     @property
     def ip(self) -> str:
