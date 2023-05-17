@@ -70,7 +70,8 @@ class Host:
         '''Indica si la dirección IP corresponde con la dirección de red.
         En una dirección de red, la parte de host de la IP tiene todos los bits a 0.
         Ejemplo: "192.168.1.0"'''
-        pass
+        index = self.mask // 8
+        return True if self.ip_octets[index] == 0 else False
 
     @property
     def has_broadcast_addr(self) -> bool:
