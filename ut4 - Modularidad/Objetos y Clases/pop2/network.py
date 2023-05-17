@@ -39,19 +39,21 @@ class Host:
             zeros_int = [int(i) for i in zeros]
             self.ip_octets = tuple(items + zeros_int)
 
+        if mask < 0 or mask > Host.IPV4_BITS:
+            raise IPAddressError(err_msg="Mask is out of range")
         self.mask = mask
 
     @property
     def ip(self) -> str:
         '''Devuelve la IP del host en formato string.
         Ejemplo: "192.168.1.5"'''
-        return ".".join(self.ip_octets)
+        return ".".join(str(ip_oct) for ip_oct in self.ip_octets)
 
     @property
     def bip(self) -> str:
         '''Devuelve la IP en formato binario. Ojo que cada octeto debe tener 8 bits.
         Ejemplo: "11000000101010000000000100000101"'''
-        return "".join(f"{int(octet):08b}" for octet in self.ip_octets)
+        return "".join(f"{octet:08b}" for octet in self.ip_octets)
 
     @property
     def addr_bmask(self) -> str:
@@ -70,44 +72,47 @@ class Host:
         '''Indica si la dirección IP corresponde con la dirección de red.
         En una dirección de red, la parte de host de la IP tiene todos los bits a 0.
         Ejemplo: "192.168.1.0"'''
-        index = self.mask // 8
-        return True if self.ip_octets[index] == 0 else False
+        return self.addr_bhost.count("1") == 0
 
     @property
     def has_broadcast_addr(self) -> bool:
         '''Indica si la dirección IP corresponde con la dirección de broadcast.
         En una dirección de broadcast, la parte de host de la IP tiene todos los bits a 1.
         Ejemplo: "192.168.1.255"'''
-        index = self.mask // 8
-        return True if self.ip_octets[index] == 255 else False
+        return self.addr_bhost.count("0") == 0
 
     @property
     def nclass(self):
         """Devuelve la clase de la red: A, B o C.
         → Ver https://bit.ly/42Pgm2k"""
-        pass
+        if 0 <= self.ip_octets[0] <= 127:
+            return "A"
+        elif 128 <= self.ip_octets[0] <= 191:
+            return "B"
+        elif 192 <= self.ip_octets[0] <= 223:
+            return "C"
 
     @property
     def addr_host_size(self) -> int:
         """Devuelve el número de bits que ocupa la parte de host en la dirección"""
-        pass
+        return len(self.addr_bhost)
 
     @property
     def num_hosts(self) -> int:
         """Devuelve el número de hosts que pueden haber en la red.
         Para calcular la cantidad de hosts por red, se usa la fórmula 2^n - 2
         donde n corresponde a la cantidad de bits para hosts."""
-        return 2 ** (Host.IPV4_BITS - self.mask) - 2
+        return 2**self.addr_host_size - 2
 
     def ping(self, host: Host) -> bool:
         """Indica si un host puede hacer ping a otro host.
         Para que dos hosts puedan hacer ping deben estar en la misma red."""
-        return self.mask == host.mask
+        return self.addr_bmask == host.addr_bmask
 
     def __repr__(self):
         '''Devuelve la representación del host en formato.
         Ejemplo: "192.168.1.5/24"'''
-        pass
+        return f"{self.ip}/{self.mask}"
 
     def __eq__(self, other: Host | object):
         """Indica si dos hosts tienen la misma dirección IP (incluyendo máscara)"""
@@ -125,7 +130,13 @@ class Host:
         - Si se pasan más de 32 bits hay que lanzar una excepción de dirección incorrecta
           indicando en el mensaje: "Binary address is too long"
         """
-        pass
+        if len(bip) > Host.IPV4_BITS:
+            raise IPAddressError("Binary address is too long")
+        octets = []
+        for a, b in zip(Host.IPV4_SLICES, Host.IPV4_SLICES[1:]):
+            octet = int(bip[a:b], base=2)
+            octets.append(octet)
+        return cls(*octets, mask=mask)
 
 
 class IPAddressError(Exception):
@@ -134,10 +145,10 @@ class IPAddressError(Exception):
     - Si pasamos un mensaje: IP address is invalid: <message>"""
 
     def __init__(self, err_msg: str = ""):
-        default_err_msg = "IP address is invalid:"
+        base_err_msg = "IP address is invalid"
         if err_msg:
-            self.err_msg = f"{default_err_msg}{err_msg}"
-        super().__init__(err_msg)
+            base_err_msg += f": {err_msg}"
+        super().__init__(base_err_msg)
 
 
 class NetworkIter:
@@ -162,7 +173,14 @@ class NetworkIter:
         - Hay que dejar fuera el host que representa la red.
         - Hay que dejar fuera el host que representa el broadcast.
         """
-        pass
+        for bip_segment in self.host_bip_segments:
+            joined_bip_segment = "".join(str(v) for v in bip_segment)
+            bip = self.host.addr_bmask + joined_bip_segment
+            host = Host.from_bip(bip, self.host.mask)
+            if host.has_network_addr or host.has_broadcast_addr:
+                continue
+            return host
+        raise StopIteration
 
     @staticmethod
     def comb(values, n):
