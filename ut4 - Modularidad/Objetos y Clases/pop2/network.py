@@ -78,7 +78,8 @@ class Host:
         '''Indica si la dirección IP corresponde con la dirección de broadcast.
         En una dirección de broadcast, la parte de host de la IP tiene todos los bits a 1.
         Ejemplo: "192.168.1.255"'''
-        pass
+        index = self.mask // 8
+        return True if self.ip_octets[index] == 255 else False
 
     @property
     def nclass(self):
