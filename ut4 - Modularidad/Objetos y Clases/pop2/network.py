@@ -26,15 +26,18 @@ class Host:
             - ip_octets = (192, 168, 1, 5)
             - mask = 24
         """
-
-        if isinstance(args[0], str):
-            ip_address = args[0].split(".")
+        items = list(args)
+        if isinstance(items[0], str):
+            ip_address = items[0].split(".")
             if len(ip_address) != Host.OCTETS:
                 raise IPAddressError(err_msg="Only 4 octets are allowed")
             self.ip_octets = tuple([int(i) for i in ip_address])
         else:
-            if len(args) < Host.OCTETS:
-                self.ip_octets = 
+            if len(items) > Host.OCTETS:
+                raise IPAddressError(err_msg="Only 4 octets are allowed")
+            zeros = ["0"] * (4 - len(items))
+            zeros_int = [int(i) for i in zeros]
+            self.ip_octets = tuple(items + zeros_int)
 
         self.mask = mask
 
