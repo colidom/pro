@@ -57,7 +57,7 @@ class Host:
     def addr_bmask(self) -> str:
         '''Devuelve la parte de la dirección que representa la máscara (en binario).
         Ejemplo: "110000001010100000000001"'''
-        pass
+        return self.bip[: self.mask]
 
     @property
     def addr_bhost(self) -> str:
