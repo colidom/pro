@@ -41,7 +41,6 @@ class Host:
             if len(ip_octets) != 4:
                 raise IPAddressError(err_msg="Only 4 octets are allowed")
             self.ip_octets = ip_octets
-            self.mask = mask
 
     @property
     def ip(self) -> str:
