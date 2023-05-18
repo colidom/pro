@@ -28,8 +28,8 @@ class Host:
         """
         if mask < 0 or mask > Host.IPV4_BITS:
             raise IPAddressError(err_msg="Mask is out of range")
-
         self.mask = mask
+
         if isinstance(args[0], str):
             ip_address = args[0].split(".")
             if len(ip_address) != Host.OCTETS:
