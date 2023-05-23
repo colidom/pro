@@ -34,6 +34,7 @@ https://www.aprendepython.es, http://www.aprendepython.es, https://aprendepython
 pero no desde 
 httpsx://www.aprendepython.es, httpx://www.aprendepython.es, httpsx://aprendepython.es, httpx://aprendepython.es 
 """
+email = """Los email correctos son colidom@outlook.com, colidom@gmail.com pero los incorrectos son colidom.outlook.com y colidom.gmail.com"""
 
 
 def vowel_count(text):
@@ -44,8 +45,15 @@ def url_finder(url):
     return re.findall(r"https?:\/\/(?:www\.)?[a-zA-Z0-9]+\.[a-z]\S", url)
 
 
+def check_email(email):
+    return re.findall(r"[a-zA-Z0-9._%+-]+@+\.[a-z]\S", email)
+
+
 words = vowel_count(zen)
 print(f"Vowels finded: {words} \n")
 
 url = url_finder(url)
 print(f"Url finded: {url} \n")
+
+mail = check_email(email)
+print(f"Correct emails finded: {mail} \n")
