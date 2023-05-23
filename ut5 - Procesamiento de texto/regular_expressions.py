@@ -30,7 +30,7 @@ Si la implementación es fácil de explicar, puede que sea una buena idea.
 Los espacios de nombres son una gran idea, ¡tengamos más de esos!
 """
 url = """Aprende Python es una web para aprender a programar en Python, puedes acceder mediante los enlaces 
-https://www.aprendepython.es, https://www.aprendepython.es, https://aprendepython.es, http://aprendepython.es 
+https://www.aprendepython.es, http://www.aprendepython.es, https://aprendepython.es, http://aprendepython.es 
 pero no desde 
 httpsx://www.aprendepython.es, httpx://www.aprendepython.es, httpsx://aprendepython.es, httpx://aprendepython.es 
 """
