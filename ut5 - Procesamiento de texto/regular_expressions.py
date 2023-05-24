@@ -46,7 +46,7 @@ def url_finder(url):
 
 
 def check_email(email):
-    return re.findall(r"[a-zA-Z0-9._%+-]+@+\.[a-z]\S", email)
+    return re.findall(r"[a-zA-Z0-9._%+-]+@+[a-zA-Z0-9_%+-]+\.[a-zA-Z]+", email)
 
 
 words = vowel_count(zen)
