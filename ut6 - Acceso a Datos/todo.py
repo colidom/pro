@@ -25,6 +25,10 @@ class Task:
         '''Guarda esta tarea en la base de datos.
         El identificador asignado en la base de datos se debe usar para actualizar el
         atributo id de la tarea.'''
+        sql = 'INSERT INTO tasks(name, done) VALUES(:name, :done)'
+        self.cur.execute(sql, (self.name, self.done))
+        self.id = self.cur.lastrowid # identificador de la últila fila insertada
+        self.con.commit()
 
     def update(self):
         '''Actualiza la tarea (nombre y estado) en la base de datos'''
