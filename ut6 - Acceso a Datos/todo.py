@@ -68,7 +68,13 @@ class ToDo:
 
     def create_db(self):
         '''Crea la base de datos con los campos "id", "name" y "done"'''
-        pass
+        sql = '''CREATE TABLE IF NOT EXISTS tasks (
+        id INTEGER PRIMARY KEY,
+        name CHAR,
+        done INTEGER
+        )'''
+        self.cur.execute(sql)
+        self.con.commit()
 
     def get_tasks(self, *, done: int = -1):
         '''Devuelve todas las tareas como objetos de tipo Task consultando la BBDD.
