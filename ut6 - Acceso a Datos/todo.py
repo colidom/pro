@@ -11,18 +11,20 @@ class Task:
     '''Crear atributos de clase:
     - con: para la conexión a la base de datos. Establecer consultas como diccionarios.
     - cur: para el cursor de manejo.'''
-
-    pass
-
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    
     def __init__(self, name: str, done: bool = False, id: int = -1):
         '''Crea los atributos homónimos a los parámetros'''
-        pass
+        self.name = name
+        self.done = done
+        self.id = id
 
     def save(self):
         '''Guarda esta tarea en la base de datos.
         El identificador asignado en la base de datos se debe usar para actualizar el
         atributo id de la tarea.'''
-        pass
 
     def update(self):
         '''Actualiza la tarea (nombre y estado) en la base de datos'''
@@ -56,8 +58,9 @@ class ToDo:
     '''Crear atributos de clase:
     - con: para la conexión a la base de datos. Establecer consultas como diccionarios.
     - cur: para el cursor de manejo.'''
-
-    pass
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
 
     def create_db(self):
         '''Crea la base de datos con los campos "id", "name" y "done"'''
