@@ -51,7 +51,11 @@ class Task:
     def __repr__(self):
         '''Muestra la tarea en formato:
         <SYMBOL> <name> (id=<id>)'''
-        pass
+        if self.done:
+            symbol = TASK_DONE_SYMBOL
+        else:
+            symbol = TASK_PENDING_SYMBOL
+        return f'{symbol} {self.name} (id={self.id})'
 
     @classmethod
     def from_db_row(cls, row: sqlite3.Row) -> Task:
