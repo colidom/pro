@@ -38,7 +38,9 @@ class Task:
 
     def check(self):
         '''Marca la tarea como completada. Haz uso también de .update()'''
-        pass
+        self.done = True
+        self.update()
+        self.con.commit()
 
     def uncheck(self):
         '''Marca la tarea como no completada. Haz uso también de .update()'''
