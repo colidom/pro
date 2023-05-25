@@ -65,7 +65,10 @@ class Task:
     @classmethod
     def get(cls, task_id: int) -> Task:
         '''Devuelve un objeto Task desde la consulta a la base de datos'''
-        pass
+        sql = 'SELECT * from tasks WHERE id = ?'
+        result = Task.cur.execute(sql, (task_id,))
+        cls.from_db_row()
+        
 
 
 class ToDo:
