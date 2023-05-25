@@ -60,7 +60,7 @@ class Task:
     @classmethod
     def from_db_row(cls, row: sqlite3.Row) -> Task:
         '''Construye una nueva tarea a partir de una fila de consulta devuelta por execute()'''
-        pass
+        return cls(row['name'], row['done'], row['id'])
 
     @classmethod
     def get(cls, task_id: int) -> Task:
