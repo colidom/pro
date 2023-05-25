@@ -32,7 +32,9 @@ class Task:
 
     def update(self):
         '''Actualiza la tarea (nombre y estado) en la base de datos'''
-        pass
+        sql = 'UPDATE tasks SET name = ?, done = ? WHERE id = ?'
+        self.cur.execute(sql, (self.name, self.done, self.id))
+        self.con.commit()
 
     def check(self):
         '''Marca la tarea como completada. Haz uso también de .update()'''
