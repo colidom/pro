@@ -92,7 +92,10 @@ class ToDo:
         - Si done = 0 se devuelven las tareas pendientes.
         - Si done = 1 se devuelven las tareas completadas.
         Ojo! Esto es una función generadora.'''
-        pass
+        sql = f'SELECT * FROM tasks WHERE done={done}'
+        result = self.cur.execute(sql)
+        for row in result.fetchall():
+            yield Task(row)
 
     def add_task(self, name: str):
         '''Añade la tarea con nombre "name"'''
