@@ -105,4 +105,4 @@ class ToDo:
 
     def reopen_task(self, task_id: int):
         '''Marca la tarea con identificador "task_id" como pendiente'''
-        pass
+        Task.get(task_id).uncheck()
