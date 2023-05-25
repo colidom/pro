@@ -67,9 +67,7 @@ class Task:
         '''Devuelve un objeto Task desde la consulta a la base de datos'''
         sql = 'SELECT * from tasks WHERE id = ?'
         result = Task.cur.execute(sql, (task_id,))
-        cls.from_db_row()
-        
-
+        return cls.from_db_row(result.fetchone())
 
 class ToDo:
     '''Crear atributos de clase:
