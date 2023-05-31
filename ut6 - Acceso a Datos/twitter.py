@@ -131,7 +131,7 @@ class Tweet:
     @property
     def is_retweet(self) -> bool:
         """Indica si el tweet es un retweet."""
-        pass
+        return self.retweet_from > 0
 
     @property
     def content(self) -> str:
