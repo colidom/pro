@@ -58,7 +58,8 @@ class User:
 
     def save(self) -> None:
         """Guarda en la base de datos un objeto de tipo User.
-        Además actualiza el atributo "id" del objeto a partir de lo que devuelve la inserción."""
+        Además actualiza el atributo "id" del objeto a partir de lo que devuelve la inserción.
+        """
         sql = "INSERT INTO user(username, password, bio) VALUES(?, ?, ?)"
         self.cur.execute(sql, (self.username, self.password, self.bio))
         self.con.commit()
@@ -138,8 +139,12 @@ class Tweet:
     def save(self, user: User) -> None:
         """Guarda el tweet en la base de datos.
         - El parámetro user es el usuario que escribe el tweet.
-        Además actualiza el atributo "id" del objeto a partir de lo que devuelve la inserción."""
-        pass
+        Además actualiza el atributo "id" del objeto a partir de lo que devuelve la inserción.
+        """
+        sql = "INSERT INTO tweet(content, user_id, retweet_from) VALUES(?, ?, ?)"
+        self.cur.execute(sql, (self._content, user.id, self.retweet_from))
+        self.con.commit()
+        self.tweet_id = self.cur.lastrowid
 
     def __repr__(self):
         """Representa un tweet con el formato:
