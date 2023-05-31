@@ -67,7 +67,7 @@ class User:
     def login(self, password: str) -> None:
         """Realiza el login del usuario."""
         sql = "SELECT * FROM user WHERE username = ? AND password = ?"
-        self.cur.execute(sql, (self.username, self.password))
+        self.cur.execute(sql, (self.username, password))
 
         # if is_logged:
         #     self.logged = True
