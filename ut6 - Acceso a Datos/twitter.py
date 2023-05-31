@@ -66,12 +66,10 @@ class User:
 
     def login(self, password: str) -> None:
         """Realiza el login del usuario."""
-        sql = "SELECT * FROM user WHERE username = ? AND password = ?"
-        self.cur.execute(sql, (self.username, password))
-
-        # if is_logged:
-        #     self.logged = True
-        # self.logged = False
+        sql = "SELECT count(*) FROM user WHERE username = ? AND password = ?"
+        result = self.cur.execute(sql, (self.username, password))
+        row = result.fetchone()
+        self.logged = True if row[0] else False
 
     def tweet(self, content: str) -> Tweet:
         """Crea un tweet con el contenido indicado y lo almacena en la base de datos.
