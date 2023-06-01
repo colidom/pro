@@ -119,8 +119,7 @@ class User:
     @classmethod
     def from_db_row(cls, row: sqlite3.Row):
         """Crea un objeto de tipo User a partir de una fila de consulta SQL"""
-        user = User(**row)
-        return user
+        return User(row["username"], row["password"], row["bio"], row["id"])
 
 
 class Tweet:
