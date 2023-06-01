@@ -170,7 +170,11 @@ class Tweet:
     @classmethod
     def from_db_row(cls, row: sqlite3.Row) -> Tweet:
         """Crea un objeto de tipo Tweet a partir de una fila de consulta SQL"""
-        pass
+        tweet_id = row["id"]
+        content = row["content"]
+        retweet_from = row["retweet_from"]
+        tweet_id = row["id"]
+        return Tweet(content=content, retweet_from=retweet_from, tweet_id=tweet_id)
 
 
 class Twitter:
