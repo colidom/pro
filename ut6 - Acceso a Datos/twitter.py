@@ -196,7 +196,10 @@ class Twitter:
           * Terminar con una exclamación o un asterisco.
         Si no sigue este formato hay que elevar una excepción de tipo TwitterError
         con el mensaje: Password does not follow security rules!"""
-        pass
+        regex = ''
+        if re.match(regex, password) is None:
+            raise TwitterError("Password does not follow security rules!")
+        return User(username, password, bio)
 
     def get_user(self, user_id: int) -> User:
         """Devuelve el usuario con el user_id indicado.
