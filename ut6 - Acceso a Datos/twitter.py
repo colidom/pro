@@ -83,7 +83,7 @@ class User:
         if not self.logged:
             raise TwitterError(f"User {self.username} is not logged in!")
         if len(content) > MAX_TWEET_LENGTH:
-            raise TwitterError("Tweet hasa more than {MAX_TWEET_LENGTH} chars!")
+            raise TwitterError("Tweet has more than {MAX_TWEET_LENGTH} chars!")
         tweet = Tweet(content)
         tweet.save(self)
         return tweet
@@ -196,7 +196,7 @@ class Twitter:
           * Terminar con una exclamación o un asterisco.
         Si no sigue este formato hay que elevar una excepción de tipo TwitterError
         con el mensaje: Password does not follow security rules!"""
-        regex = ''
+        regex = ""
         if re.match(regex, password) is None:
             raise TwitterError("Password does not follow security rules!")
         return User(username, password, bio)
@@ -205,12 +205,13 @@ class Twitter:
         """Devuelve el usuario con el user_id indicado.
         Si el usuario no existe hay elevar una excepción de tipo TwitterError con el mensaje:
         User with id <id> does not exist!"""
-        sql = 'SELECT count(*) FROM user WHERE id = ?'
+        sql = "SELECT count(*) FROM user WHERE id = ?"
         user_exist = self.cur.execute(sql, (user_id,)).fetchone()
         if user_exist:
             raise TwitterError(f"User with id {user_id} does not exist!")
         row = self.cur.execute(sql, (user_id,)).fetchone()
         return User.from_db_row(row)
+
 
 class TwitterError(Exception):
     def __init__(self, err_msg: str = ""):
