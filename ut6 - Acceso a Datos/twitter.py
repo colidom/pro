@@ -19,7 +19,6 @@ def create_db(db_path: str = DB_PATH) -> None:
         └ retweet_from es clave ajena de tweet(id)"""
 
     con = sqlite3.connect(db_path)
-    con.row_factory = sqlite3.Row
     cur = con.cursor()
 
     user_table = """CREATE TABLE if not exists user (
