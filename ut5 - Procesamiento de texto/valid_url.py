@@ -7,7 +7,7 @@ https://www.aprendepython.es, http://www.aprendepython.es, https://aprendepython
 pero no desde 
 httpsx://www.aprendepython.es, httpx://www.aprendepython.es, httpsx://aprendepython.es, httpx://aprendepython.es 
 """
-regular_expression = r"https?:\/\/(?:www\.)?[a-zA-Z0-9]+\.[a-z]\S"
+regular_expression = r"https?://(?:www\.)?[a-zA-Z0-9]+\.[a-z]\S"
 
 
 def valid_url(url):
