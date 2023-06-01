@@ -40,13 +40,11 @@ class Task:
         '''Marca la tarea como completada. Haz uso también de .update()'''
         self.done = True
         self.update()
-        self.con.commit()
 
     def uncheck(self):
         '''Marca la tarea como no completada. Haz uso también de .update()'''
         self.done = False
         self.update()
-        self.con.commit()
 
     def __repr__(self):
         '''Muestra la tarea en formato:
