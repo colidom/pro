@@ -162,7 +162,7 @@ class Tweet:
         sql = "INSERT INTO tweet(content, user_id, retweet_from) VALUES(?, ?, ?)"
         self.cur.execute(sql, (self._content, user.id, self.retweet_from))
         self.con.commit()
-        self.tweet_id = self.cur.lastrowid
+        self.id = self.cur.lastrowid
 
     def __repr__(self):
         """Representa un tweet con el formato:
