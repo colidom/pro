@@ -26,8 +26,10 @@ reguar_expression = r"\b[aeiou]\w*\b"
 
 
 def vowel_words(text):
-    return re.findall(reguar_expression, text)
+    # Pasamos 3º parámetro para incluir mayúsculas
+    return re.findall(reguar_expression, text, re.I)
 
 
 words = vowel_words(zen)
+print(f"Count vowels: {len(words)}")
 print(f"Vowels finded: {words} \n")
