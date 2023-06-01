@@ -145,7 +145,12 @@ class Tweet:
     def content(self) -> str:
         """Devuelve el contenido del tweet.
         - Si es un retweet el contenido habrá que buscarlo en el tweet retuiteado."""
-        pass
+        if self.is_retweet:
+            sql = "SELECT * FROM tweet WHERE id = ?"
+            res = self.cur.execute(sql, (self.retweet_from,))
+            _content = res.fetchone()["content"]
+            return _content
+        return self._content
 
     def save(self, user: User) -> None:
         """Guarda el tweet en la base de datos.
