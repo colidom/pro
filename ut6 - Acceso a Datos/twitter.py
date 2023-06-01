@@ -106,7 +106,10 @@ class User:
     def tweets(self):
         """Función generadora que devuelve todos los tweets propios del usuario.
         - Lo que se devuelven son objetos de tipo Tweet (usar el método from_db_row)."""
-        pass
+        sql = "SELECT * FROM tweet WHERE user_id = ?"
+        rows = self.cur.execute(sql, (self.id,)).fetchall()
+        for row in rows:
+            yield Tweet.from_db_row(row)
 
     def __repr__(self):
         """Representa un usuario con el formato:
