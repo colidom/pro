@@ -8,6 +8,7 @@ DB_PATH = "twitter.db"
 TWEET_EMOJI = "🐦"
 RETWEET_EMOJI = "🔁"
 MAX_TWEET_LENGTH = 280
+#  pytest test_twitter.py -k test_tweet_fails_when_length_is_over_max
 
 
 def create_db(db_path: str = DB_PATH) -> None:
