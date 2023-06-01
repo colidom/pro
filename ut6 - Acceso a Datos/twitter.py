@@ -96,7 +96,11 @@ class User:
         con el mensaje: User <usuario> is not logged in!
         - Si tweet_id no existe en la base de datos hay que lanzar una excepción de tipo
         TwitterError con el mensaje: Tweet with id <id> does not exist!"""
-        pass
+        if not self.logged:
+            raise TwitterError(f"User {self.username} is not logged in!")
+        tweet = Tweet(retweet_from=tweet_id)
+        tweet.save(self)
+        return tweet
 
     @property
     def tweets(self):
@@ -112,7 +116,8 @@ class User:
     @classmethod
     def from_db_row(cls, row: sqlite3.Row):
         """Crea un objeto de tipo User a partir de una fila de consulta SQL"""
-        pass
+
+    pass
 
 
 class Tweet:
