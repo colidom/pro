@@ -173,7 +173,6 @@ class Tweet:
         tweet_id = row["id"]
         content = row["content"]
         retweet_from = row["retweet_from"]
-        tweet_id = row["id"]
         return Tweet(content=content, retweet_from=retweet_from, tweet_id=tweet_id)
 
 
