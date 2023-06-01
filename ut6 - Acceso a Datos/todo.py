@@ -107,8 +107,10 @@ class ToDo:
 
     def complete_task(self, task_id: int):
         '''Marca la tarea con identificador "task_id" como completada'''
-        Task.get(task_id).check()
+        task = Task.get(task_id)
+        task.check()
 
     def reopen_task(self, task_id: int):
         '''Marca la tarea con identificador "task_id" como pendiente'''
-        Task.get(task_id).uncheck()
+        task = Task.get(task_id)
+        task.uncheck()
