@@ -23,13 +23,13 @@ def create_db(db_path: str = DB_PATH) -> None:
 
     user_table = """CREATE TABLE if not exists user (
     id INTEGER PRIMARY KEY,
-    username CHAR,
-    password CHAR,
+    username TEXT,
+    password TEXT,
     bio TEXT)"""
 
     tweet_table = """CREATE TABLE if not exists tweet (
     id INTEGER PRIMARY KEY,
-    content CHAR,
+    content TEXT,
     user_id INTEGER,
     retweet_from INTEGER,
     FOREIGN KEY(user_id) REFERENCES user(id),
