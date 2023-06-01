@@ -200,7 +200,9 @@ class Twitter:
         regex = r"^[@=]\d{2,4}[A-Za-z]{2,4}[!*]$"
         if re.match(regex, password) is None:
             raise TwitterError("Password does not follow security rules!")
-        return User(username, password, bio)
+        user = User(username, password, bio)
+        user.save()
+        return user
 
     def get_user(self, user_id: int) -> User:
         """Devuelve el usuario con el user_id indicado.
