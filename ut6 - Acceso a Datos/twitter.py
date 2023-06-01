@@ -83,7 +83,7 @@ class User:
         if not self.logged:
             raise TwitterError(f"User {self.username} is not logged in!")
         if len(content) > MAX_TWEET_LENGTH:
-            raise TwitterError("Tweet has more than {MAX_TWEET_LENGTH} chars!")
+            raise TwitterError(f"Tweet has more than {MAX_TWEET_LENGTH} chars!")
         tweet = Tweet(content)
         tweet.save(self)
         return tweet
