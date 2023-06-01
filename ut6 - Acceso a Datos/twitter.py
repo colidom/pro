@@ -197,7 +197,7 @@ class Twitter:
           * Terminar con una exclamación o un asterisco.
         Si no sigue este formato hay que elevar una excepción de tipo TwitterError
         con el mensaje: Password does not follow security rules!"""
-        regex = ""
+        regex = r"^[@=]\d{2,4}[A-Za-z]{2,4}[!*]$"
         if re.match(regex, password) is None:
             raise TwitterError("Password does not follow security rules!")
         return User(username, password, bio)
