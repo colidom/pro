@@ -134,7 +134,7 @@ class Tweet:
 
         self._content = "" if retweet_from > 0 else content
         self.retweet_from = retweet_from
-        self.tweet_id = tweet_id
+        self.id = tweet_id
 
     @property
     def is_retweet(self) -> bool:
