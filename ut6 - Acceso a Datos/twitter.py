@@ -205,8 +205,12 @@ class Twitter:
         """Devuelve el usuario con el user_id indicado.
         Si el usuario no existe hay elevar una excepción de tipo TwitterError con el mensaje:
         User with id <id> does not exist!"""
-        pass
-
+        sql = 'SELECT count(*) FROM user WHERE id = ?'
+        user_exist = self.cur.execute(sql, (user_id,)).fetchone()
+        if user_exist:
+            raise TwitterError(f"User with id {user_id} does not exist!")
+        row = self.cur.execute(sql, (user_id,)).fetchone()
+        return User.from_db_row(row)
 
 class TwitterError(Exception):
     def __init__(self, err_msg: str = ""):
