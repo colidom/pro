@@ -83,7 +83,7 @@ class User:
         if not self.logged:
             raise TwitterError(f"User {self.username} is not logged in!")
         if len(content) > MAX_TWEET_LENGTH:
-            raise TwitterError("Tweet hasa more than 280 chars!")
+            raise TwitterError("Tweet hasa more than {MAX_TWEET_LENGTH} chars!")
 
     def retweet(self, tweet_id: int) -> Tweet:
         """Crea un retweet con el contenido indicado y lo almacena en la base de datos.
