@@ -96,6 +96,10 @@ class User:
         con el mensaje: User <usuario> is not logged in!
         - Si tweet_id no existe en la base de datos hay que lanzar una excepción de tipo
         TwitterError con el mensaje: Tweet with id <id> does not exist!"""
+        sql = "SELECT * FROM tweet WHERE id = ?"
+        exist_tweet = self.cur.execute(sql, (tweet_id,)).fetchone()
+        if not exist_tweet:
+            raise TwitterError(f"Tweet with id {tweet_id} does not exist!")
         if not self.logged:
             raise TwitterError(f"User {self.username} is not logged in!")
         tweet = Tweet(retweet_from=tweet_id)
