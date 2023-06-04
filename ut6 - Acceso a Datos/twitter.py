@@ -138,9 +138,9 @@ class Tweet:
         self.con.row_factory = sqlite3.Row
         self.cur = self.con.cursor()
 
-        self._content = "" if retweet_from > 0 else content
         self.retweet_from = retweet_from
         self.id = tweet_id
+        self._content = "" if self.is_retweet else content
 
     @property
     def is_retweet(self) -> bool:
