@@ -38,6 +38,7 @@ def create_db(db_path: str = DB_PATH) -> None:
     cur.execute(user_table)
     cur.execute(tweet_table)
     con.commit()
+    con.close()
 
 
 class User:
