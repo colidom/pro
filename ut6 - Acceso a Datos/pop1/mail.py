@@ -31,7 +31,7 @@ class DbUtils:
         - con
         - cur
         '''
-        self.con = sqlite3.connect(DB_PATH)
+        self.con = sqlite3.connect(db_path)
         self.con.row_factory = sqlite3.Row
         self.cur = self.con.cursor()
 
