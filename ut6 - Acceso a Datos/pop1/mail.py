@@ -56,7 +56,7 @@ class Mail(DbUtils):
         From: <remitente>
         To: <destinatario>
         ---
-        <asunto pasado a mayúsculas>
+        <asunto: pasado a mayúsculas>
         <cuerpo del correo>
         '''
         pass
@@ -71,6 +71,7 @@ class MailServer(DbUtils):
         self.username = username
         self.password = password
         self.logged = False
+        self.domain = ''
 
     def login(self) -> None:
         '''Realiza/comprueba el login del usuario actualizado los atributos:
@@ -78,7 +79,11 @@ class MailServer(DbUtils):
         - logged
         La comprobación hay que hacerla consultando la base de datos.
         '''
-        pass
+        sql = "SELECT count(*) FROM login WHERE username = ? AND password = ?"
+        result = self.cur.execute(sql, (self.username, self.password))
+        row = result.fetchone()
+        self.logged = True if row[0] else False
+        self.domain = ''
 
     @staticmethod
     def login_required(method):
