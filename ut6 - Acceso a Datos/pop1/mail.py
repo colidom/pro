@@ -88,8 +88,14 @@ class MailServer(DbUtils):
         sql = "SELECT count(*) FROM login WHERE username = ? AND password = ?"
         result = self.cur.execute(sql, (self.username, self.password))
         row = result.fetchone()
-        self.logged = True if row[0] else False
-        self.domain = ''
+        if row[0]:
+            sql_domain = "SELECT domain FROM login WHERE username = ?"
+            domain = self.cur.execute(sql_domain, (self.username,)) 
+            self.domain = domain.fetchone()[0]
+            self.logged = True
+        else:
+            self.domain = ''
+            self.logged = False
 
     @staticmethod
     def login_required(method):
