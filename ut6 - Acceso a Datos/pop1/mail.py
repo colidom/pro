@@ -106,10 +106,10 @@ class MailServer(DbUtils):
         como el objeto actual de tipo MailServer.'''
 
         def wrapper(self, *args, **kwargs):
-            process_method = method(self, *args, **kwargs)
+            login_required_method = method(self, *args, **kwargs)
             if not MailServer.login(self):
                 raise MailError(f"User {self.username} not logged in!", self)
-            return process_method
+            return login_required_method
 
         return wrapper
 
