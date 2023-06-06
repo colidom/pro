@@ -31,7 +31,10 @@ class DbUtils:
         - con
         - cur
         '''
-        pass
+        self.con = sqlite3.connect(DB_PATH)
+        self.con.row_factory = sqlite3.Row
+        self.cur = self.con.cursor()
+
 
 
 class Mail(DbUtils):
