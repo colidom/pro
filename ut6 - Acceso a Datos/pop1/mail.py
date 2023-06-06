@@ -59,8 +59,7 @@ class Mail(DbUtils):
         <asunto: pasado a mayúsculas>
         <cuerpo del correo>
         '''
-        return f"""
-From: {self.sender}
+        return f"""From: {self.sender}
 To: {self.recipient}
 ---
 asunto: {self.subject.upper()}
