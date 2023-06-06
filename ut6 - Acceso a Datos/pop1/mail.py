@@ -64,9 +64,8 @@ class Mail(DbUtils):
         return f"""From: {self.sender}
 To: {self.recipient}
 ---
-asunto: {self.subject.upper()}
-cuerpo del correo: {self.body}
-"""
+{self.subject.upper()}:
+{self.body}"""
 
 
 class MailServer(DbUtils):
