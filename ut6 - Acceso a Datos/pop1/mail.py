@@ -106,7 +106,13 @@ class MailServer(DbUtils):
         Ojo! La excepción recibe en su constructor tanto el mensaje de error
         como el objeto actual de tipo MailServer.'''
 
-        pass
+        def wrapper(self, *args, **kwargs):
+            process_method = method(self, *args, **kwargs)
+            if not MailServer.login(self):
+                raise MailError(f"User {self.username} not logged in!", self)
+            return process_method
+
+        return wrapper
 
     @property
     def sender(self) -> str:
