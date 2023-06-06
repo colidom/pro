@@ -131,8 +131,12 @@ class MailServer(DbUtils):
 
         Ojo! La excepción recibe en el constructor tanto el mensaje
         como el objeto actual de tipo MailServer.'''
-            # raise MailError(f"Recipient {recipient} has invalid mail format!", self)
-
+        regex = r"[a-zA-Z0-9._%+-]+@+[a-zA-Z0-9_%+-]+\.[a-zA-Z]+"
+        valid_email= re.findall(regex, recipient)
+        if not valid_email:
+            raise MailError(f"Recipient {recipient} has invalid mail format!", self)
+        
+        
     @login_required
     def get_emails(self, sent: bool = True):
         '''Consulta los mails almacenados hasta el momento.
@@ -147,4 +151,4 @@ class MailError(Exception):
         '''Hay que cerrar la conexión a la base de datos'''
         self.message = message
         mail_handler.con.close()
-        
+        super().__init__(message)
