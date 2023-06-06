@@ -122,7 +122,8 @@ class MailServer(DbUtils):
 
         Ojo! La excepción recibe en el constructor tanto el mensaje
         como el objeto actual de tipo MailServer.'''
-        pass
+        if True:
+            raise MailError(f"Recipient {recipient} has invalid mail format!", mail_handler=MailServer)
 
     @login_required
     def get_emails(self, sent: bool = True):
@@ -137,5 +138,5 @@ class MailError(Exception):
     def __init__(self, message: str, mail_handler: Mail | MailServer):
         '''Hay que cerrar la conexión a la base de datos'''
         self.message = message
-        self.mail_handler = mail_handler
+        mail_handler.con.close()
         
