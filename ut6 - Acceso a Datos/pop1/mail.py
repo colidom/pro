@@ -49,7 +49,9 @@ class Mail(DbUtils):
 
     def send(self) -> None:
         '''Simula el envío de este correo guardando todos sus campos en la tabla activity'''
-        pass
+        sql = "INSERT INTO activity(sender, recipient, subject, body) VALUES(?, ?, ?, ?)"
+        self.cur.execute(sql, (self.sender, self.recipient, self.subject, self.body))
+        self.con.commit()
 
     def __str__(self):
         '''Representa un objeto de tipo Mail de la siguiente forma:
