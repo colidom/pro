@@ -60,12 +60,12 @@ class Mail(DbUtils):
         <cuerpo del correo>
         '''
         return f"""
-                From: {self.sender}
-                To: {self.recipient}
-                ---
-                asunto: {self.subject.upper()}
-                cuerpo del correo: {self.body}
-        """
+From: {self.sender}
+To: {self.recipient}
+---
+asunto: {self.subject.upper()}
+cuerpo del correo: {self.body}
+"""
 
 
 class MailServer(DbUtils):
