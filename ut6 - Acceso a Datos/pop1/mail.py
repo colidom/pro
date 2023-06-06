@@ -41,7 +41,11 @@ class Mail(DbUtils):
     def __init__(self, sender: str, recipient: str, subject: str, body: str):
         '''Construye un objeto Mail con los mismos atributos que parámetros.
         Esta clase hereda de DbUtils...'''
-        pass
+        super().__init__()
+        self.sender = sender
+        self.recipient = recipient
+        self.subject = subject
+        self.body = body
 
     def send(self) -> None:
         '''Simula el envío de este correo guardando todos sus campos en la tabla activity'''
@@ -63,7 +67,10 @@ class MailServer(DbUtils):
         '''Construye un MailServer guardando los atributos de nombre de usuario y contraseña.
         También es necesario crear un atributo logged (booleano) que indique si se ha logeado.
         Esta clase hereda de DbUtils...'''
-        pass
+        super().__init__()
+        self.username = username
+        self.password = password
+        self.logged = False
 
     def login(self) -> None:
         '''Realiza/comprueba el login del usuario actualizado los atributos:
