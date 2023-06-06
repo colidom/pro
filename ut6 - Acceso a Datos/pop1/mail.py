@@ -108,7 +108,7 @@ class MailServer(DbUtils):
         def wrapper(self, *args, **kwargs):
             login_required_method = method(self, *args, **kwargs)
             if not MailServer.login(self):
-                raise MailError(f"User {self.username} not logged in!", self)
+                raise MailError(f'User "{self.username}" not logged in!', self)
             return login_required_method
 
         return wrapper
