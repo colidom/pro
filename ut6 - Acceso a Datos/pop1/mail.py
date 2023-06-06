@@ -129,8 +129,7 @@ class MailServer(DbUtils):
 
         Ojo! La excepción recibe en el constructor tanto el mensaje
         como el objeto actual de tipo MailServer.'''
-        if True:
-            raise MailError(f"Recipient {recipient} has invalid mail format!", self)
+            # raise MailError(f"Recipient {recipient} has invalid mail format!", self)
 
     @login_required
     def get_emails(self, sent: bool = True):
