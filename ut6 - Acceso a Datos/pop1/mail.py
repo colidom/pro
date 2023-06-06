@@ -134,7 +134,7 @@ class MailServer(DbUtils):
         regex = r"[a-zA-Z0-9._%+-]+@+[a-zA-Z0-9_%+-]+\.[a-zA-Z]+"
         valid_email= re.findall(regex, recipient)
         if not valid_email:
-            raise MailError(f"Recipient {recipient} has invalid mail format!", self)
+            raise MailError(f'Recipient "{recipient}" has invalid mail format!', self)
         
         
     @login_required
