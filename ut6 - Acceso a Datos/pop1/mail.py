@@ -77,7 +77,6 @@ class MailServer(DbUtils):
         self.username = username
         self.password = password
         self.logged = False
-        self.domain = ''
 
     def login(self) -> None:
         '''Realiza/comprueba el login del usuario actualizado los atributos:
@@ -121,10 +120,7 @@ class MailServer(DbUtils):
         No hay que aplicar decorador pero debes saber que esta propiedad
         sólo va a funcionar si se ha hecho login previamente, ya que en otro caso
         no disponemos del dominio.'''
-        sql_domain = "SELECT domain FROM login WHERE username = ?"
-        result  = self.cur.execute(sql_domain, (self.username,))
-        domain = result.fetchone()[0]
-        return f"{self.username}@{domain}"
+        return f"{self.username}@{self.domain}"
 
     @login_required
     def send_mail(self, *, recipient: str, subject: str, body: str) -> None:
