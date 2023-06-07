@@ -143,8 +143,10 @@ class MailServer(DbUtils):
         - Si el parámetro sent está a True se devuelven los enviados por el usuario.
         - Si el parámetro sent está a False se devuelven los recibidos por el usuario.
         Debe ser una función generadora que devuelva objetos de tipo Mail.'''
-        pass
-
+        filter = 'sender' if sent else 'recipient'
+        sql = f"SELECT  * FROM activity WHERE {filter}=?"
+        for row in self.cur.execute(sql, (self.sender,)):
+            yield Mail(row['sender'], row['recipient'], row['subject'], row['body'])
 
 class MailError(Exception):
     def __init__(self, message: str, mail_handler: Mail | MailServer):
