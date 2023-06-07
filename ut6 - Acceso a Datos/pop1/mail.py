@@ -151,6 +151,5 @@ class MailServer(DbUtils):
 class MailError(Exception):
     def __init__(self, message: str, mail_handler: Mail | MailServer):
         '''Hay que cerrar la conexión a la base de datos'''
-        self.message = message
         mail_handler.con.close()
         super().__init__(message)
