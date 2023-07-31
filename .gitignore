@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.vscode/settings.json
+ut6 - Acceso a Datos/test_twitter.db
